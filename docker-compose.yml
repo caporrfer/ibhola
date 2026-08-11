@@ -1,0 +1,9 @@
+services:
+  ibhola-web:
+    build: .
+    container_name: ibhola-web
+    restart: unless-stopped
+    ports:
+      - "8183:3000"
+    environment:
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:8183}
