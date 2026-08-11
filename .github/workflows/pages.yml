@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: Build GitHub Pages branch
 
 on:
   push:
@@ -6,16 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: pages-branch
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,11 +24,6 @@ jobs:
         with:
           node-version: 20
           cache: npm
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-        with:
-          enablement: true
 
       - name: Install dependencies
         run: npm ci
@@ -45,18 +38,15 @@ jobs:
       - name: Verify index.html
         run: test -f out/index.html
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish gh-pages branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd out
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "deploy: ${GITHUB_SHA}"
+          git remote add pages "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force pages gh-pages

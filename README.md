@@ -18,7 +18,9 @@ docker compose logs -f
 
 La web queda publicada en `http://localhost:8183`.
 
-La versión estática se publica automáticamente con GitHub Actions en `https://caporrfer.github.io/ibhola/`. El workflow genera `out/index.html` y lo entrega a GitHub Pages.
+La versión estática se genera automáticamente con GitHub Actions. El workflow crea `out/index.html` y actualiza la rama `gh-pages`.
+
+Para activar la URL pública por primera vez, abre **Settings → Pages**, selecciona **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Después quedará disponible en `https://caporrfer.github.io/ibhola/` y las siguientes publicaciones serán automáticas.
 
 ## Configuración del negocio
 
