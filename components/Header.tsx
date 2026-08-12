@@ -6,11 +6,11 @@ import { Brand } from "./Brand";
 
 const nav = [
   ["Inicio", "#inicio"],
-  ["Calzado", "#categorias"],
-  ["Equipamiento", "#categorias"],
-  ["IBHOLA", "#ibhola"],
+  ["La tienda", "#tienda"],
+  ["Catálogo", "#catalogo"],
+  ["Galería", "#galeria"],
+  ["Agenda", "#eventos"],
   ["Opiniones", "#opiniones"],
-  ["Contacto", "#contacto"],
 ];
 
 export function Header() {
@@ -36,7 +36,7 @@ export function Header() {
         <nav className="desktop-nav" aria-label="Navegación principal">
           {nav.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
         </nav>
-        <a className="button button--small header__cta" href="#contacto">Visítanos <span aria-hidden="true">↗</span></a>
+        <a className="button button--small header__cta" href="#contacto">Ven a vernos <span aria-hidden="true">↗</span></a>
         <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>
           {open ? <X /> : <Menu />}
         </button>

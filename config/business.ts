@@ -4,8 +4,10 @@ export const business = {
   shortName: "IBHOLA",
   description:
     "Tienda especializada en trail running y running en Corrales, Huelva. Material técnico y asesoramiento personalizado.",
-  phoneDisplay: "959 49 75 41",
-  phone: "+34959497541",
+  contactName: "Miguel Angel Pereira Marcelino",
+  email: "irenepegui@gmail.com",
+  phoneDisplay: "678 28 12 38",
+  phone: "+34678281238",
   address: {
     street: "Alcalde José Rodríguez González, 14",
     postalCode: "21120",

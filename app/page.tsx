@@ -9,6 +9,7 @@ export default function Page() {
     description: business.description,
     url: business.siteUrl,
     telephone: business.phone,
+    email: business.email,
     image: `${business.siteUrl}/images/tienda-original.jpg`,
     address: {
       "@type": "PostalAddress",

@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, MailCheck } from "lucide-react";
 import { business } from "@/config/business";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -16,7 +16,17 @@ export function ContactForm() {
       form.reportValidity();
       return;
     }
-    setNotice(`El formulario está validado y preparado para conectar el servicio de correo. Mientras tanto, llámanos al ${business.phoneDisplay}.`);
+    const data = new FormData(form);
+    const subject = `Consulta web: ${data.get("topic")}`;
+    const body = [
+      `Nombre: ${data.get("name")}`,
+      `Teléfono: ${data.get("phone")}`,
+      `Email: ${data.get("email")}`,
+      "",
+      String(data.get("message")),
+    ].join("\n");
+    setNotice("Tu aplicación de correo se abrirá con la consulta preparada. Revísala y pulsa enviar.");
+    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -38,9 +48,9 @@ export function ContactForm() {
       </label>
       <label>Mensaje <textarea name="message" rows={4} required placeholder="Cuéntanos qué buscas, por dónde corres o qué dudas tienes" /></label>
       <label className="check"><input name="privacy" type="checkbox" required /><span>Acepto la <a href={`${basePath}/privacidad/`}>política de privacidad</a>.</span></label>
-      <button className="button" type="submit">Enviar consulta <ArrowUpRight size={18} /></button>
-      <p className="form-help">El envío requiere conectar un proveedor de correo. No se simulará ningún mensaje enviado.</p>
-      {notice && <div className="form-notice" role="status"><CheckCircle2 size={18} />{notice}</div>}
+      <button className="button" type="submit">Preparar correo <ArrowUpRight size={18} /></button>
+      <p className="form-help">La consulta no se almacena en esta web: se enviará desde tu aplicación de correo.</p>
+      {notice && <div className="form-notice" role="status"><MailCheck size={18} />{notice}</div>}
     </form>
   );
 }
