@@ -92,11 +92,11 @@ export function HomePage() {
 
             <div className="hero__visual">
               <div className="hero__photo">
-                <Image src={imagePath("/images/corredor.webp")} alt="Corredor de IBHOLA Trail Running durante una carrera" fill priority sizes="(max-width: 900px) 100vw, 54vw" />
+                <Image src={imagePath("/images/hero-guadiana-junio-2025.webp")} alt="Corredor ascendiendo un tramo de roca en la IX CXM del Guadiana" fill priority sizes="(max-width: 900px) 100vw, 54vw" />
               </div>
               <div className="hero__terrain" aria-hidden="true"><Mountain size={22} /><span>Terreno / distancia / sensaciones</span></div>
               <div className="hero__coordinates" aria-hidden="true">37°16′ N<br />06°59′ W</div>
-              <p className="hero__caption"><span>IBHOLA / 01</span> Correr no empieza en la salida. Empieza eligiendo bien.</p>
+              <a className="hero__caption" href="https://www.instagram.com/ibhola/p/DLTHRsio1B6/" target="_blank" rel="noreferrer"><span>IX CXM DEL GUADIANA · 24.06.25</span> El terreno también forma parte de la carrera. <ArrowUpRight size={15} /></a>
             </div>
           </div>
           <a className="hero__scroll" href="#tienda"><span>Desliza para conocer la tienda</span><ArrowDown size={15} /></a>
