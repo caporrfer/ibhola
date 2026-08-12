@@ -482,6 +482,18 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .nav-dropdown__menu a:hover { background: var(--forest); color: white; }
 .nav-dropdown:hover .nav-dropdown__menu, .nav-dropdown:focus-within .nav-dropdown__menu { opacity: 1; visibility: visible; transform: none; }
 .section-cta { display: flex; justify-content: center; margin-top: 46px; }
+.section-cta--multiple { flex-wrap: wrap; gap: 10px; }
+.about__actions { display: flex; flex-wrap: wrap; gap: 24px; }
+.home-services { padding-top: 105px; border-top: 1px solid var(--line-light); background: var(--paper); color: var(--forest-deep); }
+.home-services .section-heading > p { color: #666862; }
+.home-services .services { margin-top: 0; }
+.home-contact-cta { display: flex; align-items: center; justify-content: space-between; gap: 55px; margin-top: 80px; padding: 55px; background: var(--forest); color: white; }
+.home-contact-cta h2 { margin-bottom: 15px; font-size: clamp(2.5rem, 4vw, 4.5rem); }
+.home-contact-cta p:last-child { margin: 0; color: rgba(255,255,255,.65); }
+.home-contact-cta .button { flex: 0 0 auto; }
+.faq-contact { background: var(--paper); color: var(--forest-deep); }
+.faq-contact .contact-form-section { margin-top: 0; padding-top: 0; border-top: 0; }
+.faq-contact .eyebrow { color: var(--terracotta); }
 .reviews-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(320px, 36%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 0 22px; margin-bottom: 28px; scrollbar-color: var(--terracotta) rgba(255,255,255,.12); }
 .reviews-carousel .review { min-height: 320px; scroll-snap-align: start; }
 .review footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
@@ -524,6 +536,7 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
   .content-image { min-height: 500px; }
   .feature-grid { grid-template-columns: 1fr 1fr; }
   .event-grid { grid-template-columns: 1fr 1fr; }
+  .home-contact-cta { align-items: flex-start; flex-direction: column; padding: 40px; }
 }
 @media (max-width: 600px) {
   .reviews-carousel { grid-auto-columns: 88%; }
@@ -536,4 +549,6 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
   .feature-grid article { min-height: 260px; padding: 28px; }
   .feature-grid svg { margin-bottom: 45px; }
   .event-grid article { min-height: 260px; }
+  .home-contact-cta { margin-top: 55px; padding: 28px 22px; }
+  .home-contact-cta .button { width: 100%; }
 }

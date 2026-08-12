@@ -9,8 +9,8 @@ const link = (path: string) => `${basePath}${path}`;
 
 const nav = [
   ["Inicio", "/"],
+  ["Catálogo / Tienda", "/catalogo/"],
   ["Quiénes somos", "/quienes-somos/"],
-  ["Qué hacemos", "/que-hacemos/"],
   ["Eventos", "/eventos/"],
   ["Preguntas", "/preguntas-frecuentes/"],
 ] as const;
@@ -34,20 +34,14 @@ export function Header() {
     <div className="header__inner container-wide">
       <Brand />
       <nav className="desktop-nav" aria-label="Navegación principal">
-        {nav.map(([label, href]) => <a key={label} href={link(href)}>{label}</a>)}
-        <div className="nav-dropdown">
-          <a href={link("/catalogo/")}>Catálogo / Tienda <ChevronDown size={13} /></a>
-          <div className="nav-dropdown__menu">
-            {categories.map(category => <a key={category} href={link(`/catalogo/#${category.toLowerCase()}`)}>{category}</a>)}
-          </div>
-        </div>
+        {nav.map(([label, href]) => label === "Catálogo / Tienda" ? <div className="nav-dropdown" key={label}><a href={link(href)}>{label} <ChevronDown size={13} /></a><div className="nav-dropdown__menu">{categories.map(category => <a key={category} href={link(`/catalogo/#${category.toLowerCase()}`)}>{category}</a>)}</div></div> : <a key={label} href={link(href)}>{label}</a>)}
       </nav>
       <a className="button button--small header__cta" href={link("/#contacto")}>Contacto <span aria-hidden>↗</span></a>
       <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X /> : <Menu />}</button>
     </div>
     <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
       <nav aria-label="Navegación móvil">
-        {[...nav, ["Catálogo / Tienda", "/catalogo/"] as const].map(([label, href], index) => <a key={label} href={link(href)} onClick={() => setOpen(false)}><span>0{index + 1}</span>{label}</a>)}
+        {nav.map(([label, href], index) => <a key={label} href={link(href)} onClick={() => setOpen(false)}><span>0{index + 1}</span>{label}</a>)}
       </nav>
       <p>Trail · Running · Corrales, Huelva</p>
     </div>
