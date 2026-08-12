@@ -1,19 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
 
 const items = [
-  { name: "Zapatillas de trail", detail: "Agarre · protección · montaña", type: "Calzado", image: "/images/corredor.webp", position: "54% 50%" },
-  { name: "Zapatillas de running", detail: "Asfalto · entrenamiento · competición", type: "Calzado", image: "/images/singlet.webp", position: "50% 28%" },
-  { name: "Textil técnico", detail: "Camisetas · pantalones · cortavientos", type: "Textil", image: "/images/equipacion.webp", position: "50% 46%" },
-  { name: "Hidratación", detail: "Chalecos · bidones · soft flasks", type: "Accesorios", image: "/images/corredor.webp", position: "35% 50%" },
-  { name: "Accesorios", detail: "Gorras · calcetines · bastones", type: "Accesorios", image: "/images/tienda.webp", position: "50% 55%" },
-  { name: "Nutrición deportiva", detail: "Energía para entrenar y competir", type: "Nutrición", image: "/images/equipacion.webp", position: "72% 45%" },
+  { name: "Terra Grip 2", detail: "Agarre · protección · montaña", type: "Calzado", image: "/images/catalogo-calzado.png", price: "129,90 €" },
+  { name: "Road Flow", detail: "Asfalto · entrenamiento diario", type: "Calzado", image: "/images/catalogo-calzado.png", price: "109,90 €" },
+  { name: "Conjunto Aero", detail: "Camiseta y pantalón técnico", type: "Textil", image: "/images/catalogo-textil.png", price: "64,90 €" },
+  { name: "Chaleco Hydro 5L", detail: "Ajuste cómodo · dos soft flasks", type: "Accesorios", image: "/images/catalogo-accesorios.png", price: "79,90 €" },
+  { name: "Pack Trail Essentials", detail: "Gorra · calcetines · accesorios", type: "Accesorios", image: "/images/catalogo-accesorios.png", price: "39,90 €" },
+  { name: "Pack Energía", detail: "Geles y sales para entrenar", type: "Nutrición", image: "/images/catalogo-accesorios.png", price: "24,90 €" },
 ] as const;
 
 const filters = ["Todo", "Calzado", "Textil", "Accesorios", "Nutrición"] as const;
@@ -33,16 +32,16 @@ export function ProductCatalog() {
       </div>
       <div className="catalog-grid" aria-live="polite">
         {visibleItems.map((item, index) => (
-          <article className="product-card" key={item.name}>
+          <article className="product-card" key={item.name} id={visibleItems.findIndex((product) => product.type === item.type) === index ? item.type.toLowerCase() : undefined}>
             <div className="product-card__image">
-              <Image src={imagePath(item.image)} alt={`${item.name} en IBHOLA Trail Running`} fill sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw" style={{ objectPosition: item.position }} />
+              <Image src={imagePath(item.image)} alt={`${item.name} en IBHOLA Trail Running`} fill sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw" />
               <span>0{index + 1}</span>
             </div>
             <div className="product-card__body">
               <small>{item.type}</small>
               <h3>{item.name}</h3>
               <p>{item.detail}</p>
-              <a href="#contacto" aria-label={`Consultar ${item.name}`}>Consultar en tienda <ArrowUpRight size={17} /></a>
+              <strong className="product-card__price">{item.price}</strong>
             </div>
           </article>
         ))}

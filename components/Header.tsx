@@ -1,54 +1,55 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Brand } from "./Brand";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const link = (path: string) => `${basePath}${path}`;
+
 const nav = [
-  ["Inicio", "#inicio"],
-  ["La tienda", "#tienda"],
-  ["Catálogo", "#catalogo"],
-  ["Galería", "#galeria"],
-  ["Agenda", "#eventos"],
-  ["Opiniones", "#opiniones"],
-];
+  ["Inicio", "/"],
+  ["Quiénes somos", "/quienes-somos/"],
+  ["Qué hacemos", "/que-hacemos/"],
+  ["Eventos", "/eventos/"],
+  ["Preguntas", "/preguntas-frecuentes/"],
+] as const;
+
+const categories = ["Calzado", "Textil", "Accesorios", "Nutrición"];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <div className="header__inner container-wide">
-        <Brand />
-        <nav className="desktop-nav" aria-label="Navegación principal">
-          {nav.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
-        </nav>
-        <a className="button button--small header__cta" href="#contacto">Ven a vernos <span aria-hidden="true">↗</span></a>
-        <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
-      <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
-        <nav aria-label="Navegación móvil">
-          {nav.map(([label, href], index) => (
-            <a key={label} href={href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{label}</a>
-          ))}
-        </nav>
-        <p>Trail · Running · Corrales, Huelva</p>
-      </div>
-    </header>
-  );
+  return <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <div className="header__inner container-wide">
+      <Brand />
+      <nav className="desktop-nav" aria-label="Navegación principal">
+        {nav.map(([label, href]) => <a key={label} href={link(href)}>{label}</a>)}
+        <div className="nav-dropdown">
+          <a href={link("/catalogo/")}>Catálogo / Tienda <ChevronDown size={13} /></a>
+          <div className="nav-dropdown__menu">
+            {categories.map(category => <a key={category} href={link(`/catalogo/#${category.toLowerCase()}`)}>{category}</a>)}
+          </div>
+        </div>
+      </nav>
+      <a className="button button--small header__cta" href={link("/#contacto")}>Contacto <span aria-hidden>↗</span></a>
+      <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X /> : <Menu />}</button>
+    </div>
+    <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
+      <nav aria-label="Navegación móvil">
+        {[...nav, ["Catálogo / Tienda", "/catalogo/"] as const].map(([label, href], index) => <a key={label} href={link(href)} onClick={() => setOpen(false)}><span>0{index + 1}</span>{label}</a>)}
+      </nav>
+      <p>Trail · Running · Corrales, Huelva</p>
+    </div>
+  </header>;
 }

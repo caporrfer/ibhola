@@ -279,7 +279,7 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .hours > p { margin: 13px 0 0; color: #8a8278; font-size: .62rem; }
 .contact__buttons { display: flex; gap: 8px; margin-top: 28px; }
 .contact__map { min-height: 700px; position: relative; overflow: hidden; background: #d1ccc2; }
-.contact__map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(.88) sepia(.1); }
+.contact__map iframe { width: 100%; height: 100%; border: 0; }
 .contact__map-label { position: absolute; right: 17px; bottom: 17px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--forest); color: white; font-size: .6rem; font-weight: 740; letter-spacing: .08em; text-transform: uppercase; }
 .contact-form-section { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(50px, 8vw, 110px); margin-top: 88px; padding-top: 78px; border-top: 1px solid var(--line-light); }
 .contact-form-section h2 { margin-bottom: 22px; font-size: clamp(3.1rem, 5vw, 5.2rem); }
@@ -470,4 +470,70 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 @media print {
   .launch-screen, .site-header, .mobile-action-bar { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Multi-page navigation and interior pages */
+.desktop-nav > .nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+.nav-dropdown__menu { min-width: 190px; position: absolute; top: calc(100% + 18px); left: -18px; display: grid; padding: 9px; border: 1px solid var(--line-dark); background: rgba(8,9,8,.98); box-shadow: 0 18px 45px rgba(0,0,0,.25); opacity: 0; visibility: hidden; transform: translateY(-5px); transition: .2s ease; }
+.nav-dropdown__menu::before { content: ""; position: absolute; inset: -19px 0 auto; height: 19px; }
+.nav-dropdown__menu a { padding: 11px 10px; color: rgba(255,255,255,.7); }
+.nav-dropdown__menu a::after { display: none; }
+.nav-dropdown__menu a:hover { background: var(--forest); color: white; }
+.nav-dropdown:hover .nav-dropdown__menu, .nav-dropdown:focus-within .nav-dropdown__menu { opacity: 1; visibility: visible; transform: none; }
+.section-cta { display: flex; justify-content: center; margin-top: 46px; }
+.reviews-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(320px, 36%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 0 22px; margin-bottom: 28px; scrollbar-color: var(--terracotta) rgba(255,255,255,.12); }
+.reviews-carousel .review { min-height: 320px; scroll-snap-align: start; }
+.review footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; }
+.review footer > span { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.45); font-size: .6rem; }
+.product-card__price { display: block; margin-top: 25px; color: var(--white); font-family: var(--serif); font-size: 1.6rem; font-weight: 400; }
+.interior { min-height: 100vh; background: var(--paper); color: var(--forest-deep); }
+.page-hero { min-height: 600px; position: relative; display: flex; align-items: flex-end; overflow: hidden; padding: 170px 0 95px; background: var(--forest); color: white; }
+.page-hero__topography { width: 900px; right: -230px; bottom: -280px; color: rgba(210,122,97,.10); }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero h1 { max-width: 980px; margin-bottom: 30px; font-size: clamp(4rem, 8vw, 8.5rem); }
+.page-hero .container > p:last-child { max-width: 720px; margin: 0; color: rgba(255,255,255,.68); font-size: 1.1rem; line-height: 1.8; }
+.content-section { padding: 120px 0; }
+.split-content { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: clamp(60px, 9vw, 130px); }
+.split-content h2 { margin-bottom: 30px; font-size: clamp(3rem, 5vw, 5.3rem); }
+.split-content p { color: #62655f; line-height: 1.85; }
+.content-image { min-height: 650px; position: relative; overflow: hidden; }
+.content-image img { object-fit: cover; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-light); border-left: 1px solid var(--line-light); }
+.feature-grid article { min-height: 330px; padding: 38px; border-right: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+.feature-grid svg { margin-bottom: 70px; color: var(--terracotta); }
+.feature-grid h2 { font-size: 2rem; }
+.feature-grid p { color: #666862; }
+.interior > .catalog { background: var(--forest-deep); color: white; }
+.events-page { background: var(--paper); }
+.subheading { margin-bottom: 38px; }
+.subheading h2 { font-size: clamp(3rem, 5vw, 5rem); }
+.subheading--past { margin-top: 100px; padding-top: 80px; border-top: 1px solid var(--line-light); }
+.event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.event-grid article { min-height: 300px; display: flex; flex-direction: column; padding: 30px; border: 1px solid var(--line-light); background: var(--white); }
+.event-grid article > span { color: var(--terracotta); font-size: .65rem; font-weight: 800; letter-spacing: .12em; }
+.event-grid article > svg { margin: 58px 0 22px; color: var(--terracotta); }
+.event-grid h3 { font-size: 2rem; }
+.event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
+.interior .faq { background: var(--forest-deep); color: white; }
+
+@media (max-width: 850px) {
+  .reviews-carousel { grid-auto-columns: minmax(290px, 72%); }
+  .page-hero { min-height: 520px; padding: 140px 0 75px; }
+  .split-content { grid-template-columns: 1fr; }
+  .content-image { min-height: 500px; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .event-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .reviews-carousel { grid-auto-columns: 88%; }
+  .page-hero { min-height: 470px; padding: 125px 0 60px; }
+  .page-hero h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
+  .page-hero .container > p:last-child { font-size: .9rem; }
+  .content-section { padding: 75px 0; }
+  .content-image { min-height: 390px; }
+  .feature-grid, .event-grid { grid-template-columns: 1fr; }
+  .feature-grid article { min-height: 260px; padding: 28px; }
+  .feature-grid svg { margin-bottom: 45px; }
+  .event-grid article { min-height: 260px; }
 }
