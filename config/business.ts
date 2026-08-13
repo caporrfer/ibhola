@@ -5,7 +5,7 @@ export const business = {
   description:
     "Tienda especializada en trail running y running en Corrales, Huelva. Material técnico y asesoramiento personalizado.",
   contactName: "Miguel Angel Pereira Marcelino",
-  email: "irenepegui@gmail.com",
+  email: "ibholahuelva@gmail.com",
   phoneDisplay: "678 28 12 38",
   phone: "+34678281238",
   address: {
