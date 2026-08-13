@@ -10,7 +10,6 @@ const link = (path: string) => `${basePath}${path}`;
 const nav = [
   ["Inicio", "/"],
   ["Catálogo / Tienda", "/catalogo/"],
-  ["Quiénes somos", "/quienes-somos/"],
   ["Eventos", "/eventos/"],
   ["Preguntas", "/preguntas-frecuentes/"],
 ] as const;
@@ -41,7 +40,7 @@ export function Header() {
     </div>
     <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
       <nav aria-label="Navegación móvil">
-        {nav.map(([label, href], index) => <a key={label} href={link(href)} onClick={() => setOpen(false)}><span>0{index + 1}</span>{label}</a>)}
+        {nav.map(([label, href], index) => <a key={label} href={link(href)} onClick={() => setOpen(false)}><span>{String(index + 1).padStart(2, "0")}</span>{label}</a>)}
       </nav>
       <p>Trail · Running · Corrales, Huelva</p>
     </div>
