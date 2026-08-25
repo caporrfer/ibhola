@@ -75,8 +75,8 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 @keyframes intro-screen-hide { to { visibility: hidden; pointer-events: none; } }
 
 /* Header */
-.site-header { height: 84px; position: fixed; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; border-bottom: 1px solid transparent; background: linear-gradient(180deg, rgba(0,0,0,.82), transparent); transition: height .3s, background .3s, border-color .3s, backdrop-filter .3s; }
-.site-header.is-scrolled { height: 70px; border-color: rgba(255,255,255,.12); background: rgba(3,5,4,.88); backdrop-filter: blur(16px); }
+.site-header { height: 84px; position: fixed; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; background: linear-gradient(180deg, rgba(0,0,0,.82), transparent); transition: height .3s, background .3s, backdrop-filter .3s; }
+.site-header.is-scrolled { height: 70px; background: rgba(3,5,4,.88); backdrop-filter: blur(16px); }
 .header__inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { width: 128px; display: block; flex: 0 0 auto; line-height: 0; }
 .brand img { width: 100%; height: auto; display: block; }
