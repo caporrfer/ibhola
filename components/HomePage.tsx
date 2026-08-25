@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, Compass, Footprints, Mail, MapPin, Mountain, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, Camera, Clock3, Compass, Footprints, Mail, MapPin, Megaphone, Mountain, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
 import { business } from "@/config/business";
 import { Header } from "./Header";
 import { LaunchScreen } from "./LaunchScreen";
@@ -10,6 +10,7 @@ import { Topography } from "./Topography";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
+const facebookFeed = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(business.social.facebook)}&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false`;
 export function HomePage() {
   return <>
     <LaunchScreen /><RevealObserver /><Header />
@@ -44,6 +45,14 @@ export function HomePage() {
 
       <section className="reviews section" id="opiniones"><div className="container"><div className="reviews__heading reveal"><div><p className="eyebrow"><span /> Reseñas</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><div className="reviews__score"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} reseñas</small></span></div></div>
         <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Consulta las opiniones reales y actualizadas de nuestros clientes directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver opiniones en Google <ArrowUpRight size={17} /></a></div></div></section>
+
+      <section className="social-feed section"><div className="container social-feed__grid">
+        <div className="social-feed__copy reveal"><p className="eyebrow"><span /> Comunidad IBHOLA</p><h2>Corre con nosotros, <em>también en redes.</em></h2><p>Descubre las últimas novedades de la tienda, carreras, encuentros y material recién llegado.</p>
+          <div className="social-feed__links"><a href={business.social.facebook} target="_blank" rel="noreferrer"><Megaphone size={21} /><span><small>Facebook</small>IBHOLA Trail Running</span><ArrowUpRight size={18} /></a><a href={business.social.instagram} target="_blank" rel="noreferrer"><Camera size={21} /><span><small>Instagram</small>{business.social.instagramHandle}</span><ArrowUpRight size={18} /></a></div>
+          <div className="social-feed__photo"><Image src={imagePath("/images/equipacion.webp")} alt="Comunidad de corredores de IBHOLA" fill sizes="(max-width: 850px) 100vw, 48vw" /></div>
+        </div>
+        <div className="facebook-feed reveal"><div className="facebook-feed__heading"><Megaphone size={20} /><div><small>Últimas publicaciones</small><strong>Facebook</strong></div><span>Actualizado en directo</span></div><iframe src={facebookFeed} title="Últimas publicaciones de IBHOLA en Facebook" width="500" height="620" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" /></div>
+      </div></section>
 
       <section className="contact section" id="contacto"><div className="container"><div className="contact__heading reveal"><p className="eyebrow"><span /> Dónde estamos</p><h2>Visítanos en <em>Corrales.</em></h2><p>Ven a la tienda, llámanos o escríbenos antes de desplazarte.</p></div>
         <div className="contact__main"><div className="contact__details reveal"><div className="contact__detail"><MapPin size={20} /><span><small>Dirección</small><a href={business.mapsUrl}>{business.address.street}<br />{business.address.postalCode} {business.address.locality}, {business.address.region}</a></span></div><div className="contact__detail"><Phone size={20} /><span><small>Teléfono</small><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a></span></div><div className="contact__detail"><Mail size={20} /><span><small>Correo</small><a href={`mailto:${business.email}`}>{business.email}</a></span></div><div className="hours"><div className="hours__title"><Clock3 size={19} /><h3>Horario habitual</h3></div><div className="hours__row"><b>Lunes a viernes</b><span>09:30–13:30 / 17:30–20:30</span></div><div className="hours__row"><b>Sábado</b><span>10:00–13:30</span></div><div className="hours__row"><b>Domingo</b><span>Cerrado</span></div></div><div className="contact__buttons"><a className="button" href={business.mapsUrl}>Cómo llegar <Navigation size={17} /></a></div></div>
