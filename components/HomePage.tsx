@@ -11,7 +11,6 @@ import { Topography } from "./Topography";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
-const facebookFeed = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(business.social.facebook)}&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false`;
 export function HomePage() {
   return <>
     <LaunchScreen /><RevealObserver /><Header />
@@ -52,7 +51,7 @@ export function HomePage() {
           <div className="social-feed__links"><a className="social-link social-link--facebook" href={business.social.facebook} target="_blank" rel="noreferrer"><i><FacebookLogo size={23} /></i><span><small>Facebook</small>IBHOLA Trail Running</span><ArrowUpRight size={18} /></a><a className="social-link social-link--instagram" href={business.social.instagram} target="_blank" rel="noreferrer"><i><InstagramLogo size={23} /></i><span><small>Instagram</small>{business.social.instagramHandle}</span><ArrowUpRight size={18} /></a></div>
           <div className="social-feed__photo"><Image src={imagePath("/images/equipacion.webp")} alt="Comunidad de corredores de IBHOLA" fill sizes="(max-width: 850px) 100vw, 48vw" /></div>
         </div>
-        <div className="facebook-feed reveal"><div className="facebook-feed__heading"><i><FacebookLogo size={20} /></i><div><small>Últimas publicaciones</small><strong>IBHOLA en Facebook</strong></div><span><b /> Actualizado en directo</span></div><iframe src={facebookFeed} title="Últimas publicaciones de IBHOLA en Facebook" width="500" height="620" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" /></div>
+        <div className="social-showcase reveal"><div className="social-showcase__photo"><Image src={imagePath("/images/tienda.webp")} alt="Tienda IBHOLA Trail Running en Corrales" fill sizes="(max-width: 850px) 100vw, 500px" /><div className="social-showcase__badge"><FacebookLogo size={22} /><span><small>Síguenos en</small>Facebook</span></div></div><div className="social-showcase__body"><p className="eyebrow"><span /> Al día con IBHOLA</p><h3>Novedades, carreras y comunidad.</h3><p>Entra en nuestro perfil para ver las publicaciones más recientes, comentar y compartir.</p><a className="button button--facebook" href={business.social.facebook} target="_blank" rel="noreferrer">Ver últimas publicaciones <ArrowUpRight size={17} /></a></div><a className="social-showcase__instagram" href={business.social.instagram} target="_blank" rel="noreferrer"><i><InstagramLogo size={20} /></i><span><small>También en Instagram</small>{business.social.instagramHandle}</span><ArrowUpRight size={18} /></a></div>
       </div></section>
 
       <section className="contact section" id="contacto"><div className="container"><div className="contact__heading reveal"><p className="eyebrow"><span /> Dónde estamos</p><h2>Visítanos en <em>Corrales.</em></h2><p>Ven a la tienda, llámanos o escríbenos antes de desplazarte.</p></div>
