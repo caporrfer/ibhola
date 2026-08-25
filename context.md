@@ -4,7 +4,7 @@ Este documento sirve como mapa del proyecto para futuras modificaciones. La rama
 
 ## Tecnología y comandos
 
-- Next.js 15 con App Router, React 19 y TypeScript. `ogl` se utiliza exclusivamente para el fondo WebGL.
+- Next.js 15 con App Router, React 19 y TypeScript.
 - Estilos globales en `app/globals.css`; Tailwind está importado, pero el diseño actual utiliza principalmente CSS propio con metodología BEM.
 - Iconos generales: `lucide-react`. Los logotipos de Instagram y Facebook son SVG propios en `components/SocialIcons.tsx`.
 - Desarrollo: `npm run dev`.
@@ -13,7 +13,7 @@ Este documento sirve como mapa del proyecto para futuras modificaciones. La rama
 
 ## Estructura de rutas
 
-- `app/layout.tsx`: layout raíz, metadatos generales, color del navegador, fondo `Scanner` y `SiteEnhancements` global.
+- `app/layout.tsx`: layout raíz, metadatos generales, color del navegador y `SiteEnhancements` global.
 - `app/page.tsx`: portada y datos estructurados Schema.org. Renderiza `HomePage`.
 - `app/catalogo/page.tsx`: catálogo de productos.
 - `app/eventos/page.tsx`: eventos próximos y anteriores.
@@ -54,8 +54,6 @@ La sección social no aparece en la navegación principal. El embed de Instagram
 - `ContactForm.tsx`: formulario validado por campo. Prepara un `mailto:`; no existe backend ni almacenamiento de mensajes.
 - `Topography.tsx`: líneas topográficas SVG decorativas.
 - `SocialIcons.tsx`: logotipos SVG de Instagram y Facebook.
-- `Scanner.jsx` y `Scanner.css`: fondo WebGL animado global basado en React Bits/OGL. Se monta una sola vez desde el layout.
-- `ElectricBorder.jsx` y `ElectricBorder.css`: borde eléctrico animado de React Bits usado en las seis tarjetas de servicios de la portada.
 
 ## Sistema visual y CSS
 
@@ -63,8 +61,7 @@ Todo el diseño está centralizado en `app/globals.css`, organizado por comentar
 
 ### Fondo
 
-- El fondo verde es global y continuo: `Scanner` dibuja una señal animada negra–verde–pistacho en `.site-background`, fijada detrás de todo el sitio.
-- `body` conserva un gradiente negro–pistacho como respaldo si WebGL no está disponible. El lienzo no captura eventos, limita su DPR y pausa el renderizado cuando la pestaña deja de estar visible.
+- El fondo verde es global y continuo: está definido en `body` mediante dos halos radiales y un gradiente negro–pistacho.
 - Las secciones principales son transparentes para evitar que el patrón se reinicie y produzca un efecto de piezas de puzle.
 - No añadir fondos completos independientes a una sección salvo que el diseño lo requiera expresamente.
 - Las tarjetas, campos, mapa y widgets sí pueden mantener superficies propias por legibilidad.
