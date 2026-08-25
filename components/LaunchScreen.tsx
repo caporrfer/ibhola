@@ -15,16 +15,34 @@ export function LaunchScreen() {
       return;
     }
 
-    document.body.classList.add("intro-active");
-    const leaveTimer = window.setTimeout(() => screenRef.current?.classList.add("is-leaving"), 1350);
-    const hideTimer = window.setTimeout(() => {
-      if (screenRef.current) screenRef.current.style.display = "none";
-      document.body.classList.remove("intro-active");
-    }, 2250);
+    let leaveTimer = 0;
+    let hideTimer = 0;
+    const play = () => {
+      const screen = screenRef.current;
+      if (!screen) return;
+      window.clearTimeout(leaveTimer);
+      window.clearTimeout(hideTimer);
+      screen.classList.remove("is-leaving");
+      screen.style.display = "grid";
+      document.body.classList.add("intro-active");
+      screen.getAnimations({ subtree: true }).forEach((animation) => {
+        animation.cancel();
+        animation.play();
+      });
+      leaveTimer = window.setTimeout(() => screen.classList.add("is-leaving"), 1350);
+      hideTimer = window.setTimeout(() => {
+        screen.style.display = "none";
+        document.body.classList.remove("intro-active");
+      }, 2250);
+    };
+    const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) play(); };
+    play();
+    window.addEventListener("pageshow", onPageShow);
 
     return () => {
       window.clearTimeout(leaveTimer);
       window.clearTimeout(hideTimer);
+      window.removeEventListener("pageshow", onPageShow);
       document.body.classList.remove("intro-active");
     };
   }, []);
