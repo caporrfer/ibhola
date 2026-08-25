@@ -23,7 +23,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--black); }
-body { margin: 0; overflow-x: hidden; background: var(--black); color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+body { margin: 0; overflow-x: hidden; background-color: #080b07; background-image: radial-gradient(circle at 82% 16%, rgba(149,198,83,.34), transparent 35%), radial-gradient(circle at 12% 78%, rgba(95,135,50,.3), transparent 32%), linear-gradient(135deg, #080b07 0%, #263a19 42%, #5f8732 72%, #95c653 100%); background-attachment: fixed; background-size: cover; color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
 body > .site-header, body > main, body > .footer { animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
 body.page-leaving > .site-header, body.page-leaving > main, body.page-leaving > .footer { opacity: 0; transform: translateY(5px); }
 body.intro-active { overflow: hidden; }
@@ -625,11 +625,11 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
 
 /* Unified green section surfaces */
-.about, .gallery, .social-feed, .journal, .contact, .home-services, .faq-contact, .interior, .events-page, .principles, .catalog, .reviews, .faq, .legal-page, .footer {
-  background: radial-gradient(circle at 78% 18%, rgba(149,198,83,.3), transparent 34%), var(--forest-gradient);
+.hero, .page-hero, .events, .about, .gallery, .social-feed, .journal, .contact, .home-services, .faq-contact, .interior, .events-page, .principles, .catalog, .reviews, .faq, .legal-page, .footer {
+  background: transparent;
   color: white;
 }
-.interior > .catalog, .interior .faq { background: radial-gradient(circle at 78% 18%, rgba(149,198,83,.3), transparent 34%), var(--forest-gradient); }
+.interior > .catalog, .interior .faq { background: rgba(8,11,7,.18); }
 .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .home-services .section-heading > p, .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
   color: rgba(255,255,255,.7);
 }
