@@ -228,16 +228,28 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 
 /* Social feed */
 .social-feed { overflow: hidden; background: var(--paper); color: var(--forest-deep); }
-.social-feed__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 500px); gap: clamp(55px, 8vw, 115px); align-items: center; }
-.social-feed__copy h2 { max-width: 700px; margin-bottom: 28px; font-size: clamp(3.6rem, 6vw, 6.5rem); }
-.social-feed__copy > p:not(.eyebrow) { max-width: 620px; margin-bottom: 31px; color: #62655f; line-height: 1.85; }
-.social-feed__photo { height: 330px; position: relative; overflow: hidden; }
-.social-feed__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(24,35,31,.3), transparent 60%); }
-.social-feed__photo img { object-fit: cover; object-position: center 42%; filter: saturate(.82) contrast(1.04); }
-.social-feed__photo > div { position: absolute; z-index: 2; left: 20px; bottom: 18px; display: flex; align-items: center; gap: 11px; color: white; font-size: .68rem; line-height: 1.35; }
-.social-feed__photo > div svg { padding: 7px; border-radius: 50%; box-sizing: content-box; background: radial-gradient(circle at 32% 102%, #ffd600 0 20%, #ff7a00 34%, #ff0169 58%, #d300c5 76%, #7638fa 100%); }
-.social-feed__photo > div b { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; }
-.social-feed__facebook { width: fit-content; display: flex; align-items: center; gap: 9px; margin-top: 20px; padding-bottom: 5px; border-bottom: 1px solid currentColor; color: #1877f2; font-size: .65rem; font-weight: 780; letter-spacing: .06em; text-transform: uppercase; }
+.social-feed__intro { display: grid; grid-template-columns: 1.15fr .65fr auto; gap: clamp(35px, 5vw, 75px); align-items: end; margin-bottom: 52px; }
+.social-feed__intro h2 { margin: 0; font-size: clamp(3.6rem, 6vw, 6.5rem); }
+.social-feed__intro > p { max-width: 430px; margin: 0 0 7px; color: #62655f; line-height: 1.8; }
+.social-feed__platforms { display: flex; gap: 9px; }
+.social-platform { min-width: 152px; display: flex; align-items: center; gap: 11px; padding: 13px 15px; border: 1px solid var(--line-light); background: var(--white); transition: transform .2s, box-shadow .2s; }
+.social-platform:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(24,35,31,.1); }
+.social-platform > span { display: flex; flex-direction: column; font-size: .67rem; font-weight: 800; }
+.social-platform small { color: #77786f; font-size: .5rem; font-weight: 650; }
+.social-platform--instagram > svg { color: #d62976; }
+.social-platform--facebook > svg { color: #1877f2; }
+.social-feed__grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr); gap: 20px; align-items: stretch; }
+.social-feed__feature { min-height: 665px; position: relative; overflow: hidden; background: var(--forest-deep); color: white; }
+.social-feed__feature::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,9,8,.91) 0%, rgba(8,9,8,.18) 68%); }
+.social-feed__feature > img { object-fit: cover; object-position: 50% 45%; filter: saturate(.78) contrast(1.05); transition: transform .7s ease; }
+.social-feed__feature:hover > img { transform: scale(1.035); }
+.social-feed__feature-copy { max-width: 570px; position: absolute; z-index: 2; inset: auto 38px 38px; }
+.social-feed__feature-copy > span { color: var(--terracotta-light); font-size: .58rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.social-feed__feature-copy h3 { margin: 13px 0 17px; font-size: clamp(2.7rem, 4.2vw, 4.6rem); }
+.social-feed__feature-copy p { max-width: 500px; color: rgba(255,255,255,.7); line-height: 1.75; }
+.social-feed__feature-copy > div { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+.social-feed__feature-copy a { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; border: 1px solid rgba(255,255,255,.25); background: rgba(8,9,8,.3); font-size: .61rem; font-weight: 780; letter-spacing: .07em; text-transform: uppercase; backdrop-filter: blur(8px); }
+.social-feed__feature-copy a:hover { border-color: white; background: white; color: var(--forest-deep); }
 .instagram-feed { width: 100%; overflow: hidden; border: 1px solid var(--line-light); background: white; box-shadow: 0 24px 65px rgba(24,35,31,.12); }
 .instagram-feed__heading { min-height: 76px; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line-light); }
 .instagram-feed__heading i { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 32% 102%, #ffd600 0 20%, #ff7a00 34%, #ff0169 58%, #d300c5 76%, #7638fa 100%); color: white; font-style: normal; }
@@ -245,7 +257,10 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .instagram-feed__heading small { color: #77786f; font-size: .53rem; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
 .instagram-feed__heading strong { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; }
 .instagram-feed__heading a { display: flex; align-items: center; gap: 5px; margin-left: auto; color: #77786f; font-size: .56rem; font-weight: 760; text-transform: uppercase; }
-.instagram-feed iframe { width: 100%; display: block; border: 0; }
+.instagram-feed__viewport { height: 535px; overflow: hidden; background: white; }
+.instagram-feed iframe { width: 100%; height: 690px; display: block; border: 0; }
+.instagram-feed__footer { min-height: 53px; display: flex; align-items: center; justify-content: center; gap: 8px; border-top: 1px solid var(--line-light); color: #b12070; font-size: .6rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.instagram-feed__footer svg:last-child { margin-left: 3px; }
 
 /* Events */
 .events { overflow: hidden; background: var(--forest); }
@@ -417,7 +432,11 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
   .gallery__item--store { grid-column: 1 / -1; grid-row: 3; }
   .reviews__grid { grid-template-columns: 1fr 1fr; }
   .review--wide { grid-column: 1 / -1; }
+  .social-feed__intro { grid-template-columns: 1fr; gap: 24px; }
+  .social-feed__intro > p { max-width: 650px; }
+  .social-feed__platforms { flex-wrap: wrap; }
   .social-feed__grid { grid-template-columns: 1fr; }
+  .social-feed__feature { min-height: 540px; }
   .instagram-feed { max-width: 500px; margin-inline: auto; }
   .events__visual { min-height: 570px; }
   .journal__grid { grid-template-columns: 1fr; }
@@ -477,8 +496,14 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
   .review--wide { grid-column: auto; }
   .review, .review--wide { min-height: 245px; }
   .review--wide blockquote { font-size: 1.85rem; }
-  .social-feed__copy h2 { font-size: clamp(2.9rem, 13vw, 4.2rem); }
-  .social-feed__photo { height: 210px; }
+  .social-feed__intro h2 { font-size: clamp(2.9rem, 13vw, 4.2rem); }
+  .social-feed__platforms { display: grid; grid-template-columns: 1fr 1fr; }
+  .social-platform { min-width: 0; padding-inline: 11px; }
+  .social-platform small { max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .social-feed__feature { min-height: 460px; }
+  .social-feed__feature-copy { inset: auto 21px 23px; }
+  .social-feed__feature-copy h3 { font-size: 2.7rem; }
+  .social-feed__feature-copy p { font-size: .8rem; }
   .instagram-feed__heading a { font-size: 0; }
   .events__visual { min-height: 430px; }
   .events__types { grid-template-columns: 1fr; }
