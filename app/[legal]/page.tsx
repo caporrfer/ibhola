@@ -34,7 +34,7 @@ export default async function LegalPage({ params }: { params: Promise<{ legal: s
   return (
     <main className="legal-page">
       <div className="legal-page__top"><Brand /><Link href="/">Volver a la web ↗</Link></div>
-      <article><p className="eyebrow"><span /> Información legal</p><h1>{doc.title}</h1><p>{doc.text}</p><hr /><h2>Datos de contacto publicados</h2><p>{business.name}<br />{fullAddress}<br />Tel. {business.phoneDisplay}<br />{business.email}</p><small>Última revisión: agosto de 2026.</small></article>
+      <article><h1>{doc.title}</h1><p>{doc.text}</p><hr /><h2>Datos de contacto publicados</h2><p>{business.name}<br />{fullAddress}<br />Tel. {business.phoneDisplay}<br />{business.email}</p><small>Última revisión: agosto de 2026.</small></article>
     </main>
   );
 }
