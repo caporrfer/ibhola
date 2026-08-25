@@ -10,8 +10,7 @@ export function LaunchScreen() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const alreadySeen = window.sessionStorage.getItem("ibhola-intro-seen") === "1";
-    if (reducedMotion || alreadySeen) {
+    if (reducedMotion) {
       if (screenRef.current) screenRef.current.style.display = "none";
       return;
     }
@@ -21,7 +20,6 @@ export function LaunchScreen() {
     const hideTimer = window.setTimeout(() => {
       if (screenRef.current) screenRef.current.style.display = "none";
       document.body.classList.remove("intro-active");
-      window.sessionStorage.setItem("ibhola-intro-seen", "1");
     }, 2250);
 
     return () => {
