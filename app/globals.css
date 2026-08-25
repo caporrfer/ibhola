@@ -57,7 +57,7 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .topography path { stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
 
 /* Opening logo */
-.launch-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow: hidden; visibility: visible; animation: intro-screen-hide 0s 2.2s forwards; transition: visibility 0s; }
+.launch-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow: hidden; visibility: visible; transition: visibility 0s; }
 .launch-screen::before, .launch-screen::after { content: ""; position: absolute; z-index: 0; left: 0; width: 100%; height: 50.1%; background: var(--forest-deep); transition: transform .85s cubic-bezier(.75,0,.15,1); }
 .launch-screen::before { top: 0; background-image: linear-gradient(115deg, rgba(182,83,59,.08), transparent 48%); animation: intro-panel-up .85s 1.35s cubic-bezier(.75,0,.15,1) forwards; }
 .launch-screen::after { bottom: 0; background-image: linear-gradient(295deg, rgba(182,83,59,.11), transparent 52%); animation: intro-panel-down .85s 1.35s cubic-bezier(.75,0,.15,1) forwards; }
@@ -78,7 +78,6 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 @keyframes intro-mark-out { to { opacity: 0; transform: scale(1.08); filter: blur(7px); } }
 @keyframes intro-panel-up { to { transform: translateY(-101%); } }
 @keyframes intro-panel-down { to { transform: translateY(101%); } }
-@keyframes intro-screen-hide { to { visibility: hidden; pointer-events: none; } }
 
 /* Header */
 .site-header { height: 84px; position: fixed; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; background: linear-gradient(180deg, rgba(0,0,0,.82), transparent); transition: height .3s, background .3s, backdrop-filter .3s; }
