@@ -49,7 +49,7 @@ img { max-width: 100%; }
 .eyebrow > span { width: 34px; height: 1px; background: currentColor; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -.045em; line-height: .96; }
-h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 400; }
+h1 em, h2 em, h3 em { color: inherit; font-style: italic; font-weight: 400; text-decoration: underline; text-decoration-color: var(--pistachio-action); text-decoration-thickness: .07em; text-underline-offset: .13em; text-decoration-skip-ink: auto; }
 .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 11px; padding: 0 23px; border: 1px solid var(--pistachio-action); border-radius: 2px; background: var(--pistachio-action); color: var(--forest-deep); cursor: pointer; font-size: .7rem; font-weight: 800; letter-spacing: .1em; line-height: 1.2; text-transform: uppercase; transition: background .25s, border-color .25s, color .25s, transform .25s, box-shadow .25s; }
 .button:hover { border-color: var(--pistachio-action-hover); background: var(--pistachio-action-hover); box-shadow: 0 10px 28px rgba(201,242,124,.2); transform: translateY(-2px); }
 .button:active { transform: translateY(0) scale(.97); }
