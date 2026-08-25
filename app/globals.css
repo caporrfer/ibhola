@@ -624,6 +624,29 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
 
+/* Unified green section surfaces */
+.about, .gallery, .social-feed, .journal, .contact, .home-services, .faq-contact, .interior, .events-page, .principles, .catalog, .reviews, .faq, .legal-page, .footer {
+  background: radial-gradient(circle at 78% 18%, rgba(149,198,83,.3), transparent 34%), var(--forest-gradient);
+  color: white;
+}
+.interior > .catalog, .interior .faq { background: radial-gradient(circle at 78% 18%, rgba(149,198,83,.3), transparent 34%), var(--forest-gradient); }
+.about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .home-services .section-heading > p, .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
+  color: rgba(255,255,255,.7);
+}
+.services, .feature-grid, .journal__grid { border-color: rgba(255,255,255,.2); }
+.service, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
+.service > span { color: rgba(255,255,255,.45); }
+.service p { color: rgba(255,255,255,.68); }
+.service svg, .feature-grid svg, .event-grid article > span, .event-grid article > svg { color: var(--terracotta-light); }
+.gallery__heading > a { border-color: rgba(255,255,255,.7); }
+.social-platform { border-color: rgba(255,255,255,.2); color: var(--forest-deep); }
+.journal-card > span { color: var(--terracotta-light); }
+.contact__main, .event-grid article { color: var(--forest-deep); }
+.faq-contact .contact-form-section { padding: clamp(28px, 4vw, 48px); background: rgba(8,11,7,.3); }
+.faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help { color: rgba(255,255,255,.78); }
+.content-section + .content-section { border-top: 1px solid rgba(255,255,255,.13); }
+.subheading--past { border-color: rgba(255,255,255,.2); }
+
 @media (max-width: 850px) {
   .site-header.is-scrolled { backdrop-filter: none; }
   .reviews-carousel { grid-auto-columns: minmax(290px, 72%); }
