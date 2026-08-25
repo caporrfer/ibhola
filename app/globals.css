@@ -21,8 +21,9 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--black); }
-body { margin: 0; overflow-x: hidden; background: var(--black); color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
-body.page-leaving { opacity: 0; transform: translateY(5px); }
+body { margin: 0; overflow-x: hidden; background: var(--black); color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+body > .site-header, body > main, body > .footer { animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
+body.page-leaving > .site-header, body.page-leaving > main, body.page-leaving > .footer { opacity: 0; transform: translateY(5px); }
 body.intro-active { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea, select { font: inherit; }
