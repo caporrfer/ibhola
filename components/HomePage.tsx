@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, Compass, Footprints, Mail, MapPin, Mountain, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
 import { business } from "@/config/business";
 import { Header } from "./Header";
-import { LaunchScreen } from "./LaunchScreen";
 import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
 import { FacebookLogo, InstagramLogo } from "./SocialIcons";
@@ -13,7 +12,7 @@ const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
 export function HomePage() {
   return <>
-    <LaunchScreen /><RevealObserver /><Header />
+    <RevealObserver /><Header />
     <main>
       <section className="hero" id="inicio"><Topography className="hero__topography" />
         <div className="hero__layout container-wide">
