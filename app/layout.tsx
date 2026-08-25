@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { business } from "@/config/business";
 import { SiteEnhancements } from "@/components/SiteEnhancements";
+import Scanner from "@/components/Scanner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,5 +35,5 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body><SiteEnhancements />{children}</body></html>;
+  return <html lang="es"><body><div className="site-background" aria-hidden="true"><Scanner /></div><SiteEnhancements />{children}</body></html>;
 }

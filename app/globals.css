@@ -25,7 +25,9 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--black); }
-body { margin: 0; overflow-x: hidden; background-color: #080b07; background-image: radial-gradient(circle at 82% 16%, rgba(149,198,83,.34), transparent 35%), radial-gradient(circle at 12% 78%, rgba(95,135,50,.3), transparent 32%), linear-gradient(135deg, #080b07 0%, #263a19 42%, #5f8732 72%, #95c653 100%); background-attachment: fixed; background-size: cover; color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+body { margin: 0; overflow-x: hidden; background-color: #080b07; background-image: radial-gradient(circle at 82% 16%, rgba(149,198,83,.34), transparent 35%), linear-gradient(135deg, #080b07 0%, #263a19 55%, #5f8732 100%); background-attachment: fixed; background-size: cover; color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+.site-background { position: fixed; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(135deg, #080b07, #182b10 55%, #456622); }
+.site-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,5,3,.2), rgba(3,5,3,.48)); }
 body > main, body > .footer { animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
 body > .site-header { transition: height .3s, background .3s, backdrop-filter .3s, opacity .18s ease; }
 body.page-leaving > .site-header { opacity: 0; }
