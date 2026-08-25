@@ -26,9 +26,9 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--black); }
 body { margin: 0; overflow-x: hidden; background-color: #080b07; background-image: radial-gradient(circle at 82% 16%, rgba(149,198,83,.34), transparent 35%), linear-gradient(135deg, #080b07 0%, #263a19 55%, #5f8732 100%); background-attachment: fixed; background-size: cover; color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
-.site-background { position: fixed; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(135deg, #080b07, #182b10 55%, #456622); }
-.site-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,5,3,.2), rgba(3,5,3,.48)); }
-body > main, body > .footer { animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
+.site-background { position: fixed; z-index: 0; inset: 0; pointer-events: none; background: linear-gradient(135deg, #080b07, #182b10 55%, #456622); }
+.site-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,5,3,.08), rgba(3,5,3,.28)); }
+body > main, body > .footer { position: relative; z-index: 1; animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
 body > .site-header { transition: height .3s, background .3s, backdrop-filter .3s, opacity .18s ease; }
 body.page-leaving > .site-header { opacity: 0; }
 body.page-leaving > main, body.page-leaving > .footer { opacity: 0; transform: translateY(5px); }
@@ -653,6 +653,7 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help { color: rgba(255,255,255,.78); }
 .content-section + .content-section { border-top: 0; }
 .subheading--past { border-color: rgba(255,255,255,.2); }
+.footer { background: radial-gradient(circle at 85% 18%, rgba(149,198,83,.1), transparent 30%), linear-gradient(135deg, #020302, #0a0f08); }
 
 @media (max-width: 850px) {
   .site-header.is-scrolled { backdrop-filter: none; }
