@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Camera, Clock3, Compass, Footprints, Mail, MapPin, Megaphone, Mountain, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, Compass, Footprints, Mail, MapPin, Mountain, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
 import { business } from "@/config/business";
 import { Header } from "./Header";
 import { LaunchScreen } from "./LaunchScreen";
 import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
+import { FacebookLogo, InstagramLogo } from "./SocialIcons";
 import { Topography } from "./Topography";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -48,10 +49,10 @@ export function HomePage() {
 
       <section className="social-feed section"><div className="container social-feed__grid">
         <div className="social-feed__copy reveal"><p className="eyebrow"><span /> Comunidad IBHOLA</p><h2>Corre con nosotros, <em>también en redes.</em></h2><p>Descubre las últimas novedades de la tienda, carreras, encuentros y material recién llegado.</p>
-          <div className="social-feed__links"><a href={business.social.facebook} target="_blank" rel="noreferrer"><Megaphone size={21} /><span><small>Facebook</small>IBHOLA Trail Running</span><ArrowUpRight size={18} /></a><a href={business.social.instagram} target="_blank" rel="noreferrer"><Camera size={21} /><span><small>Instagram</small>{business.social.instagramHandle}</span><ArrowUpRight size={18} /></a></div>
+          <div className="social-feed__links"><a className="social-link social-link--facebook" href={business.social.facebook} target="_blank" rel="noreferrer"><i><FacebookLogo size={23} /></i><span><small>Facebook</small>IBHOLA Trail Running</span><ArrowUpRight size={18} /></a><a className="social-link social-link--instagram" href={business.social.instagram} target="_blank" rel="noreferrer"><i><InstagramLogo size={23} /></i><span><small>Instagram</small>{business.social.instagramHandle}</span><ArrowUpRight size={18} /></a></div>
           <div className="social-feed__photo"><Image src={imagePath("/images/equipacion.webp")} alt="Comunidad de corredores de IBHOLA" fill sizes="(max-width: 850px) 100vw, 48vw" /></div>
         </div>
-        <div className="facebook-feed reveal"><div className="facebook-feed__heading"><Megaphone size={20} /><div><small>Últimas publicaciones</small><strong>Facebook</strong></div><span>Actualizado en directo</span></div><iframe src={facebookFeed} title="Últimas publicaciones de IBHOLA en Facebook" width="500" height="620" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" /></div>
+        <div className="facebook-feed reveal"><div className="facebook-feed__heading"><i><FacebookLogo size={20} /></i><div><small>Últimas publicaciones</small><strong>IBHOLA en Facebook</strong></div><span><b /> Actualizado en directo</span></div><iframe src={facebookFeed} title="Últimas publicaciones de IBHOLA en Facebook" width="500" height="620" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" /></div>
       </div></section>
 
       <section className="contact section" id="contacto"><div className="container"><div className="contact__heading reveal"><p className="eyebrow"><span /> Dónde estamos</p><h2>Visítanos en <em>Corrales.</em></h2><p>Ven a la tienda, llámanos o escríbenos antes de desplazarte.</p></div>
