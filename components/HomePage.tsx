@@ -7,6 +7,7 @@ import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
 import { FacebookLogo, InstagramLogo } from "./SocialIcons";
 import { Topography } from "./Topography";
+import ElectricBorder from "./ElectricBorder";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
@@ -40,7 +41,7 @@ export function HomePage() {
         [ShoppingBag, "Atención en tienda", "Prueba opciones, pregunta lo que necesites y decide sin prisas."],
         [UsersRound, "Comunidad", "Encuentros, pruebas y actividades para compartir kilómetros."],
         [Route, "Trail y asfalto", "Material para entrenar, competir o simplemente disfrutar corriendo."],
-      ].map(([Icon, title, text]) => { const I = Icon as typeof Compass; return <article className="service reveal" key={title as string}><I size={24} /><h3>{title as string}</h3><p>{text as string}</p></article>; })}</div>
+      ].map(([Icon, title, text]) => { const I = Icon as typeof Compass; return <ElectricBorder className="service-shell reveal" color="#c9f27c" speed={0.65} chaos={0.075} borderRadius={8} key={title as string}><article className="service"><I size={24} /><h3>{title as string}</h3><p>{text as string}</p></article></ElectricBorder>; })}</div>
       <div className="container section-cta"><a className="button button--dark" href={link("/catalogo/")}>Explorar catálogo <ArrowRight size={17} /></a></div></section>
 
       <section className="reviews section" id="opiniones"><div className="container"><div className="reviews__heading reveal"><div><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><div className="reviews__score"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} reseñas</small></span></div></div>

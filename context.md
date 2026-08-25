@@ -55,6 +55,7 @@ La sección social no aparece en la navegación principal. El embed de Instagram
 - `Topography.tsx`: líneas topográficas SVG decorativas.
 - `SocialIcons.tsx`: logotipos SVG de Instagram y Facebook.
 - `Scanner.jsx` y `Scanner.css`: fondo WebGL animado global basado en React Bits/OGL. Se monta una sola vez desde el layout.
+- `ElectricBorder.jsx` y `ElectricBorder.css`: borde eléctrico animado de React Bits usado en las seis tarjetas de servicios de la portada.
 
 ## Sistema visual y CSS
 
