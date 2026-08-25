@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { business } from "@/config/business";
-import { LaunchScreen } from "@/components/LaunchScreen";
 import { SiteEnhancements } from "@/components/SiteEnhancements";
 import "./globals.css";
 
@@ -35,5 +34,5 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body><LaunchScreen /><SiteEnhancements />{children}</body></html>;
+  return <html lang="es"><body><SiteEnhancements />{children}</body></html>;
 }
