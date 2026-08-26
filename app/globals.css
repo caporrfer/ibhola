@@ -633,7 +633,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   background: #080908;
   color: white;
 }
-.hero, .page-hero, .about, .gallery, .journal, .reviews, .contact, .faq-contact {
+.hero, .page-hero, .about, .gallery, .journal, .social-feed, .faq-contact {
   background: #b0c840;
   color: var(--forest-deep);
 }
@@ -643,23 +643,25 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .home-services .section-heading > p, .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
   color: rgba(255,255,255,.7);
 }
-.hero__lead, .page-hero .container > p:last-child, .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child {
+.hero__lead, .page-hero .container > p:last-child, .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .journal .section-heading > p, .journal-card p, .social-feed__intro > p {
   color: rgba(24,35,31,.78);
 }
 .hero .button--ghost { border-color: rgba(24,35,31,.55); background: rgba(255,255,255,.16); color: var(--forest-deep); }
 .hero .button--ghost:hover { border-color: var(--forest-deep); background: var(--forest-deep); color: white; }
 .hero::before, .hero::after { background: none; }
-.reviews__score { border-color: rgba(24,35,31,.3); }
-.reviews__score small { color: rgba(24,35,31,.68); }
 .services, .feature-grid, .journal__grid { border-color: rgba(255,255,255,.2); }
 .service, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
 .service > span { color: rgba(255,255,255,.45); }
 .service p { color: rgba(255,255,255,.68); }
 .service svg, .feature-grid svg, .event-grid article > span, .event-grid article > svg { color: var(--terracotta-light); }
-.gallery__heading > a { border-color: rgba(255,255,255,.7); }
+.gallery__heading > a { border-color: rgba(24,35,31,.55); }
+.gallery__item--runner img { transform: none; }
+.gallery__item--runner:hover img { transform: scale(1.04); }
 .social-platform { border-color: rgba(255,255,255,.2); color: var(--forest-deep); }
 .journal-card > span { color: var(--terracotta-light); }
 .contact__main, .event-grid article { color: var(--forest-deep); }
+.home-contact-cta { background: #b0c840; color: var(--forest-deep); }
+.home-contact-cta p:last-child { color: rgba(24,35,31,.72); }
 .faq-contact .contact-form-section { padding: clamp(28px, 4vw, 48px); background: rgba(8,11,7,.3); }
 .faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help { color: rgba(255,255,255,.78); }
 .content-section + .content-section { border-top: 0; }

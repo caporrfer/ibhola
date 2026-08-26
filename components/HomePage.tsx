@@ -43,6 +43,16 @@ export function HomePage() {
       ].map(([Icon, title, text]) => { const I = Icon as typeof Compass; return <article className="service reveal" key={title as string}><I size={24} /><h3>{title as string}</h3><p>{text as string}</p></article>; })}</div>
       <div className="container section-cta"><a className="button button--dark" href={link("/catalogo/")}>Explorar catálogo <ArrowRight size={17} /></a></div></section>
 
+      <section className="gallery section" id="tienda">
+        <div className="gallery__heading reveal"><div><h2>Conoce la tienda <em>por dentro.</em></h2></div><a href={business.mapsUrl} target="_blank" rel="noreferrer">Ven a visitarnos <ArrowUpRight size={17} /></a></div>
+        <div className="gallery__grid">
+          <figure className="gallery__item gallery__item--runner reveal"><Image src={imagePath("/images/tienda/interior-20.jpeg")} alt="Vista general del interior de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 40vw" /><figcaption><span>01</span> Un espacio para corredores</figcaption></figure>
+          <figure className="gallery__item gallery__item--kit reveal"><Image src={imagePath("/images/tienda/interior-09.jpeg")} alt="Entrada y zona de textil de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><span>02</span> Trail y running</figcaption></figure>
+          <figure className="gallery__item gallery__item--store reveal"><Image src={imagePath("/images/tienda/interior-42.jpeg")} alt="Pasillo interior con ropa técnica de IBHOLA" fill sizes="(max-width: 850px) 100vw, 32vw" /><figcaption><span>03</span> Atención en tienda</figcaption></figure>
+          <figure className="gallery__item gallery__item--singlet reveal"><Image src={imagePath("/images/tienda/interior-37.jpeg")} alt="Exposición de calzado de trail y running en IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><span>04</span> Material especializado</figcaption></figure>
+        </div>
+      </section>
+
       <section className="reviews section" id="opiniones"><div className="container"><div className="reviews__heading reveal"><div><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><div className="reviews__score"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} reseñas</small></span></div></div>
         <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Consulta las opiniones reales y actualizadas de nuestros clientes directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver opiniones en Google <ArrowUpRight size={17} /></a></div></div></section>
 

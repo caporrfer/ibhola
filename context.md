@@ -101,7 +101,7 @@ No duplicar estos datos directamente en componentes cuando puedan leerse desde `
 
 ## Imágenes
 
-Los recursos están en `public/images/`. Las rutas pasan por el helper `imagePath` en los componentes que necesitan soportar el prefijo de GitHub Pages. Al añadir una imagen, utilizar `next/image`, texto alternativo descriptivo y `sizes` apropiado.
+Los recursos están en `public/images/`. Las fotografías originales del interior de la tienda se guardan ordenadas en `public/images/tienda/` como `interior-01.jpeg` a `interior-44.jpeg`; una selección se muestra en la galería de Inicio. Las rutas pasan por el helper `imagePath` en los componentes que necesitan soportar el prefijo de GitHub Pages. Al añadir una imagen, utilizar `next/image`, texto alternativo descriptivo y `sizes` apropiado.
 
 ## Variables de entorno y rutas base
 
