@@ -2,7 +2,7 @@
 
 :root {
   --black: #000000;
-  --forest: #aaff2d;
+  --forest: #8BC34A;
   --forest-deep: #18231f;
   --forest-soft: #344840;
   --terracotta: #b6533b;
@@ -570,25 +570,25 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 }
 
 /* Homepage: balanced alternating green and black sections */
-.hero, .about, .reviews { background: #aaff2d; color: #000; }
+.hero, .about, .reviews { background: #8BC34A; color: #000; }
 .principles, .home-services, .contact { background: #000; color: #fff; }
 
 .hero .eyebrow, .hero__lead { color: rgba(0,0,0,.72); }
-.hero .button { border-color: #000; background: #000; color: #aaff2d; }
+.hero .button { border-color: #000; background: #000; color: #8BC34A; }
 .hero .button:hover { border-color: #000; background: #000; color: #fff; }
 .hero .button--ghost { border-color: rgba(0,0,0,.55); background: transparent; color: #000; }
-.hero .button--ghost:hover { border-color: #000; background: #000; color: #aaff2d; }
+.hero .button--ghost:hover { border-color: #000; background: #000; color: #8BC34A; }
 
 .principles { border-color: rgba(255,255,255,.16); }
-.principles svg, .principles__rating span b { color: #aaff2d; }
+.principles svg, .principles__rating span b { color: #8BC34A; }
 
 .about .eyebrow, .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead) { color: rgba(0,0,0,.72); }
 .about .text-link { color: #000; }
 
-.home-services .eyebrow, .home-services .service svg { color: #aaff2d; }
+.home-services .eyebrow, .home-services .service svg { color: #8BC34A; }
 .home-services .section-heading > p, .home-services .service p { color: rgba(255,255,255,.7); }
 .home-services .services, .home-services .service { border-color: rgba(255,255,255,.2); }
-.home-services .button--dark { border-color: #aaff2d; background: #aaff2d; color: #000; }
+.home-services .button--dark { border-color: #8BC34A; background: #8BC34A; color: #000; }
 .home-services .button--dark:hover { border-color: #fff; background: #fff; color: #000; }
 
 .reviews .eyebrow, .reviews__score > span, .reviews__google > svg { color: #000; }
@@ -596,24 +596,24 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .reviews__score small { color: rgba(0,0,0,.62); }
 .reviews__google { border-color: #000; background: #000; color: #fff; }
 .reviews__google p { color: rgba(255,255,255,.72); }
-.reviews__google .button { border-color: #aaff2d; background: #aaff2d; color: #000; }
+.reviews__google .button { border-color: #8BC34A; background: #8BC34A; color: #000; }
 .reviews__google .button:hover { border-color: #fff; background: #fff; }
 
-.contact .eyebrow, .contact__detail svg { color: #aaff2d; }
+.contact .eyebrow, .contact__detail svg { color: #8BC34A; }
 .contact__heading > p:last-child { color: rgba(255,255,255,.7); }
 .contact__main { border-color: rgba(255,255,255,.22); background: #000; color: #fff; }
 .contact__detail + .contact__detail, .hours, .hours__row { border-color: rgba(255,255,255,.18); }
 .contact__detail small, .hours__row span { color: rgba(255,255,255,.58); }
-.contact__buttons .button { border-color: #aaff2d; background: #aaff2d; color: #000; }
-.contact__map-label { background: #000; color: #aaff2d; }
-.home-contact-cta { background: #aaff2d; color: #000; }
+.contact__buttons .button { border-color: #8BC34A; background: #8BC34A; color: #000; }
+.contact__map-label { background: #000; color: #8BC34A; }
+.home-contact-cta { background: #8BC34A; color: #000; }
 .home-contact-cta .eyebrow, .home-contact-cta p:last-child { color: rgba(0,0,0,.7); }
-.home-contact-cta .button { border-color: #000; background: #000; color: #aaff2d; }
+.home-contact-cta .button { border-color: #000; background: #000; color: #8BC34A; }
 
 @media (max-width: 850px) {
   .hero { color: #fff; }
   .hero .eyebrow, .hero__lead { color: rgba(255,255,255,.75); }
-  .hero .button { border-color: #aaff2d; background: #aaff2d; color: #000; }
+  .hero .button { border-color: #8BC34A; background: #8BC34A; color: #000; }
   .hero .button--ghost { border-color: rgba(255,255,255,.5); background: rgba(0,0,0,.24); color: #fff; }
   .hero .button--ghost:hover { border-color: #fff; background: #fff; color: #000; }
 }
