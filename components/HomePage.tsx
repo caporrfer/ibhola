@@ -1,73 +1,48 @@
-import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, Compass, Footprints, Mail, MapPin, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock3, MapPin, Navigation, Phone } from "lucide-react";
 import { business } from "@/config/business";
 import { Header } from "./Header";
-import { LaunchScreen } from "./LaunchScreen";
+import { MotionConstellation } from "./MotionConstellation";
 import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
-import { FacebookLogo, InstagramLogo } from "./SocialIcons";
-import { Topography } from "./Topography";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const imagePath = (path: string) => `${basePath}${path}`;
-const link = (path: string) => `${basePath}${path}`;
+
 export function HomePage() {
-  return <>
-    <LaunchScreen /><RevealObserver /><Header />
-    <main>
-      <section className="hero" id="inicio"><Topography className="hero__topography" />
-        <div className="hero__layout container-wide">
-          <div className="hero__copy"><h1>Todo lo que necesitas para <em>salir a correr.</em></h1><p className="hero__lead">Calzado, textil y material para trail y running, con asesoramiento profesional de alguien que lleva muchos años sumando kilómetros.</p>
-            <div className="hero__actions"><a className="button" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a><a className="button button--ghost" href={business.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar <Navigation size={17} /></a></div>
-            <a className="hero__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label="Ver opiniones de IBHOLA en Google"><b>★★★★★</b><span><strong>{business.rating.toFixed(1)}</strong> · {business.reviewCount} opiniones en Google</span><ArrowUpRight size={15} /></a>
+  return <><RevealObserver /><Header />
+    <main className="neo-home">
+      <section className="neo-hero" id="inicio">
+        <div className="ambient-particles" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} />)}</div>
+        <div className="neo-shell neo-hero__grid">
+          <div className="neo-hero__copy">
+            <p className="neo-kicker">TRAIL · RUNNING · HUELVA</p>
+            <h1>Tu próximo<br /><span>movimiento</span><br />empieza aquí.</h1>
+            <p className="neo-lead">Material técnico y asesoramiento de alguien que también suma kilómetros. Ven, cuéntanos cómo corres y encuentra lo que realmente necesitas.</p>
+            <div className="neo-actions"><a className="neo-button" href={`${basePath}/catalogo/`}>Explorar catálogo <ArrowRight size={17} /></a><a className="neo-link" href={business.mapsUrl} target="_blank" rel="noreferrer">Visitar la tienda <ArrowUpRight size={16} /></a></div>
           </div>
-          <div className="hero__visual"><div className="hero__photo"><Image src={imagePath("/images/hero-guadiana-junio-2025-2.webp")} alt="Corredor en la CXM del Guadiana" fill priority sizes="(max-width: 900px) 100vw, 54vw" /></div></div>
+          <MotionConstellation />
         </div>
+        <div className="neo-hero__foot neo-shell"><span>IBHOLA / CORRALES</span><span>DESLIZA PARA EXPLORAR ↓</span></div>
       </section>
 
-      <section className="about section" id="presentacion"><div className="container about__intro">
-        <div className="about__copy reveal"><h2>Experiencia real <em>a tu servicio.</em></h2><p className="about__lead">Conocemos el material, las dudas y las necesidades de cada corredor para ofrecerte un trato profesional, cercano y adaptado a ti.</p><div className="about__actions"><a className="text-link" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a></div></div>
-        <div className="about__visual reveal"><div className="about__image"><Image src={imagePath("/images/corredor.webp")} alt="Propietario de IBHOLA durante una carrera" fill sizes="(max-width: 850px) 100vw, 52vw" /></div></div>
-      </div>
-      </section>
-
-      <section className="home-services section" id="que-hacemos"><div className="container"><div className="section-heading reveal"><div><h2>Te ayudamos a <em>elegir bien.</em></h2></div><p>Asesoramiento profesional, material técnico y una atención adaptada a tu experiencia y tus objetivos.</p></div></div>
-      <div className="container services">{[
-        [Compass, "Asesoramiento", "Escuchamos cómo corres y buscamos contigo la opción adecuada."],
-        [Footprints, "Ajuste y elección", "Comparamos comodidad, respuesta y estabilidad sin prisas."],
-        [ShieldCheck, "Material técnico", "Calzado, ropa, hidratación, nutrición y accesorios."],
-        [ShoppingBag, "Atención en tienda", "Prueba opciones, pregunta lo que necesites y decide sin prisas."],
-        [UsersRound, "Comunidad", "Encuentros, pruebas y actividades para compartir kilómetros."],
-        [Route, "Trail y asfalto", "Material para entrenar, competir o simplemente disfrutar corriendo."],
-      ].map(([Icon, title, text]) => { const I = Icon as typeof Compass; return <article className="service reveal" key={title as string}><I size={24} /><h3>{title as string}</h3><p>{text as string}</p></article>; })}</div>
-      <div className="container section-cta"><a className="button button--dark" href={link("/catalogo/")}>Explorar catálogo <ArrowRight size={17} /></a></div></section>
-
-      <section className="gallery section" id="tienda">
-        <div className="gallery__heading reveal"><div><h2>Conoce la tienda <em>por dentro.</em></h2></div><a href={business.mapsUrl} target="_blank" rel="noreferrer">Ven a visitarnos <ArrowUpRight size={17} /></a></div>
-        <div className="gallery__grid">
-          <figure className="gallery__item gallery__item--runner reveal"><Image src={imagePath("/images/tienda/interior-20.jpeg")} alt="Vista general del interior de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 40vw" /><figcaption><span>01</span> Un espacio para corredores</figcaption></figure>
-          <figure className="gallery__item gallery__item--kit reveal"><Image src={imagePath("/images/tienda/interior-09.jpeg")} alt="Entrada y zona de textil de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><span>02</span> Trail y running</figcaption></figure>
-          <figure className="gallery__item gallery__item--store reveal"><Image src={imagePath("/images/tienda/interior-42.jpeg")} alt="Pasillo interior con ropa técnica de IBHOLA" fill sizes="(max-width: 850px) 100vw, 32vw" /><figcaption><span>03</span> Atención en tienda</figcaption></figure>
-          <figure className="gallery__item gallery__item--singlet reveal"><Image src={imagePath("/images/tienda/interior-37.jpeg")} alt="Exposición de calzado de trail y running en IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><span>04</span> Material especializado</figcaption></figure>
-        </div>
-      </section>
-
-      <section className="reviews section" id="opiniones"><div className="container"><div className="reviews__heading reveal"><div><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><div className="reviews__score"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} reseñas</small></span></div></div>
-        <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Consulta las opiniones reales y actualizadas de nuestros clientes directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver opiniones en Google <ArrowUpRight size={17} /></a></div></div></section>
-
-      <section className="social-feed section"><div className="container">
-        <div className="social-feed__intro reveal"><div><h2>Lo último de <em>IBHOLA.</em></h2></div><p>Material recién llegado, carreras, encuentros y el día a día de nuestra comunidad, directamente desde nuestras redes.</p><div className="social-feed__platforms"><a className="social-platform social-platform--instagram" href={business.social.instagram} target="_blank" rel="noreferrer" aria-label="IBHOLA en Instagram"><InstagramLogo size={27} /><span>Instagram<small>{business.social.instagramHandle}</small></span></a><a className="social-platform social-platform--facebook" href={business.social.facebook} target="_blank" rel="noreferrer" aria-label="IBHOLA en Facebook"><FacebookLogo size={27} /><span>Facebook<small>IBHOLA Trail Running</small></span></a></div></div>
-        <div className="social-feed__grid">
-          <div className="social-feed__feature reveal"><Image src={imagePath("/images/equipacion.webp")} alt="Comunidad de corredores de IBHOLA" fill sizes="(max-width: 850px) 100vw, 52vw" /><div className="social-feed__feature-copy"><span>Trail · Running · Comunidad</span><h3>Compartimos cada <em>kilómetro.</em></h3><p>Síguenos para conocer las novedades de la tienda y todo lo que se mueve alrededor de IBHOLA.</p><div><a href={business.social.instagram} target="_blank" rel="noreferrer"><InstagramLogo size={18} /> Instagram</a><a href={business.social.facebook} target="_blank" rel="noreferrer"><FacebookLogo size={18} /> Facebook</a></div></div></div>
-          <div className="instagram-feed reveal"><div className="instagram-feed__heading"><i><InstagramLogo size={22} /></i><div><small>Publicaciones recientes</small><strong>{business.social.instagramHandle}</strong></div><a href={business.social.instagram} target="_blank" rel="noreferrer">Abrir perfil <ArrowUpRight size={15} /></a></div><div className="instagram-feed__viewport"><iframe src="https://www.instagram.com/ibhola/embed/" title="Últimas publicaciones de IBHOLA en Instagram" width="500" height="690" loading="lazy" /></div><a className="instagram-feed__footer" href={business.social.instagram} target="_blank" rel="noreferrer"><InstagramLogo size={17} /> Ver más en Instagram <ArrowUpRight size={16} /></a></div>
-        </div>
+      <section className="neo-section neo-manifesto" id="presentacion"><div className="neo-shell neo-split reveal">
+        <h2>No vendemos<br />por vender.<br /><span>Te escuchamos.</span></h2>
+        <div><p className="neo-kicker">01 / NUESTRA FORMA DE HACER</p><p className="neo-copy">Cada pisada, cada terreno y cada objetivo pide algo diferente. En IBHOLA combinamos experiencia real, criterio técnico y atención cercana para ayudarte a elegir bien.</p><a className="neo-link neo-link--amber" href={`${basePath}/que-hacemos/`}>Así trabajamos <ArrowRight size={16} /></a></div>
       </div></section>
 
-      <section className="contact section" id="contacto"><div className="container"><div className="contact__heading reveal"><h2>Visítanos en <em>Corrales.</em></h2><p>Ven a la tienda, llámanos o escríbenos antes de desplazarte.</p></div>
-        <div className="contact__main"><div className="contact__details reveal"><div className="contact__detail"><MapPin size={20} /><span><small>Dirección</small><a href={business.mapsUrl}>{business.address.street}<br />{business.address.postalCode} {business.address.locality}, {business.address.region}</a></span></div><div className="contact__detail"><Phone size={20} /><span><small>Teléfono</small><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a></span></div><div className="contact__detail"><Mail size={20} /><span><small>Correo</small><a href={`mailto:${business.email}`}>{business.email}</a></span></div><div className="hours"><div className="hours__title"><Clock3 size={19} /><h3>Horario habitual</h3></div><div className="hours__row"><b>Lunes a viernes</b><span>09:30–13:30 / 17:30–20:30</span></div><div className="hours__row"><b>Sábado</b><span>10:00–13:30</span></div><div className="hours__row"><b>Domingo</b><span>Cerrado</span></div></div><div className="contact__buttons"><a className="button" href={business.mapsUrl}>Cómo llegar <Navigation size={17} /></a></div></div>
-          <div className="contact__map reveal"><iframe src={business.mapEmbedUrl} title={`Mapa de ${business.name}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /><div className="contact__map-label"><Store size={17} /> Dónde estamos</div></div></div>
-        <div className="home-contact-cta reveal"><div><h2>¿Quieres preguntarnos algo?</h2><p>Envíanos tu consulta desde el formulario y te responderemos lo antes posible.</p></div><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Contacta con nosotros <ArrowRight size={17} /></a></div>
+      <section className="neo-section neo-paths"><div className="neo-shell">
+        <p className="neo-kicker reveal">02 / TODO PARA MOVERTE</p>
+        <div className="neo-path reveal"><span>01</span><h3>Corre</h3><p>Calzado de asfalto y trail elegido para tu pisada, distancia y terreno.</p><a href={`${basePath}/catalogo/#calzado`} aria-label="Ver calzado"><ArrowUpRight /></a></div>
+        <div className="neo-path reveal"><span>02</span><h3>Equípate</h3><p>Textil, hidratación, nutrición y accesorios que funcionan cuando los necesitas.</p><a href={`${basePath}/catalogo/`} aria-label="Ver equipamiento"><ArrowUpRight /></a></div>
+        <div className="neo-path reveal"><span>03</span><h3>Comparte</h3><p>Eventos, pruebas y una comunidad unida por las ganas de sumar kilómetros.</p><a href={`${basePath}/eventos/`} aria-label="Ver eventos"><ArrowUpRight /></a></div>
       </div></section>
-    </main><SiteFooter />
-  </>;
+
+      <section className="neo-section neo-proof"><div className="neo-shell neo-split reveal">
+        <div><p className="neo-kicker">03 / CONFIANZA LOCAL</p><div className="neo-rating"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} opiniones en Google</small></span></div></div>
+        <h2>La mejor señal:<br /><span>quien vuelve.</span></h2>
+      </div><div className="neo-shell neo-proof__action reveal"><p>Opiniones reales de corredores que ya han pasado por la tienda.</p><a className="neo-button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Leer opiniones <ArrowUpRight size={17} /></a></div></section>
+
+      <section className="neo-section neo-visit" id="contacto"><div className="neo-shell reveal"><p className="neo-kicker">04 / VEN A VERNOS</p><h2>Tu siguiente ruta<br />pasa por <span>IBHOLA.</span></h2>
+        <div className="neo-visit__grid"><div><MapPin /><p>{business.address.street}<br />{business.address.postalCode} {business.address.locality}, {business.address.region}</p><a className="neo-link" href={business.mapsUrl} target="_blank" rel="noreferrer">Abrir en Maps <Navigation size={16} /></a></div><div><Clock3 /><p>L–V&nbsp; 09:30–13:30 / 17:30–20:30<br />Sábado&nbsp; 10:00–13:30</p></div><div><Phone /><p><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a><br /><a href={`mailto:${business.email}`}>{business.email}</a></p></div></div>
+      </div></section>
+    </main><SiteFooter /></>;
 }
