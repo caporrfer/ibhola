@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import * as THREE from "three";
 
 const COUNT = 13000;
@@ -54,10 +55,14 @@ export function MotionConstellation() {
   const progressRef = useRef(0);
   const [stage, setStage] = useState(0);
   const [ready, setReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
+    if (!mounted) return;
     const mount = mountRef.current; if (!mount) return;
-    const page = mount.closest(".neo-home") as HTMLElement | null; if (!page) return;
+    const page = document.querySelector(".neo-home") as HTMLElement | null; if (!page) return;
     let disposed = false, raf = 0, smoothProgress = 0;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, .1, 100); camera.position.set(0, 0, 8.7);
@@ -110,11 +115,12 @@ export function MotionConstellation() {
     });
 
     return () => { disposed = true; cancelAnimationFrame(raf); window.removeEventListener("resize", onResize); window.removeEventListener("scroll", onScroll); window.removeEventListener("pointermove", onPointer); renderer.dispose(); renderer.domElement.remove(); };
-  }, []);
+  }, [mounted]);
 
-  return <div ref={mountRef} className={`motion-constellation motion-constellation--3d ${ready ? "is-ready" : ""}`} aria-label="Modelo 3D de partículas que se transforma al desplazarse entre un corredor, una zapatilla y una bicicleta">
+  if (!mounted) return null;
+  return createPortal(<div ref={mountRef} className={`motion-constellation motion-constellation--3d motion-constellation--persistent ${ready ? "is-ready" : ""}`} aria-label="Modelo 3D de partículas que se transforma al desplazarse entre un corredor, una zapatilla y una bicicleta">
     <div className="motion-constellation__halo" aria-hidden="true" />
     <div className="motion-constellation__status"><span>0{stage + 1}</span><div><i style={{ transform: `scaleX(${stage === 0 ? .18 : stage === 1 ? .58 : 1})` }} /><b>{sources[stage].label}</b></div><span>03</span></div>
     {!ready && <span className="motion-constellation__loading">CONSTRUYENDO MOVIMIENTO…</span>}
-  </div>;
+  </div>, document.body);
 }

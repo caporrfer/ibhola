@@ -847,9 +847,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 }
 
 /* Persistent WebGL canvas across the full homepage */
-.neo-home { isolation: isolate; background: #000; }
-.neo-home > .motion-constellation--3d { position: fixed; z-index: 0; inset: 0; width: 100vw; height: 100svh; pointer-events: none; }
-.neo-home > section { position: relative; z-index: 1; background: transparent; }
+.neo-home { isolation: isolate; background: transparent; }
+.motion-constellation--persistent { position: fixed; z-index: 1; inset: 0; width: 100vw; height: 100svh; pointer-events: none; }
+.neo-home > section { position: relative; z-index: 2; background: transparent; }
 .neo-hero { height: 100svh; min-height: 680px; }
 .neo-hero__stage { height: 100svh; min-height: 680px; position: relative; top: auto; background: transparent; }
 .neo-section { min-height: 100svh; display: flex; align-items: center; background: transparent; }
@@ -858,11 +858,11 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .neo-paths::before { background: linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.36) 54%, rgba(0,0,0,.06)); }
 .neo-proof::before { background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.18) 50%, rgba(0,0,0,.72)); }
 .neo-visit::before { background: linear-gradient(0deg, rgba(0,0,0,.92), rgba(0,0,0,.25) 72%, transparent); }
-.neo-home > .motion-constellation--3d .motion-constellation__status { position: fixed; }
+.motion-constellation--persistent .motion-constellation__status { position: fixed; }
 
 @media (max-width: 900px) {
   .neo-hero { height: 100svh; min-height: 680px; }
   .neo-hero__stage { min-height: 680px; }
-  .neo-home > .motion-constellation--3d { height: 100svh; top: 0; bottom: auto; }
+  .motion-constellation--persistent { height: 100svh; top: 0; bottom: auto; }
   .neo-section::before { background: linear-gradient(0deg, rgba(0,0,0,.88), rgba(0,0,0,.42) 72%, rgba(0,0,0,.12)); }
 }
