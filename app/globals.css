@@ -142,8 +142,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 
 /* About and services */
 .about { overflow: hidden; background: var(--forest-gradient-light); color: var(--forest-deep); }
-.about::before { content: ""; position: absolute; z-index: 0; inset: 0 0 auto; height: 96px; background: linear-gradient(180deg, #080908 0%, #343d14 38%, #788c2d 70%, #b0c840 100%); pointer-events: none; }
-.about > * { position: relative; z-index: 1; }
 .about .eyebrow, .contact .eyebrow { color: var(--terracotta); }
 .about__intro { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(65px, 9vw, 135px); align-items: center; }
 .about__copy h2 { margin-bottom: 33px; font-size: clamp(3.5rem, 5.7vw, 6.3rem); }
@@ -487,7 +485,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .hero__rating { margin-top: 27px; }
   .hero__terrain { display: none; }
   .hero__scroll span { display: none; }
-  .about::before { height: 68px; }
   .about__copy h2, .events__copy h2, .faq__heading h2 { font-size: clamp(3rem, 13vw, 4.2rem); }
   .about__visual { min-height: 420px; }
   .about__image { bottom: 42px; }
@@ -636,7 +633,8 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 }
 .hero .button--ghost { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); color: var(--white); }
 .hero .button--ghost:hover { border-color: var(--white); background: var(--white); color: var(--forest-deep); }
-.hero::before, .hero::after { background: none; }
+.hero::before { background: none; }
+.hero::after { z-index: 3; height: 52%; background: linear-gradient(180deg, rgba(8,9,8,0) 0%, rgba(8,9,8,.12) 18%, rgba(52,61,20,.55) 58%, rgba(120,140,45,.86) 82%, #b0c840 100%); }
 .services, .feature-grid, .journal__grid { border-color: rgba(255,255,255,.2); }
 .service, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
 .service > span { color: rgba(255,255,255,.45); }
@@ -657,6 +655,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 
 @media (max-width: 850px) {
   .site-header.is-scrolled { backdrop-filter: none; }
+  .hero::after { background: none; }
+  .about::before { content: ""; position: absolute; z-index: 0; inset: 0 0 auto; height: 68px; background: linear-gradient(180deg, #080908 0%, #343d14 38%, #788c2d 70%, #b0c840 100%); pointer-events: none; }
+  .about > * { position: relative; z-index: 1; }
   .hero__lead { color: rgba(255,255,255,.78); }
   .hero .button--ghost { border-color: rgba(255,255,255,.55); background: rgba(8,9,8,.3); color: var(--white); }
   .hero .button--ghost:hover { border-color: var(--white); background: var(--white); color: var(--forest-deep); }
