@@ -57,13 +57,13 @@ La sección social no aparece en la navegación principal. El embed de Instagram
 
 ## Sistema visual y CSS
 
-Todo el diseño está centralizado en `app/globals.css`, organizado por comentarios: apertura, header, hero, principios, presentación/servicios, catálogo, galería, reseñas, redes, eventos, FAQ, contacto, footer, legales, navegación multipágina y superficies verdes.
+Todo el diseño está centralizado en `app/globals.css`, organizado por comentarios: apertura, header, hero, principios, presentación/servicios, catálogo, galería, reseñas, redes, eventos, FAQ, contacto, footer, legales, navegación multipágina y superficies alternas.
 
 ### Fondo
 
-- El fondo verde es global y continuo: está definido en `body` mediante dos halos radiales y un gradiente negro–pistacho.
-- Las secciones principales son transparentes para evitar que el patrón se reinicie y produzca un efecto de piezas de puzle.
-- No añadir fondos completos independientes a una sección salvo que el diseño lo requiera expresamente.
+- El fondo base de `html` y `body` es el verde sólido `#B0C840`, sin degradados.
+- Las secciones principales alternan superficies sólidas verdes y negras, aproximadamente al 50 %, para dar ritmo y contraste.
+- Los textos de las secciones verdes usan verde profundo; los de las secciones negras usan blanco.
 - Las tarjetas, campos, mapa y widgets sí pueden mantener superficies propias por legibilidad.
 
 ### Colores principales

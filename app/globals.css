@@ -628,16 +628,29 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
 
-/* Unified green section surfaces */
+/* Alternating solid section surfaces */
 .hero, .page-hero, .events, .about, .gallery, .social-feed, .journal, .contact, .home-services, .faq-contact, .interior, .events-page, .principles, .catalog, .reviews, .faq, .legal-page, .footer {
-  background: transparent;
+  background: #080908;
   color: white;
 }
-.interior > .catalog, .interior .faq { background: rgba(8,11,7,.18); }
+.hero, .page-hero, .about, .gallery, .journal, .reviews, .contact, .faq-contact {
+  background: #b0c840;
+  color: var(--forest-deep);
+}
+.interior { background: #b0c840; }
+.interior > .catalog, .interior .faq, .events-page, .content-section { background: #080908; color: white; }
 .principles, .home-services, .footer { border-top: 0; border-bottom: 0; }
 .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .home-services .section-heading > p, .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
   color: rgba(255,255,255,.7);
 }
+.hero__lead, .page-hero .container > p:last-child, .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child {
+  color: rgba(24,35,31,.78);
+}
+.hero .button--ghost { border-color: rgba(24,35,31,.55); background: rgba(255,255,255,.16); color: var(--forest-deep); }
+.hero .button--ghost:hover { border-color: var(--forest-deep); background: var(--forest-deep); color: white; }
+.hero::before, .hero::after { background: none; }
+.reviews__score { border-color: rgba(24,35,31,.3); }
+.reviews__score small { color: rgba(24,35,31,.68); }
 .services, .feature-grid, .journal__grid { border-color: rgba(255,255,255,.2); }
 .service, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
 .service > span { color: rgba(255,255,255,.45); }
