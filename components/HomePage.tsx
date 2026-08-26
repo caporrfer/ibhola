@@ -11,17 +11,19 @@ export function HomePage() {
   return <><RevealObserver /><Header />
     <main className="neo-home">
       <section className="neo-hero" id="inicio">
-        <div className="ambient-particles" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} />)}</div>
-        <div className="neo-shell neo-hero__grid">
-          <div className="neo-hero__copy">
-            <p className="neo-kicker">TRAIL · RUNNING · HUELVA</p>
-            <h1>Tu próximo<br /><span>movimiento</span><br />empieza aquí.</h1>
-            <p className="neo-lead">Material técnico y asesoramiento de alguien que también suma kilómetros. Ven, cuéntanos cómo corres y encuentra lo que realmente necesitas.</p>
-            <div className="neo-actions"><a className="neo-button" href={`${basePath}/catalogo/`}>Explorar catálogo <ArrowRight size={17} /></a><a className="neo-link" href={business.mapsUrl} target="_blank" rel="noreferrer">Visitar la tienda <ArrowUpRight size={16} /></a></div>
-          </div>
+        <div className="neo-hero__stage">
+          <div className="ambient-particles" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} />)}</div>
           <MotionConstellation />
+          <div className="neo-shell neo-hero__grid">
+            <div className="neo-hero__copy">
+              <p className="neo-kicker">TRAIL · RUNNING · HUELVA</p>
+              <h1>Tu próximo<br /><span>movimiento</span><br />empieza aquí.</h1>
+              <p className="neo-lead">Material técnico y asesoramiento de alguien que también suma kilómetros. Ven, cuéntanos cómo corres y encuentra lo que realmente necesitas.</p>
+              <div className="neo-actions"><a className="neo-button" href={`${basePath}/catalogo/`}>Explorar catálogo <ArrowRight size={17} /></a><a className="neo-link" href={business.mapsUrl} target="_blank" rel="noreferrer">Visitar la tienda <ArrowUpRight size={16} /></a></div>
+            </div>
+          </div>
+          <div className="neo-hero__foot neo-shell"><span>IBHOLA / CORRALES</span><span>SCROLL PARA TRANSFORMAR ↓</span></div>
         </div>
-        <div className="neo-hero__foot neo-shell"><span>IBHOLA / CORRALES</span><span>DESLIZA PARA EXPLORAR ↓</span></div>
       </section>
 
       <section className="neo-section neo-manifesto" id="presentacion"><div className="neo-shell neo-split reveal">

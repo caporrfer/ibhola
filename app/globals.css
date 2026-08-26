@@ -814,3 +814,34 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .footer__topography { display: none; }
 .footer__grid h2, .footer__bottom > span { color: #c9f27c; }
 .footer__grid a:hover { color: #ffb829; }
+
+/* Scroll-driven 3D hero */
+.neo-hero { height: 320svh; min-height: 0; display: block; padding: 0; }
+.neo-hero__stage { height: 100svh; min-height: 650px; position: sticky; top: 0; display: flex; align-items: center; overflow: hidden; background: #000; }
+.neo-hero__grid { width: min(1280px, calc(100% - 64px)); min-height: 0; grid-template-columns: minmax(420px, .76fr) 1.24fr; pointer-events: none; }
+.neo-hero__copy { pointer-events: auto; }
+.motion-constellation--3d { width: 100%; height: 100%; position: absolute; z-index: 0; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+.motion-constellation--3d.is-ready { opacity: 1; }
+.motion-constellation--3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.motion-constellation--3d .motion-constellation__halo { z-index: -1; inset: 8% 0; background: radial-gradient(circle at 70% 48%, rgba(201,242,124,.085), transparent 36%), radial-gradient(circle at 66% 52%, rgba(128,82,255,.05), transparent 52%); }
+.motion-constellation--3d .motion-constellation__status { right: max(32px, calc((100vw - 1280px)/2)); bottom: 42px; }
+.motion-constellation--3d .motion-constellation__status i { animation: none; transition: transform .55s cubic-bezier(.16,1,.3,1); }
+.motion-constellation__loading { position: absolute; right: 12%; top: 50%; color: #666; font-size: .58rem; letter-spacing: .15em; animation: loading-pulse 1.2s ease-in-out infinite alternate; }
+.neo-hero__foot { position: absolute; left: 0; right: 0; bottom: 42px; }
+@keyframes loading-pulse { to { opacity: .3; } }
+
+@media (max-width: 900px) {
+  .neo-hero { height: 300svh; padding: 0; }
+  .neo-hero__stage { min-height: 620px; align-items: flex-start; padding-top: 105px; }
+  .neo-hero__grid { width: min(100% - 38px, 1280px); grid-template-columns: 1fr; }
+  .neo-hero__copy { max-width: 620px; }
+  .motion-constellation--3d { height: 66%; top: auto; bottom: 1%; }
+  .motion-constellation--3d .motion-constellation__status { right: 20px; bottom: 20px; }
+}
+@media (max-width: 540px) {
+  .neo-hero__copy { padding-top: 0; }
+  .neo-hero__copy .neo-lead { max-width: 90%; }
+  .motion-constellation--3d { height: 54%; }
+  .motion-constellation--3d .motion-constellation__status { grid-template-columns: 20px 118px 20px; }
+  .neo-hero__foot { bottom: 22px; }
+}
