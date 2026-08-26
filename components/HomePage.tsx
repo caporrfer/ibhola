@@ -19,12 +19,11 @@ export function HomePage() {
         <div className="hero__layout container-wide">
           <div className="hero__copy"><h1>Todo lo que necesitas para <em>salir a correr.</em></h1><p className="hero__lead">Calzado, textil y material para trail y running, con asesoramiento profesional de alguien que lleva muchos años sumando kilómetros.</p>
             <div className="hero__actions"><a className="button" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a><a className="button button--ghost" href={business.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar <Navigation size={17} /></a></div>
+            <a className="hero__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label="Ver opiniones de IBHOLA en Google"><span>{business.rating.toFixed(1)}</span><div><b>★★★★★</b><small>{business.reviewCount} opiniones en Google</small></div><ArrowUpRight size={18} /></a>
           </div>
           <div className="hero__visual"><div className="hero__photo"><Image src={imagePath("/images/hero-guadiana-junio-2025.webp")} alt="Corredor en la CXM del Guadiana" fill priority sizes="(max-width: 900px) 100vw, 54vw" /></div><div className="hero__terrain"><Mountain size={22} /><span>Trail · Running · Experiencia</span></div></div>
         </div>
       </section>
-
-      <section className="principles"><div className="container-wide principles__grid"><div><Footprints size={21} /><span><b>Para todos los niveles</b>Desde tu primer día hasta la competición</span></div><div><Compass size={21} /><span><b>Asesoramiento profesional</b>Experiencia real corriendo</span></div><div><Store size={21} /><span><b>Trato cercano</b>En Corrales, junto a Huelva</span></div><a className="principles__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer"><strong>{business.rating.toFixed(1)}</strong><span><b>★★★★★</b>{business.reviewCount} opiniones en Google</span><ArrowUpRight size={18} /></a></div></section>
 
       <section className="about section" id="presentacion"><div className="container about__intro">
         <div className="about__copy reveal"><h2>Experiencia real <em>a tu servicio.</em></h2><p className="about__lead">Conocemos el material, las dudas y las necesidades de cada corredor para ofrecerte un trato profesional, cercano y adaptado a ti.</p><div className="about__actions"><a className="text-link" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a></div></div>
