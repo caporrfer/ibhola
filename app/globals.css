@@ -2,7 +2,7 @@
 
 :root {
   --black: #080908;
-  --forest: #77a737;
+  --forest: #25352f;
   --forest-deep: #18231f;
   --forest-soft: #344840;
   --terracotta: #b6533b;
@@ -106,7 +106,7 @@ h1 em, h2 em { color: var(--terracotta-light); font-style: italic; font-weight: 
 .hero__visual { min-width: calc(100% + max(32px, (100vw - 1440px)/2)); position: relative; overflow: hidden; background: var(--black); clip-path: polygon(11% 0,100% 0,100% 100%,0 100%); }
 .hero__photo { position: absolute; inset: 0; transform: translateY(calc(var(--hero-scroll) * 28px)) scale(calc(1.10 + var(--hero-scroll) * .025)); transform-origin: center; }
 .hero__photo img { object-fit: cover; object-position: 53% 50%; filter: saturate(.8) contrast(1.05); }
-.hero__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--forest) 0%, rgba(119,167,55,.4) 28%, rgba(8,9,8,.06) 62%), linear-gradient(0deg, rgba(8,9,8,.76), transparent 48%); }
+.hero__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--forest) 0%, rgba(37,53,47,.4) 28%, rgba(8,9,8,.06) 62%), linear-gradient(0deg, rgba(8,9,8,.76), transparent 48%); }
 .hero__terrain { position: absolute; z-index: 2; top: 112px; right: max(28px, calc((100vw - 1440px)/2)); display: flex; align-items: center; gap: 10px; padding: 10px 13px; border: 1px solid rgba(255,255,255,.23); background: rgba(0,0,0,.28); color: rgba(255,255,255,.76); font-size: .59rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; backdrop-filter: blur(7px); }
 .hero__coordinates { position: absolute; right: max(28px, calc((100vw - 1440px)/2)); bottom: 126px; z-index: 2; color: rgba(255,255,255,.57); font-family: monospace; font-size: .63rem; letter-spacing: .1em; line-height: 1.8; text-align: right; }
 .hero__caption { max-width: 390px; position: absolute; z-index: 2; left: 15%; bottom: 80px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 12px; margin: 0; color: rgba(255,255,255,.8); font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; }
