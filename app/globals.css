@@ -141,7 +141,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 @keyframes page-enter { from { opacity: 0; transform: translateY(5px); } }
 
 /* About and services */
-.about { overflow: hidden; background: var(--forest-gradient-light); color: var(--forest-deep); }
+.about { margin-top: -64px; overflow: hidden; padding-top: 196px; background: var(--forest-gradient-light); color: var(--forest-deep); clip-path: polygon(0 64px, 100% 0, 100% 100%, 0 100%); }
 .about .eyebrow, .contact .eyebrow { color: var(--terracotta); }
 .about__intro { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(65px, 9vw, 135px); align-items: center; }
 .about__copy h2 { margin-bottom: 33px; font-size: clamp(3.5rem, 5.7vw, 6.3rem); }
@@ -429,6 +429,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .hero__caption { display: none; }
   .hero__scroll { left: 24px; bottom: 20px; }
   .hero__rating { width: fit-content; position: static; margin-top: 28px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.65); }
+  .about { margin-top: -34px; padding-top: 130px; clip-path: polygon(0 34px, 100% 0, 100% 100%, 0 100%); }
   .about__intro, .events__grid { grid-template-columns: 1fr; }
   .about__copy { max-width: 650px; }
   .about__visual { min-height: 560px; }
@@ -485,6 +486,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .hero__rating { margin-top: 27px; }
   .hero__terrain { display: none; }
   .hero__scroll span { display: none; }
+  .about { padding-top: 110px; }
   .about__copy h2, .events__copy h2, .faq__heading h2 { font-size: clamp(3rem, 13vw, 4.2rem); }
   .about__visual { min-height: 420px; }
   .about__image { bottom: 42px; }
