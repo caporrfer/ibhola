@@ -614,35 +614,43 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   background: #080908;
   color: white;
 }
-.page-hero, .about, .gallery, .journal, .social-feed, .faq-contact {
+.page-hero, .journal, .faq-contact, .hero, .home-services, .reviews, .contact {
   background: #b0c840;
   color: var(--forest-deep);
 }
 .interior { background: #b0c840; }
 .interior > .catalog, .interior .faq, .events-page, .content-section { background: #080908; color: white; }
 .home-services, .footer { border-top: 0; border-bottom: 0; }
-.about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .home-services .section-heading > p, .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact__heading > p:last-child, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
+.about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .social-feed__intro > p, .journal .section-heading > p, .journal-card p, .contact-form-section > div > p:last-child, .split-content p, .feature-grid p {
   color: rgba(255,255,255,.7);
 }
-.page-hero .container > p:last-child, .about__lead, .about__copy > p:not(.eyebrow):not(.about__lead), .journal .section-heading > p, .journal-card p, .social-feed__intro > p {
+.hero__lead, .page-hero .container > p:last-child, .home-services .section-heading > p, .contact__heading > p:last-child, .journal .section-heading > p, .journal-card p {
   color: rgba(24,35,31,.78);
 }
-.hero .button--ghost { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); color: var(--white); }
-.hero .button--ghost:hover { border-color: var(--white); background: var(--white); color: var(--forest-deep); }
+.hero .button { border-color: var(--forest-deep); background: var(--forest-deep); color: white; }
+.hero .button:hover { border-color: white; background: white; color: var(--forest-deep); }
+.hero .button--ghost { border-color: rgba(24,35,31,.55); background: rgba(255,255,255,.12); color: var(--forest-deep); }
+.hero .button--ghost:hover { border-color: var(--forest-deep); background: var(--forest-deep); color: white; }
+.hero__rating { color: rgba(24,35,31,.64); }
+.hero__rating strong { color: var(--forest-deep); }
 .hero::before { background: none; }
-.services, .feature-grid, .journal__grid { border-color: rgba(255,255,255,.2); }
-.service, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
-.service > span { color: rgba(255,255,255,.45); }
-.service p { color: rgba(255,255,255,.68); }
+.services { border-color: rgba(24,35,31,.22); }
+.service { border-color: rgba(24,35,31,.22); }
+.feature-grid, .journal__grid, .feature-grid article, .journal-card { border-color: rgba(255,255,255,.2); }
+.service > span { color: rgba(24,35,31,.48); }
+.service p { color: rgba(24,35,31,.72); }
 .service svg, .feature-grid svg, .event-grid article > span, .event-grid article > svg { color: var(--terracotta-light); }
-.gallery__heading > a { border-color: rgba(24,35,31,.55); }
+.gallery__heading > a { border-color: rgba(255,255,255,.55); }
 .gallery__item--runner img { transform: none; }
 .gallery__item--runner:hover img { transform: scale(1.04); }
-.social-platform { border-color: rgba(255,255,255,.2); color: var(--forest-deep); }
+.social-platform { border-color: rgba(255,255,255,.24); background: #121612; color: white; }
+.social-platform small { color: rgba(255,255,255,.58); }
 .journal-card > span { color: var(--terracotta-light); }
+.reviews__score { border-color: rgba(24,35,31,.25); }
+.reviews__score small { color: rgba(24,35,31,.62); }
 .contact__main, .event-grid article { color: var(--forest-deep); }
-.home-contact-cta { background: #b0c840; color: var(--forest-deep); }
-.home-contact-cta p:last-child { color: rgba(24,35,31,.72); }
+.home-contact-cta { background: #080908; color: white; }
+.home-contact-cta p:last-child { color: rgba(255,255,255,.7); }
 .faq-contact .contact-form-section { padding: clamp(28px, 4vw, 48px); background: rgba(8,11,7,.3); }
 .faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help { color: rgba(255,255,255,.78); }
 .content-section + .content-section { border-top: 0; }
@@ -651,8 +659,11 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 @media (max-width: 850px) {
   .site-header.is-scrolled { backdrop-filter: none; }
   .hero__lead { color: rgba(255,255,255,.78); }
+  .hero .button:not(.button--ghost) { border-color: var(--pistachio-action); background: var(--pistachio-action); color: var(--forest-deep); }
   .hero .button--ghost { border-color: rgba(255,255,255,.55); background: rgba(8,9,8,.3); color: var(--white); }
   .hero .button--ghost:hover { border-color: var(--white); background: var(--white); color: var(--forest-deep); }
+  .hero__rating { color: rgba(255,255,255,.65); }
+  .hero__rating strong { color: white; }
   .reviews-carousel { grid-auto-columns: minmax(290px, 72%); }
   .page-hero { min-height: 520px; padding: 140px 0 75px; }
   .split-content { grid-template-columns: 1fr; }
