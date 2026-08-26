@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { business } from "@/config/business";
-import { SiteEnhancements } from "@/components/SiteEnhancements";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,9 +29,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#B0C840",
+  themeColor: "#77A737",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body><SiteEnhancements />{children}</body></html>;
+  return <html lang="es"><body>{children}</body></html>;
 }

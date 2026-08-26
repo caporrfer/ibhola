@@ -1,4 +1,4 @@
-name: Publish GitHub Pages
+name: Build GitHub Pages branch
 
 on:
   push:
@@ -9,14 +9,14 @@ permissions:
   contents: write
 
 concurrency:
-  group: github-pages
+  group: pages-branch
   cancel-in-progress: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: Checkout
         uses: actions/checkout@v6
 
       - name: Setup Node
@@ -28,18 +28,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static website
+      - name: Build static site
         run: npm run build
         env:
           BUILD_TARGET: static
           NEXT_PUBLIC_BASE_PATH: /ibhola
           NEXT_PUBLIC_SITE_URL: https://caporrfer.github.io/ibhola
 
-      - name: Prepare GitHub Pages branch
-        run: |
-          test -f out/index.html
-          touch out/.nojekyll
-          cp vercel.json out/vercel.json
+      - name: Verify index.html
+        run: test -f out/index.html
 
       - name: Publish gh-pages branch
         env:
