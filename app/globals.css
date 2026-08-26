@@ -490,6 +490,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .launch-screen__mark { width: 88vw; }
   .launch-screen__mark p { gap: 8px; font-size: .51rem; letter-spacing: .15em; }
   .hero { min-height: 790px; }
+  .hero__layout { width: 100%; }
   .hero__layout, .hero__copy { min-height: 790px; }
   .hero__copy { padding: 110px 15px 72px; }
   .hero h1 { margin-bottom: 22px; font-size: clamp(3.2rem, 15vw, 4.8rem); }
