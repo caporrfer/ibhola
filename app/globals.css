@@ -435,7 +435,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .hero__layout { min-height: 850px; display: block; width: 100%; }
   .hero__visual { min-width: 0; position: absolute; inset: 0; clip-path: none; }
   .hero__photo { transform: translateY(calc(var(--hero-scroll) * 20px)) scale(1.36); }
-  .hero__visual::after { background: linear-gradient(0deg, rgba(24,35,31,.99) 8%, rgba(24,35,31,.79) 58%, rgba(8,9,8,.22)), linear-gradient(90deg, rgba(24,35,31,.55), transparent); }
+  .hero__visual::after { background: linear-gradient(0deg, rgba(8,9,8,.92) 8%, rgba(8,9,8,.65) 58%, rgba(8,9,8,.18)); }
   .hero__copy { min-height: 850px; justify-content: flex-end; padding: 120px 24px 85px; }
   .hero h1 { color: var(--white); font-size: clamp(3.7rem, 12vw, 6.3rem); }
   .hero__terrain { top: 92px; right: 18px; }
