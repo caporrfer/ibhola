@@ -669,6 +669,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 
 @media (max-width: 850px) {
   .site-header.is-scrolled { backdrop-filter: none; }
+  .hero__lead { color: rgba(255,255,255,.78); }
+  .hero .button--ghost { border-color: rgba(255,255,255,.55); background: rgba(8,9,8,.3); color: var(--white); }
+  .hero .button--ghost:hover { border-color: var(--white); background: var(--white); color: var(--forest-deep); }
   .reviews-carousel { grid-auto-columns: minmax(290px, 72%); }
   .page-hero { min-height: 520px; padding: 140px 0 75px; }
   .split-content { grid-template-columns: 1fr; }
