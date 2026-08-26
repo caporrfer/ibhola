@@ -24,8 +24,9 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: #b0c840; }
-body { margin: 0; overflow-x: hidden; background: #b0c840; color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+html { max-width: 100%; overflow-x: hidden; scroll-behavior: smooth; background: var(--black); }
+body { width: 100%; max-width: 100%; min-width: 0; margin: 0; overflow-x: hidden; background: var(--black); color: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+body > main, body > footer { width: 100%; max-width: 100%; overflow-x: clip; }
 body > main, body > .footer { animation: page-enter .45s ease both; transition: opacity .18s ease, transform .18s ease; }
 body > .site-header { transition: height .3s, background .3s, backdrop-filter .3s, opacity .18s ease; }
 body.page-leaving > .site-header { opacity: 0; }
