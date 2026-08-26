@@ -57,7 +57,7 @@ export function MotionConstellation() {
 
   useEffect(() => {
     const mount = mountRef.current; if (!mount) return;
-    const hero = mount.closest(".neo-hero") as HTMLElement | null; if (!hero) return;
+    const page = mount.closest(".neo-home") as HTMLElement | null; if (!page) return;
     let disposed = false, raf = 0, smoothProgress = 0;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, .1, 100); camera.position.set(0, 0, 8.7);
@@ -66,8 +66,8 @@ export function MotionConstellation() {
     const pointer = new THREE.Vector2();
 
     const onScroll = () => {
-      const max = Math.max(1, hero.offsetHeight - innerHeight);
-      progressRef.current = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / max));
+      const max = Math.max(1, page.offsetHeight - innerHeight);
+      progressRef.current = Math.min(1, Math.max(0, -page.getBoundingClientRect().top / max));
     };
     const onPointer = (event: PointerEvent) => { pointer.x = event.clientX / innerWidth - .5; pointer.y = event.clientY / innerHeight - .5; };
     const onResize = () => { const { width, height } = mount.getBoundingClientRect(); renderer.setSize(width, height, false); camera.aspect = width / Math.max(1, height); camera.updateProjectionMatrix(); };

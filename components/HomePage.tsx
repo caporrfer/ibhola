@@ -10,10 +10,10 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export function HomePage() {
   return <><RevealObserver /><Header />
     <main className="neo-home">
+      <MotionConstellation />
       <section className="neo-hero" id="inicio">
         <div className="neo-hero__stage">
           <div className="ambient-particles" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} />)}</div>
-          <MotionConstellation />
           <div className="neo-shell neo-hero__grid">
             <div className="neo-hero__copy">
               <p className="neo-kicker">TRAIL · RUNNING · HUELVA</p>
