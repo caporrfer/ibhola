@@ -309,7 +309,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .faq details { border-bottom: 1px solid var(--line-dark); }
 .faq summary { min-height: 92px; display: grid; grid-template-columns: 40px 1fr 18px; gap: 15px; align-items: center; cursor: pointer; list-style: none; font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary span { width: 27px; height: 27px; display: inline-grid; place-items: center; border: 1px solid rgba(210,122,97,.55); border-radius: 50%; color: var(--terracotta-light); font-family: var(--sans); font-size: .62rem; font-variant-numeric: tabular-nums; font-weight: 800; line-height: 1; }
+.faq summary span { color: var(--pistachio-action); font-family: var(--serif); font-size: 1rem; font-style: italic; font-variant-numeric: oldstyle-nums; font-weight: 400; line-height: 1; }
 .faq summary i { width: 14px; height: 14px; position: relative; }
 .faq summary i::before, .faq summary i::after { content: ""; position: absolute; inset: 6px 0 auto; height: 1px; background: white; transition: transform .2s; }
 .faq summary i::after { transform: rotate(90deg); }
@@ -417,7 +417,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .mobile-menu.is-open { opacity: 1; visibility: visible; transform: none; }
   .mobile-menu nav { display: flex; flex-direction: column; }
   .mobile-menu nav a { display: flex; align-items: center; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line-dark); font-family: var(--serif); font-size: clamp(1.8rem, 7vw, 2.7rem); line-height: 1; }
-  .mobile-menu nav a span { width: 29px; height: 29px; display: inline-grid; flex: 0 0 29px; place-items: center; border: 1px solid rgba(210,122,97,.55); border-radius: 50%; color: var(--terracotta-light); font-family: var(--sans); font-size: .62rem; font-variant-numeric: tabular-nums; font-weight: 800; line-height: 1; }
+  .mobile-menu nav a span { width: 24px; flex: 0 0 24px; color: var(--pistachio-action); font-family: var(--serif); font-size: 1rem; font-style: italic; font-variant-numeric: oldstyle-nums; font-weight: 400; line-height: 1; text-align: center; }
   .mobile-menu > p { margin: auto 0 0; color: rgba(255,255,255,.45); font-size: .59rem; letter-spacing: .12em; text-transform: uppercase; }
   .hero { min-height: 850px; }
   .hero__layout { min-height: 850px; display: block; width: 100%; }
