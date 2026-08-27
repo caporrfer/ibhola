@@ -61,7 +61,7 @@ export function HomePage() {
 
       <section className="reviews section" id="opiniones"><div className="container">
         <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><GoogleReviewsLink /></div>
-        <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><BadgeCheck size={15} /> {review.author}<span>Opinión destacada</span></footer></article>)}</div>
+        <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><span className="review__author"><BadgeCheck size={15} aria-hidden="true" /><span>{review.author}</span></span><span className="review__label">Opinión destacada</span></footer></article>)}</div>
       </div></section>
 
       <section className="social-feed section"><div className="container">
