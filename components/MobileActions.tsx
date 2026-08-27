@@ -4,15 +4,14 @@ import { useEffect, useState } from "react";
 import { Navigation, Phone } from "lucide-react";
 import { business } from "@/config/business";
 
-export function MobileActions({ afterHero = false }: { afterHero?: boolean }) {
-  const [visible, setVisible] = useState(!afterHero);
+export function MobileActions() {
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!afterHero) return;
-
     const updateVisibility = () => {
-      const hero = document.querySelector<HTMLElement>(".hero");
-      setVisible(!hero || hero.getBoundingClientRect().bottom <= 0);
+      const hero = document.querySelector<HTMLElement>(".hero, .page-hero");
+      const revealPoint = window.innerHeight * 0.25;
+      setVisible(!hero || hero.getBoundingClientRect().bottom <= revealPoint);
     };
 
     updateVisibility();
@@ -22,7 +21,7 @@ export function MobileActions({ afterHero = false }: { afterHero?: boolean }) {
       window.removeEventListener("scroll", updateVisibility);
       window.removeEventListener("resize", updateVisibility);
     };
-  }, [afterHero]);
+  }, []);
 
   return <div className={`mobile-action-bar ${visible ? "is-visible" : ""}`} aria-label="Acciones rápidas" aria-hidden={!visible}>
     <a href={`tel:${business.phone}`} aria-label={`Llamar a IBHOLA: ${business.phoneDisplay}`} title="Llamar a IBHOLA" tabIndex={visible ? undefined : -1}><Phone size={24} aria-hidden="true" /></a>

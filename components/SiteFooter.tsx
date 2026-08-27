@@ -5,7 +5,7 @@ import { Topography } from "./Topography";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-export function SiteFooter({ mobileActionsAfterHero = false }: { mobileActionsAfterHero?: boolean }) {
+export function SiteFooter() {
   return <>
     <footer className="footer"><Topography className="footer__topography" />
       <div className="container footer__grid">
@@ -16,6 +16,6 @@ export function SiteFooter({ mobileActionsAfterHero = false }: { mobileActionsAf
       </div>
       <div className="container footer__bottom"><p>© {new Date().getFullYear()} IBHOLA TRAIL RUNNING</p><div><a href={`${basePath}/aviso-legal/`}>Aviso legal</a><a href={`${basePath}/privacidad/`}>Privacidad</a><a href={`${basePath}/cookies/`}>Cookies</a></div><span>Corrales · Huelva</span></div>
     </footer>
-    <MobileActions afterHero={mobileActionsAfterHero} />
+    <MobileActions />
   </>;
 }
