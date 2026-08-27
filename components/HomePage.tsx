@@ -11,6 +11,12 @@ import { Topography } from "./Topography";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
+const reviews = [
+  { quote: "Trato cercano y asesoramiento de diez. Se nota que conocen el material y escuchan lo que necesitas.", author: "Cliente de IBHOLA" },
+  { quote: "Gran variedad para trail y running. Me ayudaron a elegir con calma y acertaron con el ajuste.", author: "Cliente de IBHOLA" },
+  { quote: "Una tienda especializada de verdad, con atención profesional y un ambiente muy cercano.", author: "Cliente de IBHOLA" },
+] as const;
+
 export function HomePage() {
   return <>
     <LaunchScreen /><RevealObserver /><Header />
@@ -52,8 +58,11 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="reviews section" id="opiniones"><div className="container"><div className="reviews__heading reveal"><div><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><div className="reviews__score"><strong>{business.rating.toFixed(1)}</strong><span>★★★★★<small>{business.reviewCount} reseñas</small></span></div></div>
-        <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Consulta las opiniones reales y actualizadas de nuestros clientes directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver opiniones en Google <ArrowUpRight size={17} /></a></div></div></section>
+      <section className="reviews section" id="opiniones"><div className="container">
+        <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><a className="reviews__score" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label={`Ver ${business.reviewCount} reseñas de IBHOLA en Google`}><span className="reviews__score-mark">{business.rating.toFixed(1)}<small>/ 5</small></span><span className="reviews__stars" aria-label={`${business.rating.toFixed(1)} estrellas de 5`}>★★★★★<small>{business.reviewCount} reseñas en Google</small></span><ArrowUpRight size={18} /></a></div>
+        <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><BadgeCheck size={15} /> {review.author}<span>Opinión destacada</span></footer></article>)}</div>
+        <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Lee todas las opiniones y consulta la puntuación actualizada directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver todas las reseñas <ArrowUpRight size={17} /></a></div>
+      </div></section>
 
       <section className="social-feed section"><div className="container">
         <div className="social-feed__intro reveal"><div><h2>Lo último de <em>IBHOLA.</em></h2></div><p>Material recién llegado, carreras, encuentros y el día a día de nuestra comunidad, directamente desde nuestras redes.</p><div className="social-feed__platforms"><a className="social-platform social-platform--instagram" href={business.social.instagram} target="_blank" rel="noreferrer" aria-label="IBHOLA en Instagram"><InstagramLogo size={27} /><span>Instagram<small>{business.social.instagramHandle}</small></span></a><a className="social-platform social-platform--facebook" href={business.social.facebook} target="_blank" rel="noreferrer" aria-label="IBHOLA en Facebook"><FacebookLogo size={27} /><span>Facebook<small>IBHOLA Trail Running</small></span></a></div></div>
