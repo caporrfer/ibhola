@@ -77,6 +77,6 @@ export function HomePage() {
           <div className="contact__map reveal"><iframe src={business.mapEmbedUrl} title={`Mapa de ${business.name}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /><div className="contact__map-label"><Store size={17} /> Dónde estamos</div></div></div>
         <div className="home-contact-cta reveal"><div><h2>¿Quieres preguntarnos algo?</h2><p>Envíanos tu consulta desde el formulario y te responderemos lo antes posible.</p></div><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Contacta con nosotros <ArrowRight size={17} /></a></div>
       </div></section>
-    </main><SiteFooter />
+    </main><SiteFooter mobileActionsAfterHero />
   </>;
 }
