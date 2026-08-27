@@ -62,7 +62,6 @@ export function HomePage() {
       <section className="reviews section" id="opiniones"><div className="container">
         <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><GoogleReviewsLink /></div>
         <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><BadgeCheck size={15} /> {review.author}<span>Opinión destacada</span></footer></article>)}</div>
-        <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Lee todas las opiniones y consulta la puntuación actualizada directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver todas las reseñas <ArrowUpRight size={17} /></a></div>
       </div></section>
 
       <section className="social-feed section"><div className="container">
