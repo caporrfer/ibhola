@@ -20,6 +20,13 @@ La web queda publicada en `http://localhost:8183`.
 
 La versión estática se genera automáticamente con GitHub Actions. El workflow crea `out/index.html` y actualiza la rama `gh-pages`.
 
+La valoración de Google se consulta de forma segura durante cada despliegue y una vez al día. Para activarla, habilita **Places API (New)** en Google Cloud y añade estos secretos en **GitHub → Settings → Secrets and variables → Actions**:
+
+- `GOOGLE_PLACES_API_KEY`: clave restringida exclusivamente a Places API (New).
+- `GOOGLE_PLACE_ID`: identificador de la ficha de IBHOLA en Google Maps.
+
+Si faltan las credenciales o Google no responde, la web mantiene automáticamente la valoración de fallback guardada en `config/google-reviews.generated.json`; la clave nunca se incluye en el frontend ni en la exportación estática.
+
 Para activar la URL pública por primera vez, abre **Settings → Pages**, selecciona **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Después quedará disponible en `https://caporrfer.github.io/ibhola/` y las siguientes publicaciones serán automáticas.
 
 ## Configuración del negocio
