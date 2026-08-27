@@ -602,11 +602,18 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .subheading h2 { font-size: clamp(3rem, 5vw, 5rem); }
 .subheading--past { margin-top: 100px; padding-top: 80px; border-top: 1px solid var(--line-light); }
 .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.event-grid article { min-height: 300px; display: flex; flex-direction: column; padding: 30px; border: 1px solid var(--line-light); background: var(--white); }
-.event-grid article > span { color: var(--terracotta); font-size: .65rem; font-weight: 800; letter-spacing: .12em; }
-.event-grid article > svg { margin: 58px 0 22px; color: var(--terracotta); }
+.event-grid article { min-height: 430px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line-light); background: var(--white); }
+.event-card__image { min-height: 205px; position: relative; overflow: hidden; background: #20261f; }
+.event-card__image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,9,8,.08), rgba(8,9,8,.58)); }
+.event-card__image img { object-fit: cover; transition: transform .45s cubic-bezier(.2,.75,.2,1), filter .45s; }
+.event-grid article:hover .event-card__image img { transform: scale(1.045); filter: saturate(1.08); }
+.event-card__image > span { position: absolute; z-index: 1; left: 22px; bottom: 19px; padding: 7px 9px; background: var(--terracotta); color: white; font-size: .65rem; font-weight: 800; letter-spacing: .12em; }
+.event-card__body { flex: 1; display: flex; flex-direction: column; padding: 25px 28px 28px; }
+.event-card__body > svg { margin-bottom: 17px; color: var(--terracotta); }
 .event-grid h3 { font-size: 2rem; }
 .event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
+.event-photo-credits { margin-top: 30px; color: rgba(255,255,255,.48); font-size: .62rem; line-height: 1.6; }
+.event-photo-credits a { color: rgba(255,255,255,.72); text-decoration: underline; text-underline-offset: 3px; }
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
 
 /* Alternating solid section surfaces */
