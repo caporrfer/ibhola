@@ -16,6 +16,9 @@ export function SiteFooter() {
       </div>
       <div className="container footer__bottom"><p>© {new Date().getFullYear()} IBHOLA TRAIL RUNNING</p><div><a href={`${basePath}/aviso-legal/`}>Aviso legal</a><a href={`${basePath}/privacidad/`}>Privacidad</a><a href={`${basePath}/cookies/`}>Cookies</a></div><span>Corrales · Huelva</span></div>
     </footer>
-    <div className="mobile-action-bar"><a href={`tel:${business.phone}`}><Phone size={18} />Llamar</a><a href={business.mapsUrl} target="_blank" rel="noreferrer"><Navigation size={18} />Cómo llegar</a></div>
+    <div className="mobile-action-bar" aria-label="Acciones rápidas">
+      <a href={`tel:${business.phone}`} aria-label={`Llamar a IBHOLA: ${business.phoneDisplay}`} title="Llamar a IBHOLA"><Phone size={24} aria-hidden="true" /></a>
+      <a href={business.mapsUrl} target="_blank" rel="noreferrer" aria-label="Ver cómo llegar a IBHOLA" title="Cómo llegar"><Navigation size={24} aria-hidden="true" /></a>
+    </div>
   </>;
 }
