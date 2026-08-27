@@ -4,8 +4,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: "17 5 * * *"
 
 permissions:
   contents: write
@@ -36,8 +34,6 @@ jobs:
           BUILD_TARGET: static
           NEXT_PUBLIC_BASE_PATH: /ibhola
           NEXT_PUBLIC_SITE_URL: https://caporrfer.github.io/ibhola
-          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
-          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
 
       - name: Prepare GitHub Pages branch
         run: |

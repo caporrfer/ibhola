@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, Compass, Footprints, Mail, MapPin, Navigation, Phone, Route, ShieldCheck, ShoppingBag, Store, UsersRound } from "lucide-react";
 import { business } from "@/config/business";
 import { Header } from "./Header";
-import { GoogleReviewScore } from "./GoogleReviewScore";
+import { GoogleReviewsLink } from "./GoogleReviewsLink";
 import { LaunchScreen } from "./LaunchScreen";
 import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
@@ -13,9 +13,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
 const reviews = [
-  { quote: "Trato cercano y asesoramiento de diez. Se nota que conocen el material y escuchan lo que necesitas.", author: "Cliente de IBHOLA" },
-  { quote: "Gran variedad para trail y running. Me ayudaron a elegir con calma y acertaron con el ajuste.", author: "Cliente de IBHOLA" },
-  { quote: "Una tienda especializada de verdad, con atención profesional y un ambiente muy cercano.", author: "Cliente de IBHOLA" },
+  { quote: "La calidad comienza nada más entrar. Si quieres el mejor asesoramiento y un lugar de confianza, este es tu sitio.", author: "F. Ripoll" },
+  { quote: "Miguel en todo momento te asesora y recomienda cuál es tu zapatilla. Ideal para personas como yo, que estamos comenzando en esto del running.", author: "Jose Manuel González Romero" },
+  { quote: "Tienda especializada en trail running. Productos de gran calidad, asesoramiento, profesionalidad, amabilidad y un trato de diez.", author: "Ricardo Escobar Vilatersana" },
 ] as const;
 
 export function HomePage() {
@@ -52,7 +52,7 @@ export function HomePage() {
       <section className="gallery section" id="tienda">
         <div className="gallery__heading reveal"><div><h2>Conoce la tienda <em>por dentro.</em></h2></div><a href={business.mapsUrl} target="_blank" rel="noreferrer">Ven a visitarnos <ArrowUpRight size={17} /></a></div>
         <div className="gallery__grid">
-          <figure className="gallery__item gallery__item--runner reveal"><Image src={imagePath("/images/tienda/interior-20.jpeg")} alt="Vista general del interior de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 40vw" /><figcaption><Store size={17} aria-hidden="true" /> Un espacio para corredores</figcaption></figure>
+          <figure className="gallery__item gallery__item--runner reveal"><Image src={imagePath("/images/tienda/interior-20.jpeg")} alt="Vista general del interior de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 40vw" /><figcaption><Store size={17} aria-hidden="true" /> IBHOLA por dentro</figcaption></figure>
           <figure className="gallery__item gallery__item--kit reveal"><Image src={imagePath("/images/tienda/interior-09.jpeg")} alt="Entrada y zona de textil de la tienda IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><Route size={17} aria-hidden="true" /> Trail y running</figcaption></figure>
           <figure className="gallery__item gallery__item--store reveal"><Image src={imagePath("/images/tienda/interior-42.jpeg")} alt="Pasillo interior con ropa técnica de IBHOLA" fill sizes="(max-width: 850px) 100vw, 32vw" /><figcaption><UsersRound size={17} aria-hidden="true" /> Atención en tienda</figcaption></figure>
           <figure className="gallery__item gallery__item--singlet reveal"><Image src={imagePath("/images/tienda/interior-37.jpeg")} alt="Exposición de calzado de trail y running en IBHOLA" fill sizes="(max-width: 850px) 100vw, 28vw" /><figcaption><Footprints size={17} aria-hidden="true" /> Material especializado</figcaption></figure>
@@ -60,7 +60,7 @@ export function HomePage() {
       </section>
 
       <section className="reviews section" id="opiniones"><div className="container">
-        <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><GoogleReviewScore /></div>
+        <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><GoogleReviewsLink /></div>
         <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><BadgeCheck size={15} /> {review.author}<span>Opinión destacada</span></footer></article>)}</div>
         <div className="reviews__google reveal"><BadgeCheck size={28} /><p>Lee todas las opiniones y consulta la puntuación actualizada directamente en Google.</p><a className="button" href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Ver todas las reseñas <ArrowUpRight size={17} /></a></div>
       </div></section>
