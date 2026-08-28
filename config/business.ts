@@ -26,7 +26,7 @@ export const business = {
   mapEmbedUrl:
     "https://www.google.com/maps?q=IBHOLA+Trail+Running%2C+Alcalde+Jos%C3%A9+Rodr%C3%ADguez+Gonz%C3%A1lez+14%2C+Corrales%2C+Huelva&output=embed",
   googleReviewsUrl:
-    "https://www.google.com/maps/search/?api=1&query=IBHOLA+Trail+Running+Corrales+Huelva",
+    "https://www.google.com/maps/place/IBHOLA+TRAIL+RUNNING/@37.2749467,-6.9915571,17z/data=!4m8!3m7!1s0xd11ce112907a211:0x29395f1600c7f524!8m2!3d37.2749467!4d-6.9915571!9m1!1b1",
   rating: 4.8,
   reviewCount: 116,
   openingHours: [
