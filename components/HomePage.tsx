@@ -28,13 +28,13 @@ export function HomePage() {
             <div className="hero__actions"><a className="button" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a><a className="button button--ghost" href={business.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar <Navigation size={17} /></a></div>
             <a className="hero__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label="Ver opiniones de IBHOLA en Google"><b>★★★★★</b><span><strong>{business.rating.toFixed(1)}</strong> · {business.reviewCount} opiniones en Google</span><ArrowUpRight size={15} /></a>
           </div>
-          <div className="hero__visual"><div className="hero__photo"><Image src={imagePath("/images/hero-guadiana-junio-2025-2.webp")} alt="Corredor en la CXM del Guadiana" fill priority sizes="(max-width: 900px) 100vw, 54vw" /></div></div>
+          <div className="hero__visual"><div className="hero__photo"><Image src={imagePath("/images/hero-guadiana-enhanced-v2.webp")} alt="Corredor en la CXM del Guadiana" fill priority quality={92} sizes="(max-width: 900px) 100vw, 54vw" /></div></div>
         </div>
       </section>
 
       <section className="about section" id="presentacion"><div className="container about__intro">
         <div className="about__copy reveal"><h2>Experiencia real <em>a tu servicio.</em></h2><p className="about__lead">Conocemos el material, las dudas y las necesidades de cada corredor para ofrecerte un trato profesional, cercano y adaptado a ti.</p><div className="about__actions"><a className="text-link" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a></div></div>
-        <div className="about__visual reveal"><div className="about__image"><Image src={imagePath("/images/corredor-enhanced.webp")} alt="Propietario de IBHOLA durante una carrera" fill sizes="(max-width: 850px) 100vw, 52vw" /></div></div>
+        <div className="about__visual reveal"><div className="about__image"><Image src={imagePath("/images/corredor-ai-enhanced.webp")} alt="Propietario de IBHOLA durante una carrera" fill quality={92} sizes="(max-width: 850px) 100vw, 52vw" /></div></div>
       </div>
       </section>
 
