@@ -26,7 +26,7 @@ export function HomePage() {
         <div className="hero__layout container-wide">
           <div className="hero__copy"><h1>Todo lo que necesitas para <em>salir a correr.</em></h1><p className="hero__lead">Calzado, textil y material para trail y running, con asesoramiento profesional de alguien que lleva muchos años sumando kilómetros.</p>
             <div className="hero__actions"><a className="button" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a><a className="button button--ghost" href={business.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar <Navigation size={17} /></a></div>
-            <a className="hero__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label="Ver opiniones de IBHOLA en Google"><b>★★★★★</b><span><strong>{business.rating.toFixed(1)}</strong> · {business.reviewCount} opiniones en Google</span><ArrowUpRight size={15} /></a>
+            <a className="hero__rating" href={business.googleReviewsUrl} target="_blank" rel="noreferrer" aria-label="Escribir una reseña de IBHOLA en Google"><b>★★★★★</b><span><strong>{business.rating.toFixed(1)}</strong> · {business.reviewCount} opiniones en Google</span><ArrowUpRight size={15} /></a>
           </div>
           <div className="hero__visual"><div className="hero__photo"><Image src={imagePath("/images/hero-guadiana-enhanced-v2.webp")} alt="Corredor en la CXM del Guadiana" fill priority quality={92} sizes="(max-width: 900px) 100vw, 54vw" /></div></div>
         </div>
