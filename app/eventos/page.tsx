@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CalendarDays, MapPin } from "lucide-react";
+import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import { InteriorPage } from "@/components/InteriorPage";
 
 export const metadata = { title: "Eventos | IBHOLA Trail Running" };
@@ -10,18 +10,34 @@ type Event = {
   place: string;
   image: string;
   alt: string;
+  source: string;
 };
 
-const upcoming: Event[] = [
-  { date: "18 SEP", title: "Quedada nocturna Marismas del Odiel", place: "Punta Umbría · 20:00", image: "/images/eventos/marismas-odiel-atardecer.webp", alt: "Atardecer sobre las Marismas del Odiel" },
-  { date: "04 OCT", title: "Prueba de calzado trail", place: "Corrales · 10:00", image: "/images/eventos/corrales-marismas.webp", alt: "Vista de Corrales y las marismas de Huelva" },
-  { date: "25 OCT", title: "Salida por los Pinares de Aljaraque", place: "Aljaraque · 09:00", image: "/images/eventos/aljaraque-entorno.webp", alt: "Entorno natural de Aljaraque" },
-];
-
 const past: Event[] = [
-  { date: "14 JUN", title: "Ruta del Conquero", place: "Huelva", image: "/images/eventos/parque-moret-camino.webp", alt: "Camino entre árboles en el Parque Moret de Huelva" },
-  { date: "18 MAY", title: "Entrenamiento técnico en cuesta", place: "San Juan del Puerto", image: "/images/eventos/parque-moret-vegetacion.webp", alt: "Vegetación del Parque Moret de Huelva" },
-  { date: "06 ABR", title: "Salida por la Dehesa de Corrales", place: "Corrales", image: "/images/eventos/marismas-odiel-huelva.webp", alt: "Marismas del Odiel con Huelva al fondo" },
+  {
+    date: "28 MAY 2025",
+    title: "Reconocimiento en la IV Gala del Deporte",
+    place: "Club de Golf Bellavista · Aljaraque",
+    image: "/images/eventos/gala-deporte-ibhola-2025.webp",
+    alt: "Representantes premiados durante la IV Gala del Deporte de Aljaraque",
+    source: "https://www.ayto-aljaraque.es/es/ayuntamiento/sala-de-prensa/noticia-en-detalle/Aljaraque-rinde-honores-a-la-excelencia-deportiva-en-su-IV-Gala-del-Deporte/",
+  },
+  {
+    date: "22 SEP 2024",
+    title: "IX Trail Marismas de Corrales",
+    place: "Corrales · Aljaraque",
+    image: "/images/eventos/ix-trail-marismas-2024.webp",
+    alt: "Organización del IX Trail Marismas de Corrales en el entorno de la prueba",
+    source: "https://huelvaya.es/2024/09/23/vencedores-ix-trail-marismas-de-corrales/",
+  },
+  {
+    date: "08 JUL 2023",
+    title: "VIII Trail Marismas de Corrales",
+    place: "Marismas del Odiel · Corrales",
+    image: "/images/eventos/viii-trail-marismas-2023.webp",
+    alt: "Corredoras atravesando el agua durante el VIII Trail Marismas de Corrales",
+    source: "https://www.ayto-aljaraque.es/es/ayuntamiento/sala-de-prensa/noticia-en-detalle/El-VIII-Trail-Marismas-de-Corrales-volvio-a-dejar-momentos-espectaculares/",
+  },
 ];
 
 function Cards({ items }: { items: Event[] }) {
@@ -35,20 +51,19 @@ function Cards({ items }: { items: Event[] }) {
         <CalendarDays size={23} aria-hidden="true" />
         <h3>{event.title}</h3>
         <p><MapPin size={15} aria-hidden="true" />{event.place}</p>
+        <a className="event-card__source" href={event.source} target="_blank" rel="noreferrer">Ver fuente <ExternalLink size={13} aria-hidden="true" /></a>
       </div>
     </article>
   )}</div>;
 }
 
 export default function Page() {
-  return <InteriorPage title="Disfruta de nuestros eventos." intro="Consulta las próximas salidas, pruebas de material y encuentros de la comunidad IBHOLA en Huelva.">
+  return <InteriorPage title="Disfruta de nuestros eventos." intro="Carreras, encuentros y reconocimientos que forman parte de la historia real de la comunidad IBHOLA en Huelva.">
     <section className="content-section events-page">
       <div className="container">
-        <div className="subheading"><h2>Próximos eventos</h2></div>
-        <Cards items={upcoming} />
-        <div className="subheading subheading--past"><h2>Eventos anteriores</h2></div>
+        <div className="subheading"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
-        <p className="event-photo-credits">Fotografías de <a href="https://commons.wikimedia.org/wiki/User:FJavier_G%C3%B3mezL" target="_blank" rel="noreferrer">FJavier GómezL</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) y <a href="https://commons.wikimedia.org/wiki/File:Camino_-_Parque_Moret_(Huelva).jpg" target="_blank" rel="noreferrer">Jose A.</a> (<a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer">CC BY 2.0</a>), vía Wikimedia Commons.</p>
+        <p className="event-photo-credits">Fechas e imágenes contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>
       </div>
     </section>
   </InteriorPage>;

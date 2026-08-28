@@ -619,6 +619,8 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-card__body > svg { margin-bottom: 17px; color: var(--terracotta); }
 .event-grid h3 { font-size: 2rem; }
 .event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
+.event-card__source { display: inline-flex; align-items: center; gap: 6px; width: fit-content; margin-top: 14px; color: var(--forest-deep); font-size: .62rem; font-weight: 750; letter-spacing: .06em; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; }
+.event-card__source:hover { color: var(--terracotta); }
 .event-photo-credits { margin-top: 30px; color: rgba(255,255,255,.48); font-size: .62rem; line-height: 1.6; }
 .event-photo-credits a { color: rgba(255,255,255,.72); text-decoration: underline; text-underline-offset: 3px; }
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
