@@ -59,6 +59,22 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="store-cta" aria-labelledby="store-cta-title">
+        <Topography className="store-cta__topography" />
+        <div className="container store-cta__inner reveal">
+          <div className="store-cta__icon" aria-hidden="true"><Footprints size={28} /></div>
+          <div className="store-cta__copy">
+            <p className="eyebrow">Tu próxima salida empieza aquí</p>
+            <h2 id="store-cta-title">Encuentra el material que <em>mejor corre contigo.</em></h2>
+            <p>Cuéntanos dónde corres, qué buscas y cómo entrenas. Te ayudamos a elegir con criterio, probar opciones y salir de la tienda con confianza.</p>
+          </div>
+          <div className="store-cta__actions">
+            <a className="button" href={business.mapsUrl} target="_blank" rel="noreferrer">Visitar la tienda <Navigation size={17} /></a>
+            <a className="store-cta__link" href={link("/catalogo/")}>Explorar catálogo <ArrowRight size={17} /></a>
+          </div>
+        </div>
+      </section>
+
       <section className="reviews section" id="opiniones"><div className="container">
         <div className="reviews__heading reveal"><div><p className="eyebrow">La comunidad habla</p><h2>¿Qué opinan <em>nuestros clientes?</em></h2></div><GoogleReviewsLink /></div>
         <div className="reviews__grid">{reviews.map((review, index) => <article className="review reveal" key={review.quote}><div><span className="review__stars" aria-hidden="true">★★★★★</span><span>{String(index + 1).padStart(2, "0")}</span></div><blockquote>“{review.quote}”</blockquote><footer><span className="review__author"><BadgeCheck size={15} aria-hidden="true" /><span>{review.author}</span></span><span className="review__label">Opinión destacada</span></footer></article>)}</div>
