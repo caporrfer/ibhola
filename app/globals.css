@@ -209,6 +209,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .reviews { background: var(--forest-gradient-dark); }
 .reviews__heading { display: flex; align-items: end; justify-content: space-between; gap: 55px; margin-bottom: 56px; }
 .reviews__heading > div:first-child { max-width: 900px; }
+.reviews__heading .eyebrow { color: #000; }
 .reviews__score { min-width: 292px; display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 14px; padding: 15px 17px; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: #080908; color: white; box-shadow: 0 14px 32px rgba(24,35,31,.16); transition: background .25s, transform .25s, box-shadow .25s; }
 .reviews__score:hover { background: #121612; box-shadow: 0 16px 34px rgba(24,35,31,.24); transform: translateY(-3px); }
 .reviews__score-google { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: var(--forest-deep); color: var(--pistachio-action); font-family: var(--sans); font-size: 1.25rem; font-weight: 800; }
