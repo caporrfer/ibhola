@@ -150,7 +150,7 @@ export function ProductCatalog() {
                   <h2>{category.name}</h2>
                   <p>{category.detail}</p>
                   <div className="catalog-category__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandMark brand={brand} key={brand} />)}</div>
-                  <a href={link("/#contacto")}>Consultar disponibilidad <ArrowRight size={15} /></a>
+                  <a href={link("/preguntas-frecuentes/#contacto")}>Consultar disponibilidad <ArrowRight size={15} /></a>
                 </div>
               </article>
             ))}
@@ -172,7 +172,7 @@ export function ProductCatalog() {
             </div>
 
             <div className="catalog-feature__actions">
-              <a className="button" href={link("/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a>
+              <a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a>
               <p>Clubes · equipos · empresas · regalos · eventos deportivos</p>
             </div>
           </div>

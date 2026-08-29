@@ -42,7 +42,7 @@ export function Header() {
       <nav className="desktop-nav" aria-label="Navegación principal">
         {nav.map(([label, href]) => label === "Catálogo / Tienda" ? <div className="nav-dropdown" key={label}><a href={link(href)}>{label} <ChevronDown size={13} /></a><div className="nav-dropdown__menu">{categories.map(([category, id]) => <a key={id} href={link(`/catalogo/#${id}`)}>{category}</a>)}</div></div> : <a key={label} href={link(href)}>{label}</a>)}
       </nav>
-      <a className="button button--small header__cta" href={link("/#contacto")}>Contacto <span aria-hidden>↗</span></a>
+      <a className="button button--small header__cta" href={link("/preguntas-frecuentes/#contacto")}>Contacto <span aria-hidden>↗</span></a>
       <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X /> : <Menu />}</button>
     </div>
     <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
