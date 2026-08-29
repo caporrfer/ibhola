@@ -123,8 +123,8 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .hero__rating:hover { color: rgba(255,255,255,.82); }
 .hero__visual { min-width: calc(100% + max(32px, (100vw - 1440px)/2)); position: relative; overflow: hidden; background: var(--black); clip-path: polygon(11% 0,100% 0,100% 100%,0 100%); }
 .hero__visual { animation: hero-visual-in 1.1s 1.35s cubic-bezier(.2,.75,.2,1) both; }
-.hero__photo { position: absolute; inset: 0; transform: translateY(calc(var(--hero-scroll) * 28px)) scale(calc(1.10 + var(--hero-scroll) * .025)); transform-origin: center; }
-.hero__photo img { object-fit: cover; object-position: 53% 50%; filter: saturate(.96) contrast(1.04); }
+.hero__photo { position: absolute; inset: 0; transform: translateY(calc(var(--hero-scroll) * 28px)) scale(calc(1.10 + var(--hero-scroll) * .025)); transform-origin: right center; }
+.hero__photo img { object-fit: cover; object-position: 100% 50%; filter: saturate(.96) contrast(1.04); }
 .hero__visual::after { content: ""; position: absolute; inset: 0; background: none; }
 .hero__coordinates { position: absolute; right: max(28px, calc((100vw - 1440px)/2)); bottom: 126px; z-index: 2; color: rgba(255,255,255,.57); font-family: monospace; font-size: .63rem; letter-spacing: .1em; line-height: 1.8; text-align: right; }
 .hero__caption { max-width: 390px; position: absolute; z-index: 2; left: 15%; bottom: 80px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 12px; margin: 0; color: rgba(255,255,255,.8); font-family: var(--serif); font-size: 1.08rem; line-height: 1.35; }
@@ -445,7 +445,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .hero { min-height: 850px; }
   .hero__layout { min-height: 850px; display: block; width: 100%; }
   .hero__visual { min-width: 0; position: absolute; inset: 0; clip-path: none; }
-  .hero__photo { transform: translateY(calc(var(--hero-scroll) * 20px)) scale(1.12); }
+  .hero__photo { transform: translateY(calc(var(--hero-scroll) * 20px)) scale(1.12); transform-origin: center; }
   .hero__photo img { object-position: 82% 45%; }
   .hero__visual::after { background: linear-gradient(0deg, rgba(8,9,8,.92) 8%, rgba(8,9,8,.65) 58%, rgba(8,9,8,.18)); }
   .hero__copy { min-height: 850px; justify-content: flex-end; padding: 120px 24px 85px; }
