@@ -21,7 +21,7 @@ const categories = [
     name: "Textil técnico",
     detail: "Calzonas, mallas, camisetas, pantalones, chaquetas y sudaderas para entrenar, competir o disfrutar.",
     image: "/images/catalogo/textil-personalizado.jpg",
-    brands: ["Lurbel", "Hanker Sport", "Pimiento Negro", "Nedao", "RaidLight", "Joma", "BUFF", "Shere Pro", "226ERS", "La Sportiva", "Brooks"],
+    brands: ["Lurbel", "Hanker Sport", "Pimiento Negro", "Nedao", "RaidLight", "Joma", "BUFF", "Sphere Pro", "226ERS", "La Sportiva", "Brooks"],
   },
   {
     id: "suplementacion",
@@ -35,14 +35,14 @@ const categories = [
     name: "Complementos textiles",
     detail: "Gorras, viseras, calcetines, cordones, manguitos, cintas, cinturones, mochilas y ropa interior técnica.",
     image: "/images/tienda/interior-01.jpeg",
-    brands: ["BUFF", "Hanker Sport", "Lurbel", "Pimiento Negro", "RaidLight", "Joma", "226ERS", "Ultimate Performance", "SAXX", "Stenex", "Shere Pro"],
+    brands: ["BUFF", "Hanker Sport", "Lurbel", "Pimiento Negro", "RaidLight", "Joma", "226ERS", "Ultimate Performance", "SAXX", "Stenex", "Sphere Pro"],
   },
   {
     id: "accesorios",
     name: "Accesorios",
     detail: "Frontales, gafas, relojes, bastones, imanes, mantas térmicas y material para completar tu equipo.",
     image: "/images/tienda/interior-03.jpeg",
-    brands: ["Ledlenser", "COROS", "Ozirik", "Styrpe", "Ultimate Performance", "Shere Pro", "RaidLight", "La Sportiva", "Ferrino"],
+    brands: ["Ledlenser", "COROS", "Ozirik", "Styrpe", "Ultimate Performance", "Sphere Pro", "RaidLight", "La Sportiva", "Ferrino"],
   },
   {
     id: "cuidado",
@@ -63,6 +63,52 @@ const serviceProcess = [
   ["04", "La entrega", "Fabricamos la tirada y gestionamos futuras reposiciones cuando hagan falta."],
 ] as const;
 
+const brandLogos: Record<string, string> = {
+  "226ERS": "/images/marcas/226ers.png",
+  "AML Sport": "/images/marcas/aml-sport.png",
+  "ASICS": "/images/marcas/asics.png",
+  "Ana María Lajusticia": "/images/marcas/ana-maria-lajusticia.png",
+  "Atom": "/images/marcas/atom.png",
+  "BRK23": "/images/marcas/brk23.png",
+  "BUFF": "/images/marcas/buff.png",
+  "Brooks": "/images/marcas/brooks.png",
+  "COROS": "/images/marcas/coros.png",
+  "Ferrino": "/images/marcas/ferrino.png",
+  "Gobik": "/images/marcas/gobik.png",
+  "HOKA": "/images/marcas/hoka.png",
+  "Hanker Sport": "/images/marcas/hanker-sport.png",
+  "Joma": "/images/marcas/joma.png",
+  "La Sportiva": "/images/marcas/la-sportiva.png",
+  "Ledlenser": "/images/marcas/ledlenser.png",
+  "Lurbel": "/images/marcas/lurbel.png",
+  "Nedao": "/images/marcas/nedao.png",
+  "OOFOS": "/images/marcas/oofos.png",
+  "OXD Sport": "/images/marcas/oxd-sport.png",
+  "Quinton Sport": "/images/marcas/quinton-sport.png",
+  "RaidLight": "/images/marcas/raidlight.png",
+  "SAXX": "/images/marcas/saxx.png",
+  "Scientific Nutrition": "/images/marcas/scientiffic-nutrition.png",
+  "Sphere Pro": "/images/marcas/sphere-pro.jpg",
+  "Spall": "/images/marcas/spall.png",
+  "Styrpe": "/images/marcas/styrpe.png",
+  "Tuga Wear": "/images/marcas/tuga-wear.png",
+  "Ultimate Performance": "/images/marcas/ultimate-performance.jpg",
+};
+
+function BrandMark({ brand, compact = false }: { brand: string; compact?: boolean }) {
+  const logo = brandLogos[brand];
+  const initials = brand.split(/\s+/).map((word) => word[0]).join("").slice(0, 2).toUpperCase();
+
+  return (
+    <span className={`brand-mark${compact ? " brand-mark--compact" : ""}`}>
+      <span className="brand-mark__image" aria-hidden="true">
+        {logo ? <Image src={imagePath(logo)} alt="" width={52} height={52} unoptimized /> : <span>{initials}</span>}
+      </span>
+      <b>{brand}</b>
+    </span>
+  );
+}
+
 export function ProductCatalog() {
   const [active, setActive] = useState<(typeof filters)[number]>("Todo");
   const visibleCategories = active === "Todo" ? categories : categories.filter((category) => category.name === active);
@@ -82,11 +128,41 @@ export function ProductCatalog() {
 
   return (
     <>
+      <section className="catalog-index" id="catalogo">
+        <div className="container">
+          <header className="catalog-index__heading">
+            <div><p className="catalog-kicker">Tienda física · Corrales</p><h1>Marcas para cada<br />forma de moverse.</h1></div>
+            <p>Consulta las familias y marcas representadas en IBHOLA. El surtido, los modelos y las tallas cambian; en tienda te ayudamos a elegir con criterio.</p>
+          </header>
+
+          <div className="catalog-filterbar" role="group" aria-label="Filtrar catálogo por categoría">
+            {filters.map((filter) => <button key={filter} type="button" className={active === filter ? "is-active" : ""} onClick={() => setActive(filter)} aria-pressed={active === filter}>{filter}</button>)}
+          </div>
+
+          <div className="catalog-category-grid" aria-live="polite">
+            {visibleCategories.map((category) => (
+              <article className="catalog-category" key={category.id} id={category.id}>
+                <div className="catalog-category__image">
+                  <Image src={imagePath(category.image)} alt={`${category.name} disponible en IBHOLA Trail Running`} fill sizes="(max-width: 680px) 100vw, (max-width: 1050px) 50vw, 33vw" />
+                  <span>{String(categories.findIndex((item) => item.id === category.id) + 1).padStart(2, "0")}</span>
+                </div>
+                <div className="catalog-category__body">
+                  <h2>{category.name}</h2>
+                  <p>{category.detail}</p>
+                  <div className="catalog-category__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandMark brand={brand} key={brand} />)}</div>
+                  <a href={link("/#contacto")}>Consultar disponibilidad <ArrowRight size={15} /></a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="catalog-feature" id="personalizacion">
         <div className="container catalog-feature__layout">
           <div className="catalog-feature__copy">
             <p className="catalog-kicker">Diseño · fabricación · eventos</p>
-            <h1>Una prenda única o 1.200 camisetas. <em>Diseñadas para representaros.</em></h1>
+            <h2>Una prenda única o 1.200 camisetas. <em>Diseñadas para representaros.</em></h2>
             <p className="catalog-feature__lead">Partimos de vuestra idea, el deporte, el presupuesto y la cantidad. Después recomendamos la prenda, la calidad y la marca que mejor encajan: desde una camiseta especial hasta la equipación completa de un club o un gran evento.</p>
 
             <div className="catalog-feature__stats" aria-label="Ventajas del servicio de personalización">
@@ -112,7 +188,7 @@ export function ProductCatalog() {
         <div className="container catalog-feature__scope">
           <div><span>Deportes</span>{sports.map((sport) => <b key={sport}>{sport}</b>)}</div>
           <div><span>Prendas</span>{garments.map((garment) => <b key={garment}>{garment}</b>)}</div>
-          <div className="catalog-feature__brands"><span>Marcas representadas</span><b>Spall</b><b>Tuga Wear</b><b>BRK23</b><b>Gobik</b></div>
+          <div className="catalog-feature__brands"><span>Marcas representadas</span>{["Spall", "Tuga Wear", "BRK23", "Gobik"].map((brand) => <BrandMark brand={brand} compact key={brand} />)}</div>
         </div>
       </section>
 
@@ -126,35 +202,6 @@ export function ProductCatalog() {
         </div>
       </section>
 
-      <section className="catalog-index" id="catalogo">
-        <div className="container">
-          <header className="catalog-index__heading">
-            <div><p className="catalog-kicker">Tienda física · Corrales</p><h2>Marcas para cada<br />forma de moverse.</h2></div>
-            <p>Consulta las familias y marcas representadas en IBHOLA. El surtido, los modelos y las tallas cambian; en tienda te ayudamos a elegir con criterio.</p>
-          </header>
-
-          <div className="catalog-filterbar" role="group" aria-label="Filtrar catálogo por categoría">
-            {filters.map((filter) => <button key={filter} type="button" className={active === filter ? "is-active" : ""} onClick={() => setActive(filter)} aria-pressed={active === filter}>{filter}</button>)}
-          </div>
-
-          <div className="catalog-category-grid" aria-live="polite">
-            {visibleCategories.map((category) => (
-              <article className="catalog-category" key={category.id} id={category.id}>
-                <div className="catalog-category__image">
-                  <Image src={imagePath(category.image)} alt={`${category.name} disponible en IBHOLA Trail Running`} fill sizes="(max-width: 680px) 100vw, (max-width: 1050px) 50vw, 33vw" />
-                  <span>{String(categories.findIndex((item) => item.id === category.id) + 1).padStart(2, "0")}</span>
-                </div>
-                <div className="catalog-category__body">
-                  <h3>{category.name}</h3>
-                  <p>{category.detail}</p>
-                  <div className="catalog-category__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <b key={brand}>{brand}</b>)}</div>
-                  <a href={link("/#contacto")}>Consultar disponibilidad <ArrowRight size={15} /></a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
