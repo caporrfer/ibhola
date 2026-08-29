@@ -34,7 +34,7 @@ export function HomePage() {
 
       <section className="about section" id="presentacion"><div className="container about__intro">
         <div className="about__copy reveal"><h2>Experiencia real <em>a tu servicio.</em></h2><p className="about__lead">Conocemos el material, las dudas y las necesidades de cada corredor para ofrecerte un trato profesional, cercano y adaptado a ti.</p><div className="about__actions"><a className="text-link" href={link("/catalogo/")}>Ver catálogo <ArrowRight size={18} /></a></div></div>
-        <div className="about__visual reveal"><div className="about__image"><Image src={imagePath("/images/comunidad/IMG-20260823-WA0140~2.jpg")} alt="Miguel Ángel Pereira en un recorrido de alta montaña" fill quality={92} sizes="(max-width: 850px) 100vw, 52vw" /></div></div>
+        <div className="about__visual reveal"><div className="about__image"><Image src={imagePath("/images/comunidad/IMG-20260706-WA0085~2.jpg")} alt="Miguel Ángel Pereira sonriendo al finalizar una carrera" fill quality={92} sizes="(max-width: 850px) 100vw, 52vw" /></div></div>
       </div>
       </section>
 
