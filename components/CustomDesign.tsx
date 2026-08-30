@@ -29,9 +29,9 @@ export function CustomDesign() {
   return <div className="catalog-showroom custom-design-page">
     <section className="cs-atelier">
       <div className="container-wide cs-atelier__intro">
-        <p className="cs-kicker">Atelier deportivo / Personalización</p>
+        <p className="cs-kicker">Diseño y fabricación / Equipaciones deportivas</p>
         <h1>No es una prenda.<br />Es <em>vuestra</em> prenda.</h1>
-        <p>Una unidad especial, la equipación de un club o 1.200 camisetas para un evento. Convertimos vuestra identidad en material listo para moverse.</p>
+        <p>Running, trail, ciclismo, fútbol, pádel y mucho más. Diseñamos desde una unidad especial hasta la equipación completa de un club o un gran evento.</p>
       </div>
       <div className="container-wide cs-atelier__stage">
         <span className="cs-atelier__word" aria-hidden="true">EQUIPO</span>
@@ -40,12 +40,20 @@ export function CustomDesign() {
         <div className="cs-atelier__stat cs-atelier__stat--one"><strong>1 → 1.200</strong><span>Unidades</span></div>
         <div className="cs-atelier__stat cs-atelier__stat--two"><strong>Sin mínimos*</strong><span>Según marca</span></div>
       </div>
+      <div className="container-wide cs-atelier__manifesto">
+        <p className="cs-kicker">Vuestra idea, nuestra experiencia</p>
+        <h2>Una equipación que dice quiénes sois.</h2>
+        <div>
+          <p>Tú traes la idea y el plan; nosotros les damos forma y los adaptamos a la prenda y al deporte que necesitéis, con la calidad ajustada a cada proyecto.</p>
+          <p>No se trata solo de darle color a una prenda, sino de darle significado: crear una equipación técnica que represente aquello que cada deportista quiere transmitir.</p>
+        </div>
+      </div>
       <div className="container-wide cs-atelier__details">
         <div><span>Deportes</span><p>{sports.join(" · ")}</p></div>
         <div><span>Prendas</span><p>{garments.join(" · ")}</p></div>
         <div className="cs-atelier__brands"><span>Marcas representadas</span>{brands.map(([brand, logo]) => <BrandLogo brand={brand} logo={logo} key={brand} />)}</div>
       </div>
-      <div className="container-wide cs-atelier__action"><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a></div>
+      <div className="container-wide cs-atelier__action"><p>¿Organizas un evento deportivo? Consúltanos. Buscaremos entre distintas marcas, prendas y servicios la opción que mejor encaje.</p><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a></div>
     </section>
 
     <section className="cs-route">
