@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const imagePath = (path: string) => `${basePath}${path}`;
@@ -7,13 +7,6 @@ const link = (path: string) => `${basePath}${path}`;
 
 const sports = ["Running", "Trail", "Ciclismo", "Fútbol", "Tenis", "Pádel", "Rugby", "Baloncesto", "Balonmano", "Fútbol sala"];
 const garments = ["Manga corta", "Tirantes", "Manga larga", "Cortavientos", "Chaquetas", "Sudaderas", "Calzonas", "Mallas", "Monos de ciclismo"];
-const serviceProcess = [
-  ["01", "La idea", "Deporte, diseño, unidades y presupuesto."],
-  ["02", "La elección", "Prendas, calidades y marcas que encajan."],
-  ["03", "El diseño", "Colores, nombres, escudos y cada detalle."],
-  ["04", "La entrega", "Fabricación y futuras reposiciones."],
-] as const;
-
 const brands = [
   ["Spall", "/images/marcas/spall.png"],
   ["Tuga Wear", "/images/marcas/tuga-wear.png"],
@@ -56,12 +49,5 @@ export function CustomDesign() {
       <div className="container-wide cs-atelier__action"><p>¿Organizas un evento deportivo? Consúltanos. Buscaremos entre distintas marcas, prendas y servicios la opción que mejor encaje.</p><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a></div>
     </section>
 
-    <section className="cs-route">
-      <div className="container-wide">
-        <header><p className="cs-kicker">La ruta del proyecto</p><h2>De la primera idea<br />a la línea de salida.</h2></header>
-        <div className="cs-route__line">{serviceProcess.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-        <p className="cs-route__note"><Check size={17} /> Los mínimos dependen de la marca y del tipo de prenda. Trabajamos con distintas firmas para encontrar una solución real.</p>
-      </div>
-    </section>
   </div>;
 }

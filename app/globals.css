@@ -999,18 +999,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .custom-design-page .cs-atelier__action { align-items: center; justify-content: space-between; gap: 35px; }
 .custom-design-page .cs-atelier__action > p { max-width: 650px; margin: 0; color: rgba(255,255,255,.62); font-size: .76rem; line-height: 1.75; }
 .custom-design-page .cs-atelier .button { flex: 0 0 auto; border-color: var(--pistachio-action); background: var(--pistachio-action); color: #080908; }
-.cs-route { position: relative; z-index: 10; padding: 125px 0; background: var(--forest-deep); }
-.cs-route header { display: grid; grid-template-columns: .5fr 1.5fr; gap: 48px; margin-bottom: 78px; }
-.cs-route header .cs-kicker { color: var(--pistachio-action); }
-.cs-route h2 { margin: 0; font-size: clamp(4rem, 6.7vw, 7.3rem); line-height: .84; text-transform: uppercase; }
-.cs-route__line { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-.cs-route__line::before { content: ""; position: absolute; top: 17px; right: 12%; left: 12%; height: 1px; background: rgba(255,255,255,.34); }
-.cs-route__line article { position: relative; padding: 0 23px; text-align: center; }
-.cs-route__line article > span { width: 35px; height: 35px; position: relative; z-index: 2; display: grid; place-items: center; margin: 0 auto 42px; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; background: var(--forest-deep); color: var(--pistachio-action); font-family: monospace; font-size: .57rem; }
-.cs-route__line h3 { margin: 0 0 13px; font-size: 1.8rem; }
-.cs-route__line p { max-width: 230px; margin: 0 auto; color: rgba(255,255,255,.57); font-size: .72rem; line-height: 1.65; }
-.cs-route__note { display: flex; align-items: flex-start; gap: 10px; max-width: 760px; margin: 58px auto 0; color: rgba(255,255,255,.64); font-size: .71rem; line-height: 1.65; text-align: center; }
-.cs-route__note svg { flex: 0 0 auto; margin-top: 3px; color: var(--pistachio-action); }
 
 @media (max-width: 1000px) {
   .cs-hero__nav { grid-template-columns: repeat(3, 1fr); }
@@ -1049,9 +1037,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .cs-atelier__stage { min-height: 610px; }
   .cs-atelier__shirt { width: 68%; left: 5%; }
   .cs-atelier__socks { width: 39%; right: 0; }
-  .cs-route header { grid-template-columns: 1fr; gap: 18px; }
-  .cs-route__line { grid-template-columns: 1fr 1fr; gap: 55px 0; }
-  .cs-route__line::before { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -1079,10 +1064,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .cs-atelier__brand-grid .cs-brand { min-height: 105px; }
   .cs-atelier__manifesto h2 { font-size: 3.25rem; }
   .cs-atelier__action .button { width: 100%; }
-  .cs-route { padding: 78px 0; }
-  .cs-route h2 { font-size: 3.65rem; }
-  .cs-route__line { grid-template-columns: 1fr; gap: 45px; }
-  .cs-route__line article > span { margin-bottom: 22px; }
 }
 
 @keyframes brands-nudge { 50% { transform: translateX(6px); } }
