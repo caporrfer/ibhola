@@ -5,7 +5,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
-    <Link className={`brand ${footer ? "brand--footer" : ""}`} href="#inicio" aria-label="IBHOLA Trail Running, inicio">
+    <Link className={`brand ${footer ? "brand--footer" : ""}`} href="/" aria-label="IBHOLA Trail Running, ir al inicio">
       <Image src={`${basePath}/images/ibhola-logo-transparent.webp`} alt="IBHOLA Trail Running" width={1283} height={624} priority={!footer} />
     </Link>
   );
