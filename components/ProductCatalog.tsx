@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, ArrowRight, Check } from "lucide-react";
+import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
 import { useEffect } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -17,17 +17,8 @@ const categories = [
   { id: "cuidado", name: "Cuidado deportivo", label: "Muévete con confianza", detail: "Cremas, tobilleras, rodilleras y soluciones de apoyo para entrenar con más comodidad.", image: "/images/tienda/interior-20.jpeg", brands: ["OXD Sport", "Ultimate Performance"] },
 ] as const;
 
-const sports = ["Running", "Trail", "Ciclismo", "Fútbol", "Tenis", "Pádel", "Rugby", "Baloncesto", "Balonmano", "Fútbol sala"];
-const garments = ["Manga corta", "Tirantes", "Manga larga", "Cortavientos", "Chaquetas", "Sudaderas", "Calzonas", "Mallas", "Monos de ciclismo"];
-const serviceProcess = [
-  ["01", "La idea", "Deporte, diseño, unidades y presupuesto."],
-  ["02", "La elección", "Prendas, calidades y marcas que encajan."],
-  ["03", "El diseño", "Colores, nombres, escudos y cada detalle."],
-  ["04", "La entrega", "Fabricación y futuras reposiciones."],
-] as const;
-
 const brandLogos: Record<string, string> = {
-  "226ERS": "/images/marcas/226ers.png", "AML Sport": "/images/marcas/aml-sport.png", "ASICS": "/images/marcas/asics.png", "Ana María Lajusticia": "/images/marcas/ana-maria-lajusticia.png", "Atom": "/images/marcas/atom.png", "BRK23": "/images/marcas/brk23.png", "BUFF": "/images/marcas/buff.png", "Brooks": "/images/marcas/brooks.png", "COROS": "/images/marcas/coros.png", "Ferrino": "/images/marcas/ferrino.png", "Gobik": "/images/marcas/gobik.png", "HOKA": "/images/marcas/hoka.png", "Hanker Sport": "/images/marcas/hanker-sport.png", "Joma": "/images/marcas/joma.png", "La Sportiva": "/images/marcas/la-sportiva.png", "Ledlenser": "/images/marcas/ledlenser.png", "Lurbel": "/images/marcas/lurbel.png", "Nedao": "/images/marcas/nedao.png", "OOFOS": "/images/marcas/oofos.png", "OXD Sport": "/images/marcas/oxd-sport.png", "Quinton Sport": "/images/marcas/quinton-sport.png", "RaidLight": "/images/marcas/raidlight.png", "SAXX": "/images/marcas/saxx.png", "Scientific Nutrition": "/images/marcas/scientiffic-nutrition.png", "Sphere Pro": "/images/marcas/sphere-pro.jpg", "Spall": "/images/marcas/spall.png", "Styrpe": "/images/marcas/styrpe.png", "Tuga Wear": "/images/marcas/tuga-wear.png", "Ultimate Performance": "/images/marcas/ultimate-performance.jpg",
+  "226ERS": "/images/marcas/226ers.png", "AML Sport": "/images/marcas/aml-sport.png", "ASICS": "/images/marcas/asics.png", "Ana María Lajusticia": "/images/marcas/ana-maria-lajusticia.png", "Atom": "/images/marcas/atom.png", "BUFF": "/images/marcas/buff.png", "Brooks": "/images/marcas/brooks.png", "COROS": "/images/marcas/coros.png", "Ferrino": "/images/marcas/ferrino.png", "HOKA": "/images/marcas/hoka.png", "Hanker Sport": "/images/marcas/hanker-sport.png", "Joma": "/images/marcas/joma.png", "La Sportiva": "/images/marcas/la-sportiva.png", "Ledlenser": "/images/marcas/ledlenser.png", "Lurbel": "/images/marcas/lurbel.png", "Nedao": "/images/marcas/nedao.png", "OOFOS": "/images/marcas/oofos.png", "OXD Sport": "/images/marcas/oxd-sport.png", "Quinton Sport": "/images/marcas/quinton-sport.png", "RaidLight": "/images/marcas/raidlight.png", "SAXX": "/images/marcas/saxx.png", "Scientific Nutrition": "/images/marcas/scientiffic-nutrition.png", "Sphere Pro": "/images/marcas/sphere-pro.jpg", "Styrpe": "/images/marcas/styrpe.png", "Ultimate Performance": "/images/marcas/ultimate-performance.jpg",
 };
 
 function BrandLogo({ brand }: { brand: string }) {
@@ -43,6 +34,12 @@ export function ProductCatalog() {
     window.requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: "start" }));
   }, []);
 
+  const selectCategory = (id: string) => {
+    if (!id) return;
+    window.history.replaceState(null, "", `#${id}`);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return <div className="catalog-showroom">
     <section className="cs-hero" id="catalogo">
       <div className="cs-hero__image"><Image src={imagePath("/images/corredor-enhanced.webp")} alt="Corredor de trail en plena montaña" fill priority sizes="100vw" /></div>
@@ -52,6 +49,10 @@ export function ProductCatalog() {
         <div className="cs-hero__bottom"><p>Material que conocemos. Marcas en las que confiamos. Asesoramiento pensado para tu forma de moverte.</p><a href="#calzado">Ver colección <ArrowDown size={18} /></a></div>
       </div>
       <nav className="cs-hero__nav" aria-label="Familias del catálogo">{categories.map((category, index) => <a href={`#${category.id}`} key={category.id}><span>{String(index + 1).padStart(2, "0")}</span>{category.name}</a>)}</nav>
+      <div className="cs-mobile-filter">
+        <label htmlFor="catalog-category">¿Qué estás buscando?</label>
+        <div><select id="catalog-category" defaultValue="" onChange={(event) => selectCategory(event.target.value)}><option value="" disabled>Elige una categoría</option>{categories.map((category) => <option value={category.id} key={category.id}>{category.name}</option>)}</select><ChevronDown size={19} aria-hidden="true" /></div>
+      </div>
     </section>
 
     <section className="cs-chapters" aria-label="Catálogo por familias">
@@ -61,38 +62,9 @@ export function ProductCatalog() {
         <div className="container-wide cs-chapter__content">
           <div className="cs-chapter__heading"><span>{String(index + 1).padStart(2, "0")} / 06</span><p>{category.label}</p><h2>{category.name}</h2></div>
           <div className="cs-chapter__info"><p>{category.detail}</p><a href={link("/preguntas-frecuentes/#contacto")}>Consultar disponibilidad <ArrowRight size={16} /></a></div>
-          <div className="cs-chapter__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandLogo brand={brand} key={brand} />)}</div>
+          <div className="cs-chapter__brands-wrap"><p className="cs-chapter__brands-hint">Desliza para ver todas las marcas <span aria-hidden="true">→</span></p><div className="cs-chapter__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandLogo brand={brand} key={brand} />)}</div></div>
         </div>
       </article>)}
-    </section>
-
-    <section className="cs-atelier" id="personalizacion">
-      <div className="container-wide cs-atelier__intro">
-        <p className="cs-kicker">Atelier deportivo / Personalización</p>
-        <h2>No es una prenda.<br />Es <em>vuestra</em> prenda.</h2>
-        <p>Una unidad especial, la equipación de un club o 1.200 camisetas para un evento. Convertimos vuestra identidad en material listo para moverse.</p>
-      </div>
-      <div className="container-wide cs-atelier__stage">
-        <span className="cs-atelier__word" aria-hidden="true">EQUIPO</span>
-        <div className="cs-atelier__shirt"><Image src={imagePath("/images/catalogo/personalizacion-camiseta.png")} alt="Camiseta técnica personalizada" fill sizes="(max-width: 800px) 76vw, 42vw" /></div>
-        <div className="cs-atelier__socks"><Image src={imagePath("/images/catalogo/personalizacion-calcetines.png")} alt="Calcetines deportivos personalizados" fill sizes="(max-width: 800px) 48vw, 23vw" /></div>
-        <div className="cs-atelier__stat cs-atelier__stat--one"><strong>1 → 1.200</strong><span>Unidades</span></div>
-        <div className="cs-atelier__stat cs-atelier__stat--two"><strong>Sin mínimos*</strong><span>Según marca</span></div>
-      </div>
-      <div className="container-wide cs-atelier__details">
-        <div><span>Deportes</span><p>{sports.join(" · ")}</p></div>
-        <div><span>Prendas</span><p>{garments.join(" · ")}</p></div>
-        <div className="cs-atelier__brands"><span>Marcas representadas</span>{["Spall", "Tuga Wear", "BRK23", "Gobik"].map((brand) => <BrandLogo brand={brand} key={brand} />)}</div>
-      </div>
-      <div className="container-wide cs-atelier__action"><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a></div>
-    </section>
-
-    <section className="cs-route">
-      <div className="container-wide">
-        <header><p className="cs-kicker">La ruta del proyecto</p><h2>De la primera idea<br />a la línea de salida.</h2></header>
-        <div className="cs-route__line">{serviceProcess.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-        <p className="cs-route__note"><Check size={17} /> Los mínimos dependen de la marca y del tipo de prenda. Trabajamos con distintas firmas para encontrar una solución real.</p>
-      </div>
     </section>
   </div>;
 }

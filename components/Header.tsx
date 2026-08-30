@@ -9,7 +9,8 @@ const link = (path: string) => `${basePath}${path}`;
 
 const nav = [
   ["Inicio", "/"],
-  ["Catálogo / Tienda", "/catalogo/"],
+  ["Catálogo", "/catalogo/"],
+  ["Diseño personalizado", "/diseno-personalizado/"],
   ["Eventos", "/eventos/"],
   ["Preguntas", "/preguntas-frecuentes/"],
 ] as const;
@@ -20,7 +21,6 @@ const categories = [
   ["Suplementación", "suplementacion"],
   ["Complementos", "complementos"],
   ["Accesorios", "accesorios"],
-  ["Personalización", "personalizacion"],
 ] as const;
 
 export function Header() {
@@ -40,7 +40,7 @@ export function Header() {
     <div className="header__inner container-wide">
       <Brand />
       <nav className="desktop-nav" aria-label="Navegación principal">
-        {nav.map(([label, href]) => label === "Catálogo / Tienda" ? <div className="nav-dropdown" key={label}><a href={link(href)}>{label} <ChevronDown size={13} /></a><div className="nav-dropdown__menu">{categories.map(([category, id]) => <a key={id} href={link(`/catalogo/#${id}`)}>{category}</a>)}</div></div> : <a key={label} href={link(href)}>{label}</a>)}
+        {nav.map(([label, href]) => label === "Catálogo" ? <div className="nav-dropdown" key={label}><a href={link(href)}>{label} <ChevronDown size={13} /></a><div className="nav-dropdown__menu">{categories.map(([category, id]) => <a key={id} href={link(`/catalogo/#${id}`)}>{category}</a>)}</div></div> : <a key={label} href={link(href)}>{label}</a>)}
       </nav>
       <a className="button button--small header__cta" href={link("/preguntas-frecuentes/#contacto")}>Contacto <span aria-hidden>↗</span></a>
       <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X /> : <Menu />}</button>
