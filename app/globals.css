@@ -985,12 +985,17 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .cs-atelier__brands .cs-brand b { color: #101712; }
 .cs-atelier__action { display: flex; justify-content: flex-end; margin-top: 30px; }
 .cs-atelier .button { border-color: #101712; border-radius: 0; background: #101712; color: #fff; }
-.custom-design-page .cs-atelier__details { border-color: rgba(255,255,255,.25); }
+.custom-design-page .cs-atelier__details { grid-template-columns: 1fr 1fr; border-color: rgba(255,255,255,.25); }
 .custom-design-page .cs-atelier__details > div { border-color: rgba(255,255,255,.25); }
 .custom-design-page .cs-atelier__details > div > span { color: var(--pistachio-action); }
 .custom-design-page .cs-atelier__details p { color: rgba(255,255,255,.68); }
-.custom-design-page .cs-atelier__brands .cs-brand { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.07); }
-.custom-design-page .cs-atelier__brands .cs-brand b { color: rgba(255,255,255,.86); }
+.cs-atelier__brand-section { margin-top: 12px; padding: 23px; border: 1px solid rgba(255,255,255,.25); }
+.cs-atelier__brand-section > span { display: block; margin-bottom: 18px; color: var(--pistachio-action); font-size: .57rem; font-weight: 820; letter-spacing: .14em; text-transform: uppercase; }
+.cs-atelier__brand-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; }
+.cs-atelier__brand-grid .cs-brand { min-width: 0; min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; padding: 14px 10px; border-color: rgba(201,242,124,.28); background: linear-gradient(145deg, rgba(201,242,124,.09), rgba(255,255,255,.025)); backdrop-filter: none; }
+.cs-atelier__brand-grid .cs-brand > span { width: 50px; height: 50px; border-radius: 50%; }
+.cs-atelier__brand-grid .cs-brand img { width: 38px; height: 36px; }
+.cs-atelier__brand-grid .cs-brand b { color: rgba(255,255,255,.86); font-size: .58rem; font-weight: 720; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .custom-design-page .cs-atelier__action { align-items: center; justify-content: space-between; gap: 35px; }
 .custom-design-page .cs-atelier__action > p { max-width: 650px; margin: 0; color: rgba(255,255,255,.62); font-size: .76rem; line-height: 1.75; }
 .custom-design-page .cs-atelier .button { flex: 0 0 auto; border-color: var(--pistachio-action); background: var(--pistachio-action); color: #080908; }
@@ -1069,6 +1074,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .cs-atelier__stage { min-height: 480px; margin-top: 38px; }
   .cs-atelier__details { grid-template-columns: 1fr; }
   .cs-atelier__brands { grid-column: auto; }
+  .cs-atelier__brand-section { padding: 17px; }
+  .cs-atelier__brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .cs-atelier__brand-grid .cs-brand { min-height: 105px; }
   .cs-atelier__manifesto h2 { font-size: 3.25rem; }
   .cs-atelier__action .button { width: 100%; }
   .cs-route { padding: 78px 0; }

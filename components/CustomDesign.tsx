@@ -51,8 +51,8 @@ export function CustomDesign() {
       <div className="container-wide cs-atelier__details">
         <div><span>Deportes</span><p>{sports.join(" · ")}</p></div>
         <div><span>Prendas</span><p>{garments.join(" · ")}</p></div>
-        <div className="cs-atelier__brands"><span>Marcas representadas</span>{brands.map(([brand, logo]) => <BrandLogo brand={brand} logo={logo} key={brand} />)}</div>
       </div>
+      <div className="container-wide cs-atelier__brand-section" id="marcas-personalizadas"><span>Marcas representadas</span><div className="cs-atelier__brand-grid">{brands.map(([brand, logo]) => <BrandLogo brand={brand} logo={logo} key={brand} />)}</div></div>
       <div className="container-wide cs-atelier__action"><p>¿Organizas un evento deportivo? Consúltanos. Buscaremos entre distintas marcas, prendas y servicios la opción que mejor encaje.</p><a className="button" href={link("/preguntas-frecuentes/#contacto")}>Cuéntanos tu proyecto <ArrowRight size={17} /></a></div>
     </section>
 
