@@ -60,7 +60,7 @@ export function ProductCatalog() {
         <div className="cs-chapter__image"><Image src={imagePath(category.image)} alt={`${category.name} disponible en IBHOLA Trail Running`} fill sizes="100vw" /></div>
         <div className="cs-chapter__shade" />
         <div className="container-wide cs-chapter__content">
-          <div className="cs-chapter__heading"><span>{String(index + 1).padStart(2, "0")} / 06</span><p>{category.label}</p><h2>{category.name}</h2></div>
+          <div className="cs-chapter__heading" data-long-title={!category.name.includes(" ") && category.name.length >= 10}><span>{String(index + 1).padStart(2, "0")} / 06</span><p>{category.label}</p><h2>{category.name}</h2></div>
           <div className="cs-chapter__info"><p>{category.detail}</p><a href={link("/preguntas-frecuentes/#contacto")}>Consultar disponibilidad <ArrowRight size={16} /></a></div>
           <div className="cs-chapter__brands-wrap"><p className="cs-chapter__brands-hint">Desliza para ver todas las marcas <span aria-hidden="true">→</span></p><div className="cs-chapter__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandLogo brand={brand} key={brand} />)}</div></div>
         </div>

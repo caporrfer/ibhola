@@ -1029,6 +1029,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .cs-chapter__content { min-height: 760px; gap: 24px; padding-top: 75px; padding-bottom: 24px; }
   .cs-chapter__heading > span { margin-bottom: 20px; }
   .cs-chapter__heading h2 { font-size: clamp(3.7rem, 16vw, 5.2rem); }
+  .cs-chapter__heading[data-long-title="true"] h2 { max-width: 100%; font-size: clamp(2.15rem, 10.7vw, 4rem); letter-spacing: -.075em; }
   .cs-chapter__info > p { font-size: .83rem; }
   .cs-atelier { padding: 78px 0; }
   .cs-atelier__intro h1, .cs-atelier__intro h2 { font-size: 4rem; }

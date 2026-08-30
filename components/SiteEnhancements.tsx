@@ -8,6 +8,7 @@ export function SiteEnhancements() {
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 620);
+    const onPageShow = () => document.body.classList.remove("page-leaving");
     const onClick = (event: MouseEvent) => {
       const anchor = (event.target as Element).closest("a");
       if (!anchor || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || anchor.target === "_blank" || anchor.hasAttribute("download")) return;
@@ -17,11 +18,14 @@ export function SiteEnhancements() {
       document.body.classList.add("page-leaving");
       window.setTimeout(() => { window.location.href = destination.href; }, 180);
     };
+    onPageShow();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("pageshow", onPageShow);
     document.addEventListener("click", onClick);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pageshow", onPageShow);
       document.removeEventListener("click", onClick);
     };
   }, []);
