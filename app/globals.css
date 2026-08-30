@@ -1040,9 +1040,10 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 }
 
 @media (max-width: 600px) {
-  .cs-hero__content { padding-top: 125px; padding-bottom: 350px; }
+  .cs-hero { min-height: 0; display: block; padding-bottom: 24px; }
+  .cs-hero__content { min-height: 0; padding-top: 125px; padding-bottom: 44px; }
   .cs-hero__nav { display: none; }
-  .cs-mobile-filter { width: calc(100% - 34px); position: absolute; z-index: 4; right: 17px; bottom: 25px; left: 17px; display: block; padding: 15px; border: 1px solid rgba(255,255,255,.34); background: rgba(8,9,8,.84); backdrop-filter: blur(12px); }
+  .cs-mobile-filter { width: calc(100% - 34px); position: relative; z-index: 4; display: block; margin: 0 17px; padding: 15px; border: 1px solid rgba(255,255,255,.34); background: rgba(8,9,8,.84); backdrop-filter: blur(12px); }
   .cs-mobile-filter label { display: block; margin-bottom: 9px; color: var(--pistachio-action); font-size: .56rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
   .cs-mobile-filter > div { position: relative; }
   .cs-mobile-filter select { width: 100%; min-height: 52px; padding: 0 45px 0 14px; border: 1px solid rgba(255,255,255,.48); border-radius: 0; appearance: none; background: #101411; color: #fff; font: 700 .75rem var(--sans); letter-spacing: .06em; text-transform: uppercase; }

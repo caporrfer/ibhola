@@ -50,8 +50,8 @@ export function ProductCatalog() {
       </div>
       <nav className="cs-hero__nav" aria-label="Familias del catálogo">{categories.map((category, index) => <a href={`#${category.id}`} key={category.id}><span>{String(index + 1).padStart(2, "0")}</span>{category.name}</a>)}</nav>
       <div className="cs-mobile-filter">
-        <label htmlFor="catalog-category">¿Qué estás buscando?</label>
-        <div><select id="catalog-category" defaultValue="" onChange={(event) => selectCategory(event.target.value)}><option value="" disabled>Elige una categoría</option>{categories.map((category) => <option value={category.id} key={category.id}>{category.name}</option>)}</select><ChevronDown size={19} aria-hidden="true" /></div>
+        <label htmlFor="catalog-category">Explora por categoría</label>
+        <div><select id="catalog-category" defaultValue="" onChange={(event) => selectCategory(event.target.value)}><option value="" disabled>Selecciona una familia</option>{categories.map((category) => <option value={category.id} key={category.id}>{category.name}</option>)}</select><ChevronDown size={19} aria-hidden="true" /></div>
       </div>
     </section>
 
