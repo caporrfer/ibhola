@@ -9,12 +9,12 @@ const imagePath = (path: string) => `${basePath}${path}`;
 const link = (path: string) => `${basePath}${path}`;
 
 const categories = [
-  { id: "calzado", name: "Calzado", label: "Del asfalto a la montaña", detail: "Ajuste, amortiguación, estabilidad, respuesta y agarre. Te ayudamos a comparar sensaciones y terreno para elegir con criterio.", image: "/images/catalogo/calzado-hoka-trail.jpg", brands: ["Joma", "La Sportiva", "HOKA", "OOFOS", "Brooks", "ASICS", "Atom", "RaidLight"] },
-  { id: "textil", name: "Textil técnico", label: "Capas que trabajan contigo", detail: "Calzonas, mallas, camisetas, pantalones, chaquetas y sudaderas para entrenar, competir o simplemente disfrutar.", image: "/images/catalogo/textil-personalizado.jpg", brands: ["Lurbel", "Hanker Sport", "Pimiento Negro", "Nedao", "RaidLight", "Joma", "BUFF", "Sphere Pro", "226ERS", "La Sportiva", "Brooks"] },
-  { id: "suplementacion", name: "Suplementación", label: "Antes, durante y después", detail: "Nutrición, hidratación y recuperación para preparar cada salida, mantener la energía y cuidar el cuerpo al terminar.", image: "/images/tienda/interior-16.jpeg", brands: ["226ERS", "Quinton Sport", "Scientific Nutrition", "Ana María Lajusticia", "AML Sport"] },
-  { id: "complementos", name: "Complementos", label: "La diferencia está en los detalles", detail: "Gorras, viseras, calcetines, cordones, manguitos, cintas, cinturones, mochilas y ropa interior técnica.", image: "/images/tienda/interior-01.jpeg", brands: ["BUFF", "Hanker Sport", "Lurbel", "Pimiento Negro", "RaidLight", "Joma", "226ERS", "Ultimate Performance", "SAXX", "Stenex", "Sphere Pro"] },
-  { id: "accesorios", name: "Accesorios", label: "Tecnología para llegar más lejos", detail: "Frontales, gafas, relojes, bastones, imanes, mantas térmicas y material para completar tu equipo.", image: "/images/tienda/interior-03.jpeg", brands: ["Ledlenser", "COROS", "Ozirik", "Styrpe", "Ultimate Performance", "Sphere Pro", "RaidLight", "La Sportiva", "Ferrino"] },
-  { id: "cuidado", name: "Cuidado deportivo", label: "Muévete con confianza", detail: "Cremas, tobilleras, rodilleras y soluciones de apoyo para entrenar con más comodidad.", image: "/images/tienda/interior-20.jpeg", brands: ["OXD Sport", "Ultimate Performance"] },
+  { id: "calzado", name: "Calzado", detail: "Ajuste, amortiguación, estabilidad, respuesta y agarre. Te ayudamos a comparar sensaciones y terreno para elegir con criterio.", image: "/images/catalogo/calzado-hoka-trail.jpg", brands: ["Joma", "La Sportiva", "HOKA", "OOFOS", "Brooks", "ASICS", "Atom", "RaidLight"] },
+  { id: "textil", name: "Textil técnico", detail: "Calzonas, mallas, camisetas, pantalones, chaquetas y sudaderas para entrenar, competir o simplemente disfrutar.", image: "/images/catalogo/textil-personalizado.jpg", brands: ["Lurbel", "Hanker Sport", "Pimiento Negro", "Nedao", "RaidLight", "Joma", "BUFF", "Sphere Pro", "226ERS", "La Sportiva", "Brooks"] },
+  { id: "suplementacion", name: "Suplementación", detail: "Nutrición, hidratación y recuperación para preparar cada salida, mantener la energía y cuidar el cuerpo al terminar.", image: "/images/tienda/interior-16.jpeg", brands: ["226ERS", "Quinton Sport", "Scientific Nutrition", "Ana María Lajusticia", "AML Sport"] },
+  { id: "complementos", name: "Complementos", detail: "Gorras, viseras, calcetines, cordones, manguitos, cintas, cinturones, mochilas y ropa interior técnica.", image: "/images/tienda/interior-01.jpeg", brands: ["BUFF", "Hanker Sport", "Lurbel", "Pimiento Negro", "RaidLight", "Joma", "226ERS", "Ultimate Performance", "SAXX", "Stenex", "Sphere Pro"] },
+  { id: "accesorios", name: "Accesorios", detail: "Frontales, gafas, relojes, bastones, imanes, mantas térmicas y material para completar tu equipo.", image: "/images/tienda/interior-03.jpeg", brands: ["Ledlenser", "COROS", "Ozirik", "Styrpe", "Ultimate Performance", "Sphere Pro", "RaidLight", "La Sportiva", "Ferrino"] },
+  { id: "cuidado", name: "Cuidado deportivo", detail: "Cremas, tobilleras, rodilleras y soluciones de apoyo para entrenar con más comodidad.", image: "/images/tienda/interior-20.jpeg", brands: ["OXD Sport", "Ultimate Performance"] },
 ] as const;
 
 const brandLogos: Record<string, string> = {
@@ -60,7 +60,7 @@ export function ProductCatalog() {
         <div className="cs-chapter__image"><Image src={imagePath(category.image)} alt={`${category.name} disponible en IBHOLA Trail Running`} fill sizes="100vw" /></div>
         <div className="cs-chapter__shade" />
         <div className="container-wide cs-chapter__content">
-          <div className="cs-chapter__heading" data-long-title={!category.name.includes(" ") && category.name.length >= 10}><span>{String(index + 1).padStart(2, "0")} / 06</span><p>{category.label}</p><h2>{category.name}</h2></div>
+          <div className="cs-chapter__heading" data-long-title={!category.name.includes(" ") && category.name.length >= 10}><h2>{category.name}</h2></div>
           <div className="cs-chapter__info"><p>{category.detail}</p><a href={link("/preguntas-frecuentes/#contacto")}>Consultar disponibilidad <ArrowRight size={16} /></a></div>
           <div className="cs-chapter__brands-wrap"><p className="cs-chapter__brands-hint">Desliza para ver todas las marcas <span aria-hidden="true">→</span></p><div className="cs-chapter__brands" aria-label={`Marcas de ${category.name}`}>{category.brands.map((brand) => <BrandLogo brand={brand} key={brand} />)}</div></div>
         </div>
