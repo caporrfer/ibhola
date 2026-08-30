@@ -10,7 +10,7 @@ export function SiteFooter() {
     <footer className="footer"><Topography className="footer__topography" />
       <div className="container footer__grid">
         <div><Brand footer /><p>Material y asesoramiento profesional para trail &amp; running.<br />Corrales, Huelva.</p></div>
-        <div><h2>Explora</h2><a href={`${basePath}/que-hacemos/`}>Qué hacemos</a><a href={`${basePath}/catalogo/`}>Catálogo</a><a href={`${basePath}/eventos/`}>Eventos</a></div>
+        <div><h2>Explora</h2><a href={`${basePath}/que-hacemos/`}>Qué hacemos</a><a href={`${basePath}/catalogo/`}>Catálogo</a><a href={`${basePath}/diseno-personalizado/`}>Diseño personalizado</a><a href={`${basePath}/eventos/`}>Eventos</a></div>
         <div><h2>Encuéntranos</h2><p>{fullAddress}</p><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a><a href={`mailto:${business.email}`}>{business.email}</a></div>
         <div><h2>Comunidad</h2><a href={business.social.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook ↗</a></div>
       </div>
