@@ -9,7 +9,7 @@ export function MobileActions() {
 
   useEffect(() => {
     const updateVisibility = () => {
-      const hero = document.querySelector<HTMLElement>(".hero, .page-hero");
+      const hero = document.querySelector<HTMLElement>(".hero, .page-hero, .cs-hero");
       const revealPoint = window.innerHeight * 0.25;
       setVisible(!hero || hero.getBoundingClientRect().bottom <= revealPoint);
     };

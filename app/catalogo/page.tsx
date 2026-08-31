@@ -1,4 +1,6 @@
-import { InteriorPage } from "@/components/InteriorPage";
+import { Header } from "@/components/Header";
 import { ProductCatalog } from "@/components/ProductCatalog";
+import { RevealObserver } from "@/components/Reveal";
+import { SiteFooter } from "@/components/SiteFooter";
 export const metadata = { title: "Catálogo | IBHOLA Trail Running" };
-export default function Page() { return <InteriorPage title="Material para cada forma de correr." intro="Productos de muestra para descubrir las categorías de la tienda. Consulta disponibilidad y tallas con nuestro equipo."><section className="catalog section"><div className="container"><ProductCatalog /></div></section></InteriorPage>; }
+export default function Page() { return <><RevealObserver /><Header /><main className="catalog-page"><ProductCatalog /></main><SiteFooter /></>; }
