@@ -16,10 +16,10 @@ type Event = {
 const past: Event[] = [
   {
     date: "28 MAY 2025",
-    title: "Reconocimiento en la IV Gala del Deporte",
+    title: "IBHOLA, reconocida en la IV Gala del Deporte",
     place: "Club de Golf Bellavista · Aljaraque",
     image: "/images/eventos/gala-deporte-ibhola-2025.webp",
-    alt: "Representantes premiados durante la IV Gala del Deporte de Aljaraque",
+    alt: "Intervención institucional durante la IV Gala del Deporte de Aljaraque",
     source: "https://www.ayto-aljaraque.es/es/ayuntamiento/sala-de-prensa/noticia-en-detalle/Aljaraque-rinde-honores-a-la-excelencia-deportiva-en-su-IV-Gala-del-Deporte/",
   },
   {
