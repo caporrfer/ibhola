@@ -83,10 +83,10 @@ function Cards({ items }: { items: Event[] }) {
 }
 
 export default function Page() {
-  return <InteriorPage title="Disfruta de nuestros eventos." intro="Carreras, encuentros y reconocimientos que forman parte de la historia real de la comunidad IBHOLA en Huelva.">
+  return <InteriorPage title="Nuestros eventos" intro="" showHero={false}>
     <section className="content-section events-page">
       <div className="container">
-        <div className="subheading"><h2>Únete a la comunidad</h2></div>
+        <div className="subheading"><h1>Nuestros eventos</h1></div>
         <article className="event-spotlight">
           <div className="event-spotlight__visual">
             <Image src={weeklyEvents[0].image} alt={weeklyEvents[0].alt} fill sizes="(max-width: 800px) 100vw, 58vw" />

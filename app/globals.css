@@ -637,7 +637,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .interior > .catalog { background: var(--forest-gradient-dark); color: white; }
 .events-page { background: var(--forest-gradient-light); }
 .subheading { margin-bottom: 38px; }
-.subheading h2 { font-size: clamp(3rem, 5vw, 5rem); }
+.subheading h1, .subheading h2 { font-size: clamp(3rem, 5vw, 5rem); }
 .subheading--past { margin-top: 100px; padding-top: 80px; border-top: 1px solid var(--line-light); }
 .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .event-grid article { min-height: 430px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line-light); background: var(--white); }
