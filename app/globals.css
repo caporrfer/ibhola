@@ -930,9 +930,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .cs-chapter__brands-wrap { min-width: 0; grid-column: 1 / -1; }
 .cs-chapter__brands-hint { display: none; }
 .cs-chapter__brands { display: flex; gap: 7px; overflow-x: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.3); scrollbar-width: thin; }
-.cs-brand { flex: 0 0 auto; min-width: 135px; min-height: 48px; display: grid; grid-template-columns: 38px 1fr; align-items: center; gap: 9px; padding: 4px 11px 4px 4px; border: 1px solid rgba(255,255,255,.3); background: rgba(8,9,8,.48); backdrop-filter: blur(8px); }
-.cs-brand > span { width: 36px; height: 36px; display: grid; place-items: center; overflow: hidden; background: #fff; }
-.cs-brand img { width: 29px; height: 27px; object-fit: contain; }
+.cs-brand { flex: 0 0 auto; min-width: 165px; min-height: 66px; display: grid; grid-template-columns: 52px 1fr; align-items: center; gap: 11px; padding: 6px 13px 6px 6px; border: 1px solid rgba(255,255,255,.3); background: rgba(8,9,8,.48); backdrop-filter: blur(8px); }
+.cs-brand > span { width: 50px; height: 50px; display: grid; place-items: center; overflow: hidden; background: #fff; }
+.cs-brand img { width: 42px; height: 40px; object-fit: contain; }
 .cs-brand i { color: #080908; font-size: .55rem; font-style: normal; font-weight: 850; }
 .cs-brand b { color: rgba(255,255,255,.84); font-size: .55rem; font-weight: 620; line-height: 1.15; }
 .cs-atelier { scroll-margin-top: 70px; position: relative; z-index: 10; overflow: hidden; padding: 130px 0 110px; background: var(--pistachio-action); color: #101712; }
