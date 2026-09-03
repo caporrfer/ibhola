@@ -94,7 +94,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .brand { width: 128px; display: block; flex: 0 0 auto; line-height: 0; }
 .brand img { width: 100%; height: auto; display: block; }
 .desktop-nav { display: flex; align-items: center; gap: clamp(18px, 2.2vw, 34px); margin-left: auto; }
-.desktop-nav a { position: relative; color: rgba(255,255,255,.72); font-size: .66rem; font-weight: 760; letter-spacing: .11em; text-transform: uppercase; transition: color .2s; }
+.desktop-nav a { position: relative; color: rgba(255,255,255,.72); font-size: .75rem; font-weight: 760; letter-spacing: .11em; text-transform: uppercase; transition: color .2s; }
 .desktop-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -9px; height: 1px; background: var(--terracotta-light); transition: right .25s; }
 .desktop-nav a:hover { color: white; }
 .desktop-nav a:hover::after { right: 0; }
