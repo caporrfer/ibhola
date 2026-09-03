@@ -24,9 +24,9 @@ const weeklyEvents: Event[] = [
 ];
 
 const weeklyPhotos = [
-  ["/images/eventos/quedadas-jueves/01-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
   ["/images/eventos/quedadas-jueves/03-atardecer-playa.jpg", "Corredores junto al mar al atardecer"],
   ["/images/eventos/quedadas-jueves/08-grupo-mirador.jpg", "Grupo de corredores en la montaña"],
+  ["/images/eventos/quedadas-jueves/09-grupo-noche.jpg", "Grupo de corredores durante una salida nocturna"],
 ] as const;
 
 const past: Event[] = [

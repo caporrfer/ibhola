@@ -654,9 +654,11 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-card__source:hover { color: var(--terracotta); }
 .event-photo-credits { margin-top: 30px; color: rgba(255,255,255,.48); font-size: .62rem; line-height: 1.6; }
 .event-photo-credits a { color: rgba(255,255,255,.72); text-decoration: underline; text-underline-offset: 3px; }
-.event-feature { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr); gap: 38px; align-items: stretch; margin-bottom: 38px; }
-.event-feature .event-grid { grid-template-columns: 1fr; }
+.event-feature { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr); gap: 38px; align-items: start; margin-bottom: 38px; }
+.event-feature .event-grid { grid-template-columns: 1fr; align-self: start; }
 .event-feature .event-grid article { min-height: 0; }
+.event-feature .event-card__image { aspect-ratio: 4 / 3; min-height: 0; }
+.event-feature .event-card__image img { object-fit: cover; }
 .event-feature__copy { display: flex; flex-direction: column; justify-content: center; padding: 35px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.04); }
 .event-feature__copy .eyebrow { margin: 0 0 18px; color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .event-feature__copy h3 { margin: 0 0 20px; color: white; font-size: clamp(2rem, 3.6vw, 3.5rem); line-height: .95; }
