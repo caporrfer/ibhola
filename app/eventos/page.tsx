@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
+import { ArrowRight, CalendarDays, Clock3, ExternalLink, MapPin } from "lucide-react";
 import { InteriorPage } from "@/components/InteriorPage";
 
 export const metadata = { title: "Eventos | IBHOLA Trail Running" };
@@ -78,16 +78,27 @@ export default function Page() {
     <section className="content-section events-page">
       <div className="container">
         <div className="subheading"><h2>Únete a la comunidad</h2></div>
-        <div className="event-feature">
-          <Cards items={weeklyEvents} />
-          <div className="event-feature__copy">
-            <p className="eyebrow">Una cita cada semana</p>
-            <h3>Corre, conoce gente y disfruta del camino.</h3>
-            <p>Todos los jueves del año nos encontramos a las 20:30 h para salir juntos desde IBHOLA. Una quedada abierta a todos los niveles, sin necesidad de inscripción.</p>
+        <article className="event-spotlight">
+          <div className="event-spotlight__visual">
+            <Image src={weeklyEvents[0].image} alt={weeklyEvents[0].alt} fill sizes="(max-width: 800px) 100vw, 58vw" />
+            <div className="event-spotlight__stamp"><span>IBHOLA</span><strong>JUEVES</strong><small>20:30 H</small></div>
+            <p className="event-spotlight__count">01 <span>/ comunidad</span></p>
           </div>
-        </div>
+          <div className="event-spotlight__body">
+            <p className="eyebrow">Una cita cada semana</p>
+            <h3>Quedadas<br /><em>Jueves IBHOLA</em></h3>
+            <p className="event-spotlight__lead">Corre, conoce gente y disfruta del camino.</p>
+            <p className="event-spotlight__description">Todos los jueves del año nos encontramos para salir juntos desde IBHOLA. Una quedada abierta a todos los niveles y sin necesidad de inscripción.</p>
+            <div className="event-spotlight__details">
+              <div><CalendarDays size={18} aria-hidden="true" /><span>Todos los jueves</span></div>
+              <div><Clock3 size={18} aria-hidden="true" /><span>20:30 horas</span></div>
+              <div><MapPin size={18} aria-hidden="true" /><span>Salida desde IBHOLA</span></div>
+            </div>
+            <a className="event-spotlight__link" href="/preguntas-frecuentes/#contacto">Quiero apuntarme <ArrowRight size={16} aria-hidden="true" /></a>
+          </div>
+        </article>
         <div className="event-gallery" aria-label="Galería de las Quedadas Jueves IBHOLA">
-          {weeklyPhotos.map(([image, alt]) => <div className="event-gallery__item" key={image}><Image src={image} alt={alt} fill sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw" /></div>)}
+          {weeklyPhotos.map(([image, alt], index) => <div className={`event-gallery__item event-gallery__item--${index + 1}`} key={image}><Image src={image} alt={alt} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 25vw" /></div>)}
         </div>
         <div className="subheading"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
