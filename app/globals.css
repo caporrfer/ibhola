@@ -675,10 +675,10 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-spotlight__details svg { flex: 0 0 auto; color: var(--terracotta-light); }
 .event-spotlight__link { display: inline-flex; align-items: center; gap: 10px; width: fit-content; margin-top: 30px; padding-bottom: 7px; border-bottom: 1px solid var(--pistachio-action); color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .event-gallery { margin: 8px 0 110px; }
-.event-gallery__viewport { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.2); background: #20261f; }
+.event-gallery__viewport { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.2); background: #080908; touch-action: pan-y; }
 .event-gallery__track { display: flex; transition: transform .45s cubic-bezier(.2,.75,.2,1); }
-.event-gallery__item { flex: 0 0 100%; aspect-ratio: 2.1 / 1; position: relative; overflow: hidden; background: #20261f; }
-.event-gallery__item img { object-fit: cover; }
+.event-gallery__item { flex: 0 0 100%; aspect-ratio: 1.5 / 1; position: relative; overflow: hidden; background: #080908; }
+.event-gallery__item img { object-fit: contain; }
 .event-gallery__control { position: absolute; z-index: 1; top: 50%; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(8,9,8,.68); color: white; cursor: pointer; transform: translateY(-50%); transition: background .2s, color .2s; }
 .event-gallery__control:hover { background: var(--pistachio-action); color: #080908; }
 .event-gallery__control--previous { left: 18px; }
@@ -929,6 +929,10 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .event-gallery__control { width: 36px; height: 36px; }
   .event-gallery__control--previous { left: 12px; }
   .event-gallery__control--next { right: 12px; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .event-gallery__control { display: none; }
 }
 
 /* Catalog concept 03 — immersive stacked showroom */

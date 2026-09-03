@@ -25,9 +25,17 @@ const weeklyEvents: Event[] = [
 ];
 
 const weeklyPhotos = [
-  ["/images/eventos/quedadas-jueves/02-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/01-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/02-grupo-tienda.jpg", "Corredores reunidos frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/03-atardecer-playa.jpg", "Corredores junto al mar al atardecer"],
   ["/images/eventos/quedadas-jueves/04-salida-nocturna.jpg", "Grupo de corredores durante una salida nocturna"],
-  ["/images/eventos/quedadas-jueves/06-grupo-atardecer.jpg", "Grupo de corredores en la montaña"],
+  ["/images/eventos/quedadas-jueves/05-grupo-playa.jpg", "Grupo de corredores en la playa"],
+  ["/images/eventos/quedadas-jueves/06-grupo-atardecer.jpg", "Grupo de corredores al atardecer"],
+  ["/images/eventos/quedadas-jueves/07-caminata-playa.jpg", "Corredores caminando por la playa"],
+  ["/images/eventos/quedadas-jueves/08-grupo-mirador.jpg", "Grupo de corredores en la montaña"],
+  ["/images/eventos/quedadas-jueves/09-grupo-noche.jpg", "Grupo de corredores durante una salida nocturna"],
+  ["/images/eventos/quedadas-jueves/10-grupo-tienda-noche.jpg", "Corredores frente a IBHOLA por la noche"],
+  ["/images/eventos/quedadas-jueves/11-grupo-tienda.jpg", "Grupo de corredores frente a la tienda"],
 ] as const;
 
 const past: Event[] = [

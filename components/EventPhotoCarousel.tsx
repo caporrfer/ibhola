@@ -2,18 +2,30 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState, type TouchEvent } from "react";
 
 type Photo = readonly [string, string];
 
 export function EventPhotoCarousel({ photos }: { photos: readonly Photo[] }) {
   const [active, setActive] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
   const previous = () => setActive((current) => (current - 1 + photos.length) % photos.length);
   const next = () => setActive((current) => (current + 1) % photos.length);
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const distance = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(distance) < 45) return;
+    if (distance < 0) next();
+    else previous();
+  };
 
   return <div className="event-gallery" aria-label="Galería de las Quedadas Jueves IBHOLA">
-    <div className="event-gallery__viewport">
+    <div className="event-gallery__viewport" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <div className="event-gallery__track" style={{ transform: `translateX(-${active * 100}%)` }}>
         {photos.map(([image, alt], index) => <div className="event-gallery__item" key={image} role="group" aria-roledescription="diapositiva" aria-label={`${index + 1} de ${photos.length}`}>
           <Image src={image} alt={alt} fill sizes="(max-width: 600px) calc(100vw - 30px), 70vw" />
