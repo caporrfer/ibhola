@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Clock3, ExternalLink, MapPin } from "lucide-react";
+import { EventPhotoCarousel } from "@/components/EventPhotoCarousel";
 import { InteriorPage } from "@/components/InteriorPage";
 
 export const metadata = { title: "Eventos | IBHOLA Trail Running" };
@@ -97,9 +98,7 @@ export default function Page() {
             <a className="event-spotlight__link" href="/preguntas-frecuentes/#contacto">Quiero apuntarme <ArrowRight size={16} aria-hidden="true" /></a>
           </div>
         </article>
-        <div className="event-gallery" aria-label="Galería de las Quedadas Jueves IBHOLA">
-          {weeklyPhotos.map(([image, alt], index) => <div className={`event-gallery__item event-gallery__item--${index + 1}`} key={image}><Image src={image} alt={alt} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 33vw, 25vw" /></div>)}
-        </div>
+        <EventPhotoCarousel photos={weeklyPhotos} />
         <div className="subheading"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
         <p className="event-photo-credits">Fechas e imágenes contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>

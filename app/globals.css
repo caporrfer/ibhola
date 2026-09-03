@@ -674,10 +674,20 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-spotlight__details div { display: flex; align-items: center; gap: 13px; color: rgba(255,255,255,.82); font-size: .7rem; }
 .event-spotlight__details svg { flex: 0 0 auto; color: var(--terracotta-light); }
 .event-spotlight__link { display: inline-flex; align-items: center; gap: 10px; width: fit-content; margin-top: 30px; padding-bottom: 7px; border-bottom: 1px solid var(--pistachio-action); color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.event-gallery { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 8px; margin: 8px 0 110px; }
-.event-gallery__item { aspect-ratio: 1.35 / 1; min-height: 0; position: relative; overflow: hidden; background: #20261f; }
-.event-gallery__item img { object-fit: cover; transition: transform .45s cubic-bezier(.2,.75,.2,1); }
-.event-gallery__item:hover img { transform: scale(1.045); }
+.event-gallery { margin: 8px 0 110px; }
+.event-gallery__viewport { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.2); background: #20261f; }
+.event-gallery__track { display: flex; transition: transform .45s cubic-bezier(.2,.75,.2,1); }
+.event-gallery__item { flex: 0 0 100%; aspect-ratio: 2.1 / 1; position: relative; overflow: hidden; background: #20261f; }
+.event-gallery__item img { object-fit: cover; }
+.event-gallery__control { position: absolute; z-index: 1; top: 50%; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(8,9,8,.68); color: white; cursor: pointer; transform: translateY(-50%); transition: background .2s, color .2s; }
+.event-gallery__control:hover { background: var(--pistachio-action); color: #080908; }
+.event-gallery__control--previous { left: 18px; }
+.event-gallery__control--next { right: 18px; }
+.event-gallery__counter { position: absolute; z-index: 1; right: 20px; bottom: 17px; margin: 0; color: white; font-family: monospace; font-size: .72rem; }
+.event-gallery__counter span { color: rgba(255,255,255,.58); }
+.event-gallery__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.event-gallery__dots button { width: 28px; height: 3px; padding: 0; border: 0; background: rgba(255,255,255,.28); cursor: pointer; transition: background .2s, width .2s; }
+.event-gallery__dots button.is-active, .event-gallery__dots button:hover { width: 42px; background: var(--pistachio-action); }
 .interior .faq { background: var(--forest-gradient-dark); color: white; }
 
 /* Alternating solid section surfaces */
@@ -874,7 +884,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .event-spotlight { grid-template-columns: 1fr 1fr; }
   .event-spotlight__visual { min-height: 500px; }
   .event-spotlight__body { padding: 32px; }
-  .event-gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 150px; }
+  .event-gallery__item { aspect-ratio: 1.7 / 1; }
 }
 
 @media (max-width: 850px) {
@@ -915,6 +925,10 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .catalog-filterbar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 7px; }
   .catalog-filterbar button { flex: 0 0 auto; }
   .catalog-category__body > p { min-height: 0; }
+  .event-gallery__item { aspect-ratio: 1.35 / 1; }
+  .event-gallery__control { width: 36px; height: 36px; }
+  .event-gallery__control--previous { left: 12px; }
+  .event-gallery__control--next { right: 12px; }
 }
 
 /* Catalog concept 03 — immersive stacked showroom */
