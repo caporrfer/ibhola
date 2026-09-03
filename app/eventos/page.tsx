@@ -10,8 +10,32 @@ type Event = {
   place: string;
   image: string;
   alt: string;
-  source: string;
+  source?: string;
 };
+
+const weeklyEvents: Event[] = [
+  {
+    date: "TODOS LOS JUEVES",
+    title: "Quedadas Jueves IBHOLA",
+    place: "Salida desde IBHOLA · 20:30 h",
+    image: "/images/eventos/quedadas-jueves/01-grupo-tienda.jpg",
+    alt: "Grupo de corredores reunido frente a IBHOLA",
+  },
+];
+
+const weeklyPhotos = [
+  ["/images/eventos/quedadas-jueves/01-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/02-grupo-tienda.jpg", "Corredores reunidos frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/03-atardecer-playa.jpg", "Corredores junto al mar al atardecer"],
+  ["/images/eventos/quedadas-jueves/04-salida-nocturna.jpg", "Grupo de corredores en una salida nocturna"],
+  ["/images/eventos/quedadas-jueves/05-grupo-playa.jpg", "Grupo de corredores en la playa"],
+  ["/images/eventos/quedadas-jueves/06-grupo-atardecer.jpg", "Grupo de corredores al atardecer"],
+  ["/images/eventos/quedadas-jueves/07-caminata-playa.jpg", "Corredores caminando por la playa"],
+  ["/images/eventos/quedadas-jueves/08-grupo-mirador.jpg", "Grupo de corredores en la montaña"],
+  ["/images/eventos/quedadas-jueves/09-grupo-noche.jpg", "Grupo de corredores durante una salida nocturna"],
+  ["/images/eventos/quedadas-jueves/10-grupo-tienda-noche.jpg", "Corredores frente a IBHOLA por la noche"],
+  ["/images/eventos/quedadas-jueves/11-grupo-tienda.jpg", "Grupo de corredores frente a la tienda"],
+] as const;
 
 const past: Event[] = [
   {
@@ -51,7 +75,7 @@ function Cards({ items }: { items: Event[] }) {
         <CalendarDays size={23} aria-hidden="true" />
         <h3>{event.title}</h3>
         <p><MapPin size={15} aria-hidden="true" />{event.place}</p>
-        <a className="event-card__source" href={event.source} target="_blank" rel="noreferrer">Ver fuente <ExternalLink size={13} aria-hidden="true" /></a>
+        {event.source && <a className="event-card__source" href={event.source} target="_blank" rel="noreferrer">Ver fuente <ExternalLink size={13} aria-hidden="true" /></a>}
       </div>
     </article>
   )}</div>;
@@ -61,6 +85,18 @@ export default function Page() {
   return <InteriorPage title="Disfruta de nuestros eventos." intro="Carreras, encuentros y reconocimientos que forman parte de la historia real de la comunidad IBHOLA en Huelva.">
     <section className="content-section events-page">
       <div className="container">
+        <div className="subheading"><h2>Únete a la comunidad</h2></div>
+        <div className="event-feature">
+          <Cards items={weeklyEvents} />
+          <div className="event-feature__copy">
+            <p className="eyebrow">Una cita cada semana</p>
+            <h3>Corre, conoce gente y disfruta del camino.</h3>
+            <p>Todos los jueves del año nos encontramos a las 20:30 h para salir juntos desde IBHOLA. Una quedada abierta a todos los niveles, sin necesidad de inscripción.</p>
+          </div>
+        </div>
+        <div className="event-gallery" aria-label="Galería de las Quedadas Jueves IBHOLA">
+          {weeklyPhotos.map(([image, alt]) => <div className="event-gallery__item" key={image}><Image src={image} alt={alt} fill sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw" /></div>)}
+        </div>
         <div className="subheading"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
         <p className="event-photo-credits">Fechas e imágenes contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>
