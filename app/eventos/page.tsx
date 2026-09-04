@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Clock3, ExternalLink, MapPin } from "lucide-react";
+import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import { EventPhotoCarousel } from "@/components/EventPhotoCarousel";
 import { InteriorPage } from "@/components/InteriorPage";
 
@@ -13,16 +13,6 @@ type Event = {
   alt: string;
   source?: string;
 };
-
-const weeklyEvents: Event[] = [
-  {
-    date: "TODOS LOS JUEVES",
-    title: "Quedadas Jueves IBHOLA",
-    place: "Salida desde IBHOLA · 20:30 h",
-    image: "/images/eventos/quedadas-jueves/01-grupo-tienda.jpg",
-    alt: "Grupo de corredores reunido frente a IBHOLA",
-  },
-];
 
 const weeklyPhotos = [
   ["/images/eventos/quedadas-jueves/01-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
@@ -86,28 +76,9 @@ export default function Page() {
   return <InteriorPage title="Nuestros eventos" intro="" showHero={false}>
     <section className="content-section events-page">
       <div className="container">
-        <div className="subheading"><h1>Nuestros eventos</h1></div>
-        <article className="event-spotlight">
-          <div className="event-spotlight__visual">
-            <Image src={weeklyEvents[0].image} alt={weeklyEvents[0].alt} fill sizes="(max-width: 800px) 100vw, 58vw" />
-            <div className="event-spotlight__stamp"><span>IBHOLA</span><strong>JUEVES</strong><small>20:30 H</small></div>
-            <p className="event-spotlight__count">01 <span>/ comunidad</span></p>
-          </div>
-          <div className="event-spotlight__body">
-            <p className="eyebrow">Una cita cada semana</p>
-            <h3>Quedadas<br /><em>Jueves IBHOLA</em></h3>
-            <p className="event-spotlight__lead">Corre, conoce gente y disfruta del camino.</p>
-            <p className="event-spotlight__description">Todos los jueves del año nos encontramos para salir juntos desde IBHOLA. Una quedada abierta a todos los niveles y sin necesidad de inscripción.</p>
-            <div className="event-spotlight__details">
-              <div><CalendarDays size={18} aria-hidden="true" /><span>Todos los jueves</span></div>
-              <div><Clock3 size={18} aria-hidden="true" /><span>20:30 horas</span></div>
-              <div><MapPin size={18} aria-hidden="true" /><span>Salida desde IBHOLA</span></div>
-            </div>
-            <a className="event-spotlight__link" href="/preguntas-frecuentes/#contacto">Quiero apuntarme <ArrowRight size={16} aria-hidden="true" /></a>
-          </div>
-        </article>
+        <div className="subheading subheading--community"><h1>Únete a la comunidad</h1></div>
         <EventPhotoCarousel photos={weeklyPhotos} />
-        <div className="subheading"><h2>Eventos anteriores</h2></div>
+        <div className="subheading subheading--past"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
         <p className="event-photo-credits">Fechas e imágenes contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>
       </div>
