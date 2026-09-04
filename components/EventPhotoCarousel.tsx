@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, MoveHorizontal } from "lucide-react";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 
 type Photo = readonly [string, string];
@@ -43,6 +43,7 @@ export function EventPhotoCarousel({ photos }: { photos: readonly Photo[] }) {
             </div>)}
           </div>
           <span className="event-community__badge">Todos los jueves</span>
+          <span className="event-community__swipe-hint"><MoveHorizontal size={16} aria-hidden="true" />Desliza</span>
           <button className="event-community__control event-community__control--previous" type="button" onClick={previous} aria-label="Foto anterior"><ChevronLeft size={22} aria-hidden="true" /></button>
           <button className="event-community__control event-community__control--next" type="button" onClick={next} aria-label="Foto siguiente"><ChevronRight size={22} aria-hidden="true" /></button>
           <p className="event-community__counter" aria-live="polite">{String(active + 1).padStart(2, "0")} <span>/ {String(photos.length).padStart(2, "0")}</span></p>
