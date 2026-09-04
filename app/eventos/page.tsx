@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
+import { EventPhotoCarousel } from "@/components/EventPhotoCarousel";
 import { InteriorPage } from "@/components/InteriorPage";
 
 export const metadata = { title: "Eventos | IBHOLA Trail Running" };
@@ -10,16 +11,30 @@ type Event = {
   place: string;
   image: string;
   alt: string;
-  source: string;
+  source?: string;
 };
+
+const weeklyPhotos = [
+  ["/images/eventos/quedadas-jueves/01-grupo-tienda.jpg", "Grupo de corredores frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/02-grupo-tienda.jpg", "Corredores reunidos frente a IBHOLA"],
+  ["/images/eventos/quedadas-jueves/03-atardecer-playa.jpg", "Corredores junto al mar al atardecer"],
+  ["/images/eventos/quedadas-jueves/04-salida-nocturna.jpg", "Grupo de corredores durante una salida nocturna"],
+  ["/images/eventos/quedadas-jueves/05-grupo-playa.jpg", "Grupo de corredores en la playa"],
+  ["/images/eventos/quedadas-jueves/06-grupo-atardecer.jpg", "Grupo de corredores al atardecer"],
+  ["/images/eventos/quedadas-jueves/07-caminata-playa.jpg", "Corredores caminando por la playa"],
+  ["/images/eventos/quedadas-jueves/08-grupo-mirador.jpg", "Grupo de corredores en la montaña"],
+  ["/images/eventos/quedadas-jueves/09-grupo-noche.jpg", "Grupo de corredores durante una salida nocturna"],
+  ["/images/eventos/quedadas-jueves/10-grupo-tienda-noche.jpg", "Corredores frente a IBHOLA por la noche"],
+  ["/images/eventos/quedadas-jueves/11-grupo-tienda.jpg", "Grupo de corredores frente a la tienda"],
+] as const;
 
 const past: Event[] = [
   {
     date: "28 MAY 2025",
-    title: "Reconocimiento en la IV Gala del Deporte",
+    title: "IBHOLA, reconocida en la IV Gala del Deporte",
     place: "Club de Golf Bellavista · Aljaraque",
     image: "/images/eventos/gala-deporte-ibhola-2025.webp",
-    alt: "Representantes premiados durante la IV Gala del Deporte de Aljaraque",
+    alt: "Intervención institucional durante la IV Gala del Deporte de Aljaraque",
     source: "https://www.ayto-aljaraque.es/es/ayuntamiento/sala-de-prensa/noticia-en-detalle/Aljaraque-rinde-honores-a-la-excelencia-deportiva-en-su-IV-Gala-del-Deporte/",
   },
   {
@@ -51,17 +66,19 @@ function Cards({ items }: { items: Event[] }) {
         <CalendarDays size={23} aria-hidden="true" />
         <h3>{event.title}</h3>
         <p><MapPin size={15} aria-hidden="true" />{event.place}</p>
-        <a className="event-card__source" href={event.source} target="_blank" rel="noreferrer">Ver fuente <ExternalLink size={13} aria-hidden="true" /></a>
+        {event.source && <a className="event-card__source" href={event.source} target="_blank" rel="noreferrer">Ver fuente <ExternalLink size={13} aria-hidden="true" /></a>}
       </div>
     </article>
   )}</div>;
 }
 
 export default function Page() {
-  return <InteriorPage title="Disfruta de nuestros eventos." intro="Carreras, encuentros y reconocimientos que forman parte de la historia real de la comunidad IBHOLA en Huelva.">
+  return <InteriorPage title="Nuestros eventos" intro="" showHero={false}>
     <section className="content-section events-page">
       <div className="container">
-        <div className="subheading"><h2>Eventos anteriores</h2></div>
+        <div className="subheading subheading--community"><h1>Únete a la comunidad</h1></div>
+        <EventPhotoCarousel photos={weeklyPhotos} />
+        <div className="subheading subheading--past"><h2>Eventos anteriores</h2></div>
         <Cards items={past} />
         <p className="event-photo-credits">Fechas e imágenes contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>
       </div>
