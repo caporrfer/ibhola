@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <><Header /><main><CustomDesign /></main><SiteFooter /></>;
+  return <><Header /><main id="main-content" tabIndex={-1}><CustomDesign /></main><SiteFooter /></>;
 }

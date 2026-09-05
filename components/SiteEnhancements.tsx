@@ -5,30 +5,11 @@ import { ArrowUp } from "lucide-react";
 
 export function SiteEnhancements() {
   const [showTop, setShowTop] = useState(false);
-
   useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 620);
-    const onPageShow = () => document.body.classList.remove("page-leaving");
-    const onClick = (event: MouseEvent) => {
-      const anchor = (event.target as Element).closest("a");
-      if (!anchor || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || anchor.target === "_blank" || anchor.hasAttribute("download")) return;
-      const destination = new URL(anchor.href, window.location.href);
-      if (destination.origin !== window.location.origin || (destination.pathname === window.location.pathname && destination.search === window.location.search)) return;
-      event.preventDefault();
-      document.body.classList.add("page-leaving");
-      window.setTimeout(() => { window.location.href = destination.href; }, 180);
-    };
-    onPageShow();
+    const onScroll = () => setShowTop(window.scrollY > 900);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("pageshow", onPageShow);
-    document.addEventListener("click", onClick);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("pageshow", onPageShow);
-      document.removeEventListener("click", onClick);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  return <button className={`back-to-top ${showTop ? "is-visible" : ""}`} type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Volver arriba"><ArrowUp size={19} /><span>Arriba</span></button>;
+  return <button className={`back-to-top ${showTop ? "is-visible" : ""}`} type="button" tabIndex={showTop ? 0 : -1} onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" })} aria-label="Volver arriba"><ArrowUp size={20} /></button>;
 }

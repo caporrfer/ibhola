@@ -38,7 +38,7 @@ export function EventPhotoCarousel({ photos }: { photos: readonly Photo[] }) {
       <article className="event-community__card">
         <div className="event-community__viewport" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <div className="event-community__track" style={{ transform: `translateX(-${active * 100}%)` }}>
-            {photos.map(([image, alt], index) => <div className="event-community__slide" key={image} role="group" aria-roledescription="diapositiva" aria-label={`${index + 1} de ${photos.length}`}>
+            {photos.map(([image, alt], index) => <div className="event-community__slide" key={image} aria-hidden={active !== index} role="group" aria-roledescription="diapositiva" aria-label={`${index + 1} de ${photos.length}`}>
               <Image src={image} alt={alt} fill loading="eager" sizes="(max-width: 850px) calc(100vw - 30px), 68vw" />
             </div>)}
           </div>
@@ -56,15 +56,15 @@ export function EventPhotoCarousel({ photos }: { photos: readonly Photo[] }) {
 
       <aside className="event-community__copy">
         <p className="eyebrow">Una cita cada semana</p>
-        <h2>Corre,<br />conoce<br />gente y<br />disfruta del<br />camino.</h2>
+        <h2>Corre, conoce gente y disfruta del camino.</h2>
         <p>Todos los jueves del año nos encontramos a las 20:30 h para salir juntos desde IBHOLA. Una quedada abierta a todos los niveles, sin necesidad de inscripción.</p>
       </aside>
     </div>
 
-    <div className="event-community__previews" role="tablist" aria-label="Seleccionar foto">
+    <div className="event-community__previews" role="group" aria-label="Seleccionar foto">
       {previews.map((index) => {
         const [image, alt] = photos[index];
-        return <button key={image} type="button" role="tab" aria-selected={active === index} aria-label={`Ver foto ${index + 1}: ${alt}`} onClick={() => setActive(index)}>
+        return <button key={image} type="button" aria-pressed={active === index} aria-label={`Ver foto ${index + 1}: ${alt}`} onClick={() => setActive(index)}>
           <Image src={image} alt="" fill loading="eager" sizes="(max-width: 600px) 33vw, 25vw" />
         </button>;
       })}
