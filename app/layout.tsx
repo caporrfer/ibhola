@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     description: "Especialistas en trail y running. Material técnico y asesoramiento de verdad.",
     images: [`${business.siteUrl}/images/corredor-original.jpg`],
   },
-  icons: { icon: `${business.siteUrl}/icon.svg` },
 };
 
 export const viewport: Viewport = {
