@@ -1,6 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="15" fill="#18231F"/>
-  <circle cx="47" cy="16" r="5" fill="#D27A61"/>
-  <path d="M11 46 26 23l8 12 6-9 13 20H11Z" fill="#95C653"/>
-  <path d="m11 49 14-8 8 3 8-7 12 7" fill="none" stroke="#FFFDF4" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <defs>
+    <linearGradient id="ibhola-gradient" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#54D5E8"/>
+      <stop offset=".3" stop-color="#637BFF"/>
+      <stop offset=".58" stop-color="#E735A7"/>
+      <stop offset=".82" stop-color="#FF5A43"/>
+      <stop offset="1" stop-color="#FFC83D"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#18231F"/>
+  <path d="M10 48 26 27l8 10 8-12 12 23" fill="none" stroke="#FFFDF4" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  <path d="M18 50c5-5 7-12 8-21 1-7 3-12 7-16" fill="none" stroke="url(#ibhola-gradient)" stroke-linecap="round" stroke-width="7"/>
+  <path d="M17 51c7 2 14 2 22 0" fill="none" stroke="url(#ibhola-gradient)" stroke-linecap="round" stroke-width="7"/>
 </svg>
