@@ -1,3 +1,8 @@
+const defaultSiteUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://www.ibholahuelva.es"
+    : "http://localhost:8183";
+
 export const business = {
   name: "IBHOLA Trail Running",
   legalName: "IBHOLA TRAIL RUNNING",
@@ -38,7 +43,7 @@ export const business = {
     { day: "Sábado", ranges: ["10:00–13:30"], schemaDay: "Saturday" },
     { day: "Domingo", ranges: ["Cerrado"], schemaDay: "Sunday" },
   ],
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:8183",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl,
 } as const;
 
 export const fullAddress = `${business.address.street}, ${business.address.postalCode} ${business.address.locality}, ${business.address.region}`;
