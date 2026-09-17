@@ -4,9 +4,8 @@ import Image from "next/image";
 import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
 import { useEffect } from "react";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const imagePath = (path: string) => `${basePath}${path}`;
-const link = (path: string) => `${basePath}${path}`;
+const imagePath = (path: string) => path;
+const link = (path: string) => path;
 
 const categories = [
   { id: "calzado", name: "Calzado", detail: "Ajuste, amortiguación, estabilidad, respuesta y agarre. Te ayudamos a comparar sensaciones y terreno para elegir con criterio.", image: "/images/catalogo/calzado-hoka-trail.jpg", brands: ["Joma", "La Sportiva", "HOKA", "OOFOS", "Brooks", "ASICS", "Atom", "RaidLight"] },

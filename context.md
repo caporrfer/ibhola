@@ -1,6 +1,6 @@
 # Contexto técnico de IBHOLA
 
-Este documento sirve como mapa del proyecto para futuras modificaciones. La rama de desarrollo y producción es `main`; `gh-pages` contiene únicamente la exportación estática generada automáticamente y no debe editarse a mano.
+Este documento sirve como mapa del proyecto para futuras modificaciones. La rama principal es `main` y los despliegues se gestionan desde Vercel.
 
 ## Tecnología y comandos
 
@@ -23,7 +23,7 @@ Este documento sirve como mapa del proyecto para futuras modificaciones. La rama
 - `app/robots.ts` y `app/sitemap.ts`: SEO técnico generado por Next.js.
 - `app/icon.svg`: favicon.
 
-Las páginas interiores reutilizan `components/InteriorPage.tsx`, que aporta navbar, hero interior, observador de animaciones y footer.
+Las páginas interiores reutilizan `components/InteriorPage.tsx`, que aporta navbar, hero interior, observador de animaciones y footer. La página de eventos también usa `components/EventVideo.tsx` para reproducir el vídeo destacado y ofrecer un enlace alternativo si falla la reproducción integrada.
 
 ## Portada
 
@@ -101,31 +101,20 @@ No duplicar estos datos directamente en componentes cuando puedan leerse desde `
 
 ## Imágenes
 
-Los recursos están en `public/images/`. Las fotografías originales del interior de la tienda se guardan ordenadas en `public/images/tienda/` como `interior-01.jpeg` a `interior-44.jpeg`; una selección se muestra en la galería de Inicio. Las rutas pasan por el helper `imagePath` en los componentes que necesitan soportar el prefijo de GitHub Pages. Al añadir una imagen, utilizar `next/image`, texto alternativo descriptivo y `sizes` apropiado.
+Los recursos están en `public/images/`. Las fotografías originales del interior de la tienda se guardan ordenadas en `public/images/tienda/` como `interior-01.jpeg` a `interior-44.jpeg`; una selección se muestra en la galería de Inicio. Al añadir una imagen, utilizar `next/image`, texto alternativo descriptivo y `sizes` apropiado. Los vídeos propios se almacenan en `public/videos/` y deben incluir una portada optimizada.
 
-## Variables de entorno y rutas base
+## Variables de entorno
 
 - `NEXT_PUBLIC_SITE_URL`: dominio público utilizado en metadatos, sitemap y Schema.org.
-- `BUILD_TARGET=static`: activa `output: "export"`.
-- `NEXT_PUBLIC_BASE_PATH=/ibhola`: prefijo requerido para GitHub Pages.
 
-`next.config.ts` activa exportación estática, `trailingSlash`, `basePath`, `assetPrefix` e imágenes sin optimización cuando `BUILD_TARGET=static`. En Vercel usa salida `standalone` y no aplica prefijo.
+`next.config.ts` usa la salida `standalone`, optimización de imágenes y cabeceras de seguridad para Vercel.
 
 ## Despliegues y ramas
 
 ### Vercel
 
-- Rama de producción: `main`.
-- `vercel.json` desactiva despliegues de la rama `gh-pages`.
-- Vercel debe compilar desde la raíz con el preset Next.js.
-
-### GitHub Pages
-
-- `.github/workflows/pages.yml` se ejecuta al hacer push a `main`.
-- Compila con `BUILD_TARGET=static`, genera `out/index.html`, añade `.nojekyll` y publica forzosamente el resultado en `gh-pages`.
-- URL: `https://caporrfer.github.io/ibhola/`.
-- En GitHub Pages la fuente debe ser la rama `gh-pages`, carpeta `/(root)`.
-- Nunca desarrollar ni fusionar código fuente dentro de `gh-pages`; es una rama de artefactos reemplazable.
+- Vercel compila desde la raíz con el preset Next.js.
+- La configuración de ramas y los entornos de vista previa se gestionan en el panel de Vercel.
 
 ## Reglas para futuras modificaciones
 
@@ -135,4 +124,4 @@ Los recursos están en `public/images/`. Las fotografías originales del interio
 4. No mover `LaunchScreen` al layout global: solo pertenece a Inicio.
 5. No integrar feeds sociales mediante scraping ni credenciales expuestas.
 6. Ejecutar `git diff --check` y `npm run build` antes de crear el commit.
-7. Subir únicamente cambios relacionados; el workflow actualizará `gh-pages` automáticamente.
+7. Subir únicamente cambios relacionados; Vercel generará el despliegue configurado para la rama.

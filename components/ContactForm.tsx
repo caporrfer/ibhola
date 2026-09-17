@@ -4,8 +4,6 @@ import { FormEvent, useState } from "react";
 import { ArrowUpRight, MailCheck } from "lucide-react";
 import { business } from "@/config/business";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 export function ContactForm() {
   const [notice, setNotice] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -67,7 +65,7 @@ export function ContactForm() {
         </select>{errors.topic && <span className="field-error" id="topic-error">{errors.topic}</span>}
       </label>
       <label>Mensaje <textarea name="message" rows={4} required placeholder="Cuéntanos qué buscas, por dónde corres o qué dudas tienes" aria-invalid={Boolean(errors.message)} aria-describedby="message-error" />{errors.message && <span className="field-error" id="message-error">{errors.message}</span>}</label>
-      <label className="check"><input name="privacy" type="checkbox" required aria-invalid={Boolean(errors.privacy)} aria-describedby="privacy-error" /><span>Acepto la <a href={`${basePath}/privacidad/`}>política de privacidad</a>.{errors.privacy && <span className="field-error" id="privacy-error">{errors.privacy}</span>}</span></label>
+      <label className="check"><input name="privacy" type="checkbox" required aria-invalid={Boolean(errors.privacy)} aria-describedby="privacy-error" /><span>Acepto la <a href="/privacidad/">política de privacidad</a>.{errors.privacy && <span className="field-error" id="privacy-error">{errors.privacy}</span>}</span></label>
       <button className="button" type="submit">Preparar correo <ArrowUpRight size={18} /></button>
       <p className="form-help">La consulta no se almacena en esta web: se enviará desde tu aplicación de correo.</p>
       {notice && <div className="form-notice" role="status"><MailCheck size={18} />{notice}</div>}

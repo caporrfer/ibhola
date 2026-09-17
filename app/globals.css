@@ -652,6 +652,23 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-grid p { display: flex; align-items: center; gap: 8px; margin-top: auto; color: #76766f; font-size: .72rem; }
 .event-card__source { display: inline-flex; align-items: center; gap: 6px; width: fit-content; margin-top: 14px; color: var(--forest-deep); font-size: .62rem; font-weight: 750; letter-spacing: .06em; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; }
 .event-card__source:hover { color: var(--terracotta); }
+.event-latest { margin-bottom: 52px; padding: clamp(28px, 5vw, 58px); border: 1px solid rgba(255,255,255,.25); background: #121612; }
+.event-latest__header { max-width: 860px; margin-bottom: clamp(32px, 5vw, 54px); }
+.event-latest__header .eyebrow { margin: 0 0 18px; color: var(--pistachio-action); }
+.event-latest h3 { max-width: 800px; margin-bottom: 18px; font-size: clamp(2.8rem, 5.6vw, 5.8rem); line-height: .9; }
+.event-latest__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 0 0 34px; color: rgba(255,255,255,.72); font-size: .68rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.event-latest__meta svg { color: var(--pistachio-action); }
+.event-latest h4 { margin: 0 0 14px; color: var(--pistachio-action); font-family: var(--serif); font-size: clamp(1.55rem, 2.5vw, 2.35rem); font-style: italic; font-weight: 400; }
+.event-latest__copy { max-width: 760px; margin: 0; color: rgba(255,255,255,.7); font-size: .92rem; line-height: 1.82; }
+.event-latest__source, .event-video > a { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; }
+.event-latest__source:hover, .event-video > a:hover { color: var(--pistachio-action-hover); }
+.event-latest__media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.event-latest__photo, .event-video { min-width: 0; margin: 0; }
+.event-latest__photo { height: clamp(430px, 45vw, 680px); display: flex; justify-content: center; overflow: hidden; background: #050605; }
+.event-latest__photo img { width: 100%; height: 100%; object-fit: contain; }
+.event-video { display: flex; flex-direction: column; align-items: flex-start; min-height: 0; }
+.event-video video { width: 100%; height: clamp(430px, 45vw, 680px); display: block; background: #050605; object-fit: contain; }
+.event-video__error { margin: 14px 0 0; color: #ffd2c8; font-size: .72rem; line-height: 1.5; }
 .event-photo-credits { margin-top: 30px; color: rgba(255,255,255,.48); font-size: .62rem; line-height: 1.6; }
 .event-photo-credits a { color: rgba(255,255,255,.72); text-decoration: underline; text-underline-offset: 3px; }
 .subheading--community { margin-bottom: 30px; }
@@ -772,6 +789,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .content-image { min-height: 500px; }
   .feature-grid { grid-template-columns: 1fr 1fr; }
   .event-grid { grid-template-columns: 1fr 1fr; }
+  .event-latest__photo, .event-video video { height: clamp(420px, 64vw, 620px); }
   .home-contact-cta { align-items: flex-start; flex-direction: column; padding: 40px; }
 }
 @media (max-width: 600px) {
@@ -785,6 +803,12 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
   .feature-grid article { min-height: 260px; padding: 28px; }
   .feature-grid svg { margin-bottom: 45px; }
   .event-grid article { min-height: 260px; }
+  .event-latest { padding: 25px 18px; }
+  .event-latest__header { margin-bottom: 30px; }
+  .event-latest__meta { margin-bottom: 26px; font-size: .6rem; }
+  .event-latest__media { grid-template-columns: 1fr; }
+  .event-latest__photo { height: auto; aspect-ratio: 1365 / 2048; }
+  .event-video video { height: auto; aspect-ratio: 478 / 850; }
   .event-gallery { grid-template-columns: 1fr; grid-auto-rows: auto; margin-bottom: 75px; }
   .event-gallery__item { aspect-ratio: 1.35 / 1; }
   .home-contact-cta { margin-top: 55px; padding: 28px 22px; }

@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 export function LaunchScreen() {
   const [phase, setPhase] = useState<"visible" | "leaving" | "hidden">("visible");
 
@@ -34,7 +32,7 @@ export function LaunchScreen() {
   return (
     <div className={`launch-screen ${phase === "leaving" ? "is-leaving" : ""}`} aria-label="Presentación de IBHOLA">
       <div className="launch-screen__mark">
-        <Image src={`${basePath}/images/ibhola-logo-transparent.webp`} alt="IBHOLA Trail Running" width={1283} height={624} priority />
+        <Image src="/images/ibhola-logo-transparent.webp" alt="IBHOLA Trail Running" width={1283} height={624} priority />
         <div className="launch-screen__rule"><span /></div>
         <p><span>Trail</span><i />Corrales · Huelva<i /><span>Running</span></p>
       </div>

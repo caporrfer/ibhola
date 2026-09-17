@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const imagePath = (path: string) => `${basePath}${path}`;
-const link = (path: string) => `${basePath}${path}`;
+const imagePath = (path: string) => path;
+const link = (path: string) => path;
 
 const sports = ["Running", "Trail", "Ciclismo", "Fútbol", "Tenis", "Pádel", "Rugby", "Baloncesto", "Balonmano", "Fútbol sala"];
 const garments = ["Manga corta", "Tirantes", "Manga larga", "Cortavientos", "Chaquetas", "Sudaderas", "Calzonas", "Mallas", "Monos de ciclismo"];

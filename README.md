@@ -27,9 +27,7 @@ Next.js añade las cabeceras de seguridad de las respuestas cuando se ejecuta co
 servidor standalone. Si el proxy inverso (por ejemplo, Caddy) también las configura,
 mantén una única capa como autoridad para evitar valores duplicados o contradictorios.
 
-La versión estática se genera automáticamente con GitHub Actions. El workflow crea `out/index.html` y actualiza la rama `gh-pages`.
-
-Para activar la URL pública por primera vez, abre **Settings → Pages**, selecciona **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Después quedará disponible en `https://caporrfer.github.io/ibhola/` y las siguientes publicaciones serán automáticas.
+El despliegue se gestiona desde Vercel. El proyecto se compila directamente como aplicación Next.js.
 
 ## Configuración del negocio
 

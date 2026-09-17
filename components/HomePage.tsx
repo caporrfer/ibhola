@@ -9,9 +9,8 @@ import { SiteFooter } from "./SiteFooter";
 import { FacebookLogo, InstagramLogo } from "./SocialIcons";
 import { Topography } from "./Topography";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const imagePath = (path: string) => `${basePath}${path}`;
-const link = (path: string) => `${basePath}${path}`;
+const imagePath = (path: string) => path;
+const link = (path: string) => path;
 const reviews = [
   { quote: "La calidad comienza nada más entrar. Si quieres el mejor asesoramiento y un lugar de confianza, este es tu sitio.", author: "F. Ripoll" },
   { quote: "Miguel en todo momento te asesora y recomienda cuál es tu zapatilla. Ideal para personas como yo, que estamos comenzando en esto del running.", author: "Jose Manuel González Romero" },
