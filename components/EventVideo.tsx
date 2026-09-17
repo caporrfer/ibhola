@@ -16,7 +16,6 @@ export function EventVideo({ src, poster, title }: EventVideoProps) {
       <source src={src} type="video/mp4" />
       Tu navegador no puede reproducir este vídeo.
     </video>
-    <a href={src} target="_blank" rel="noreferrer">Abrir vídeo</a>
-    {failed && <p className="event-video__error" role="status">No se ha podido reproducir aquí. Ábrelo en una pestaña nueva.</p>}
+    {failed && <p className="event-video__error" role="status">No se ha podido reproducir este vídeo en el navegador.</p>}
   </div>;
 }

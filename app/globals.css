@@ -660,8 +660,8 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .event-latest__meta svg { color: var(--pistachio-action); }
 .event-latest h4 { margin: 0 0 14px; color: var(--pistachio-action); font-family: var(--serif); font-size: clamp(1.55rem, 2.5vw, 2.35rem); font-style: italic; font-weight: 400; }
 .event-latest__copy { max-width: 760px; margin: 0; color: rgba(255,255,255,.7); font-size: .92rem; line-height: 1.82; }
-.event-latest__source, .event-video > a { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; }
-.event-latest__source:hover, .event-video > a:hover { color: var(--pistachio-action-hover); }
+.event-latest__source { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; color: var(--pistachio-action); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-decoration: underline; text-underline-offset: 4px; text-transform: uppercase; }
+.event-latest__source:hover { color: var(--pistachio-action-hover); }
 .event-latest__media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .event-latest__photo, .event-video { min-width: 0; margin: 0; }
 .event-latest__photo { height: clamp(430px, 45vw, 680px); display: flex; justify-content: center; overflow: hidden; background: #050605; }

@@ -77,9 +77,7 @@ export default function Page() {
   return <InteriorPage title="Nuestros eventos" intro="" showHero={false}>
     <section className="content-section events-page">
       <div className="container">
-        <div className="subheading subheading--community"><h1>Únete a la comunidad</h1></div>
-        <EventPhotoCarousel photos={weeklyPhotos} />
-        <div className="subheading subheading--past"><h2>Eventos anteriores</h2></div>
+        <div className="subheading"><h1>Eventos anteriores</h1></div>
         <article className="event-latest" aria-labelledby="xi-trail-title">
           <div className="event-latest__header">
             <p className="eyebrow">Último evento</p>
@@ -96,6 +94,8 @@ export default function Page() {
             <EventVideo src="/videos/xi-trail-marismas-2026.mp4" poster="/images/eventos/xi-trail-marismas-2026-video-poster.webp" title="Vídeo resumen del XI Trail Marismas de Corrales" />
           </div>
         </article>
+        <div className="subheading subheading--past subheading--community"><h2>Únete a la comunidad</h2></div>
+        <EventPhotoCarousel photos={weeklyPhotos} />
         <Cards items={past} />
         <p className="event-photo-credits">Texto, fotografía y vídeo del XI Trail Marismas de Corrales aportados por IBHOLA. Fechas e imágenes de los eventos anteriores contrastadas con publicaciones del <a href="https://www.ayto-aljaraque.es/" target="_blank" rel="noreferrer">Ayuntamiento de Aljaraque</a>. La crónica del IX Trail procede de HuelvaYa.</p>
       </div>
