@@ -991,7 +991,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .cs-hero__nav a:hover span { color: rgba(8,9,8,.55); }
 .cs-mobile-filter { display: none; }
 .cs-chapters { position: relative; background: #080908; }
-.cs-chapter { min-height: calc(100svh - 70px); position: sticky; top: 70px; overflow: hidden; border-top: 1px solid rgba(255,255,255,.28); background: #111; }
+.cs-chapter { min-height: calc(100svh - 70px); position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,.28); background: #111; }
 .cs-chapter--1 { z-index: 1; }
 .cs-chapter--2 { z-index: 2; }
 .cs-chapter--3 { z-index: 3; }
@@ -1094,9 +1094,6 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 }
 
 @media (max-width: 800px) {
-  html:has(.catalog-showroom) { scroll-behavior: auto; }
-  body:has(.catalog-showroom) > main { animation: none; transition: none; }
-  .catalog-showroom *, .catalog-showroom *::before, .catalog-showroom *::after { animation: none !important; transition: none !important; }
   .cs-hero::after { background: linear-gradient(90deg, rgba(8,9,8,.88), rgba(8,9,8,.28)), linear-gradient(0deg, rgba(8,9,8,.9), transparent 58%); }
   .cs-hero h1 { font-size: clamp(5rem, 18vw, 8rem); }
   .cs-hero__bottom { grid-template-columns: 1fr; gap: 24px; }
