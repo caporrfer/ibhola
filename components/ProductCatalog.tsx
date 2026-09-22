@@ -36,7 +36,7 @@ export function ProductCatalog() {
   const selectCategory = (id: string) => {
     if (!id) return;
     window.history.replaceState(null, "", `#${id}`);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia("(max-width: 800px)").matches ? "auto" : "smooth", block: "start" });
   };
 
   return <div className="catalog-showroom">

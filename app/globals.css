@@ -1094,6 +1094,9 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 }
 
 @media (max-width: 800px) {
+  html:has(.catalog-showroom) { scroll-behavior: auto; }
+  body:has(.catalog-showroom) > main { animation: none; transition: none; }
+  .catalog-showroom *, .catalog-showroom *::before, .catalog-showroom *::after { animation: none !important; transition: none !important; }
   .cs-hero::after { background: linear-gradient(90deg, rgba(8,9,8,.88), rgba(8,9,8,.28)), linear-gradient(0deg, rgba(8,9,8,.9), transparent 58%); }
   .cs-hero h1 { font-size: clamp(5rem, 18vw, 8rem); }
   .cs-hero__bottom { grid-template-columns: 1fr; gap: 24px; }
