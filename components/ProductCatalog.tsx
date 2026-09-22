@@ -8,7 +8,7 @@ const imagePath = (path: string) => path;
 const link = (path: string) => path;
 
 const categories = [
-  { id: "calzado", name: "Calzado", detail: "Ajuste, amortiguación, estabilidad, respuesta y agarre. Te ayudamos a comparar sensaciones y terreno para elegir con criterio.", image: "/images/catalogo/calzado-hoka-trail.jpg", brands: ["Joma", "La Sportiva", "HOKA", "OOFOS", "Brooks", "ASICS", "Atom", "RaidLight"] },
+  { id: "calzado", name: "Calzado", detail: "Ajuste, amortiguación, estabilidad, respuesta y agarre. Te ayudamos a comparar sensaciones y terreno para elegir con criterio.", image: "/images/catalogo/calzado-hoka-trail.jpg", brands: ["Joma", "La Sportiva", "HOKA", "ALTRA", "OOFOS", "Brooks", "ASICS", "Atom", "RaidLight"] },
   { id: "textil", name: "Textil técnico", detail: "Calzonas, mallas, camisetas, pantalones, chaquetas y sudaderas para entrenar, competir o simplemente disfrutar.", image: "/images/catalogo/textil-personalizado.jpg", brands: ["Lurbel", "Hanker Sport", "Pimiento Negro", "Nedao", "RaidLight", "Joma", "BUFF", "Sphere Pro", "226ERS", "La Sportiva", "Brooks"] },
   { id: "suplementacion", name: "Suplementación", detail: "Nutrición, hidratación y recuperación para preparar cada salida, mantener la energía y cuidar el cuerpo al terminar.", image: "/images/tienda/interior-16.jpeg", brands: ["226ERS", "Quinton Sport", "Scientific Nutrition", "Ana María Lajusticia", "AML Sport"] },
   { id: "complementos", name: "Complementos", detail: "Gorras, viseras, calcetines, cordones, manguitos, cintas, cinturones, mochilas y ropa interior técnica.", image: "/images/tienda/interior-01.jpeg", brands: ["BUFF", "Hanker Sport", "Lurbel", "Pimiento Negro", "RaidLight", "Joma", "226ERS", "Ultimate Performance", "SAXX", "Stenex", "Sphere Pro"] },
@@ -17,13 +17,13 @@ const categories = [
 ] as const;
 
 const brandLogos: Record<string, string> = {
-  "226ERS": "/images/marcas/226ers.png", "AML Sport": "/images/marcas/aml-sport.png", "ASICS": "/images/marcas/asics.png", "Ana María Lajusticia": "/images/marcas/ana-maria-lajusticia.png", "Atom": "/images/marcas/atom.png", "BUFF": "/images/marcas/buff.png", "Brooks": "/images/marcas/brooks.png", "COROS": "/images/marcas/coros.png", "Ferrino": "/images/marcas/ferrino.png", "HOKA": "/images/marcas/hoka.png", "Hanker Sport": "/images/marcas/hanker-sport.png", "Joma": "/images/marcas/joma.png", "La Sportiva": "/images/marcas/la-sportiva.png", "Ledlenser": "/images/marcas/ledlenser.png", "Lurbel": "/images/marcas/lurbel.png", "Nedao": "/images/marcas/nedao.png", "OOFOS": "/images/marcas/oofos.png", "OXD Sport": "/images/marcas/oxd-sport.png", "Quinton Sport": "/images/marcas/quinton-sport.png", "RaidLight": "/images/marcas/raidlight.png", "SAXX": "/images/marcas/saxx.png", "Scientific Nutrition": "/images/marcas/scientiffic-nutrition.png", "Sphere Pro": "/images/marcas/sphere-pro.jpg", "Styrpe": "/images/marcas/styrpe.png", "Ultimate Performance": "/images/marcas/ultimate-performance.jpg",
+  "226ERS": "/images/marcas/226ers.png", "ALTRA": "/images/marcas/altra.svg", "AML Sport": "/images/marcas/aml-sport.png", "ASICS": "/images/marcas/asics.png", "Ana María Lajusticia": "/images/marcas/ana-maria-lajusticia.png", "Atom": "/images/marcas/atom.png", "BUFF": "/images/marcas/buff.png", "Brooks": "/images/marcas/brooks.png", "COROS": "/images/marcas/coros.png", "Ferrino": "/images/marcas/ferrino.png", "HOKA": "/images/marcas/hoka.jpg", "Hanker Sport": "/images/marcas/hanker-sport.png", "Joma": "/images/marcas/joma.png", "La Sportiva": "/images/marcas/la-sportiva.png", "Ledlenser": "/images/marcas/ledlenser.png", "Lurbel": "/images/marcas/lurbel.png", "Nedao": "/images/marcas/nedao.png", "OOFOS": "/images/marcas/oofos.png", "OXD Sport": "/images/marcas/oxd-sport.png", "Pimiento Negro": "/images/marcas/pimiento-negro.jpg", "Quinton Sport": "/images/marcas/quinton-sport.png", "RaidLight": "/images/marcas/raidlight.png", "SAXX": "/images/marcas/saxx.png", "Scientific Nutrition": "/images/marcas/scientiffic-nutrition.png", "Sphere Pro": "/images/marcas/sphere-pro.jpg", "Styrpe": "/images/marcas/styrpe.png", "Ultimate Performance": "/images/marcas/ultimate-performance.jpg",
 };
 
 function BrandLogo({ brand }: { brand: string }) {
   const logo = brandLogos[brand];
   const initials = brand.split(/\s+/).map((word) => word[0]).join("").slice(0, 2).toUpperCase();
-  return <span className="cs-brand"><span>{logo ? <Image src={imagePath(logo)} alt="" width={66} height={44} unoptimized /> : <i>{initials}</i>}</span><b>{brand}</b></span>;
+  return <span className="cs-brand"><span>{logo ? <Image src={imagePath(logo)} alt="" width={160} height={86} unoptimized /> : <i>{initials}</i>}</span><b>{brand}</b></span>;
 }
 
 export function ProductCatalog() {

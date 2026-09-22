@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div><Brand footer /><p>Material y asesoramiento profesional para trail &amp; running.<br />Corrales, Huelva.</p></div>
         <div><h2>Explora</h2><a href="/que-hacemos/">Qué hacemos</a><a href="/catalogo/">Catálogo</a><a href="/diseno-personalizado/">Diseño personalizado</a><a href="/eventos/">Eventos</a></div>
         <div><h2>Encuéntranos</h2><p>{fullAddress}</p><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a><a href={`mailto:${business.email}`}>{business.email}</a></div>
-        <div><h2>Comunidad</h2><a href={business.social.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook ↗</a></div>
+        <div><h2>Comunidad</h2><a href={business.social.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook ↗</a><a href={business.googleReviewsUrl} target="_blank" rel="noreferrer">Valóranos en Google ↗</a></div>
       </div>
       <div className="container footer__bottom"><p>© {new Date().getFullYear()} IBHOLA TRAIL RUNNING</p><div><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a></div><span>Corrales · Huelva</span></div>
     </footer>

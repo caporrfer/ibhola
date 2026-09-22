@@ -14,7 +14,7 @@ const brands = [
 ] as const;
 
 function BrandLogo({ brand, logo }: { brand: string; logo: string }) {
-  return <span className="cs-brand"><span><Image src={imagePath(logo)} alt="" width={66} height={44} unoptimized /></span><b>{brand}</b></span>;
+  return <span className="cs-brand"><span><Image src={imagePath(logo)} alt="" width={160} height={86} unoptimized /></span><b>{brand}</b></span>;
 }
 
 export function CustomDesign() {
