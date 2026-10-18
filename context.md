@@ -19,7 +19,7 @@ Este documento sirve como mapa del proyecto para futuras modificaciones. La rama
 - `app/eventos/page.tsx`: eventos próximos y anteriores.
 - `app/preguntas-frecuentes/page.tsx`: FAQ y formulario de contacto.
 - `app/que-hacemos/page.tsx`: explicación de servicios.
-- `app/[legal]/page.tsx`: rutas dinámicas estáticas para aviso legal, privacidad y cookies.
+- `app/[legal]/page.tsx`: rutas dinámicas estáticas para aviso legal, privacidad y cookies. Los datos del titular salen de `business.legal`.
 - `app/robots.ts` y `app/sitemap.ts`: SEO técnico generado por Next.js.
 - `app/icon.svg`: favicon.
 
@@ -51,7 +51,8 @@ La sección social no aparece en la navegación principal. El embed de Instagram
 - `SiteEnhancements.tsx`: transición entre rutas internas y botón flotante para volver arriba.
 - `InteriorPage.tsx`: estructura común de páginas interiores.
 - `ProductCatalog.tsx`: datos, filtros y tarjetas del catálogo.
-- `ContactForm.tsx`: formulario validado por campo. Prepara un `mailto:`; no existe backend ni almacenamiento de mensajes.
+- `ContactForm.tsx`: formulario validado por campo. Prepara un `mailto:`; no existe backend ni almacenamiento de mensajes. Incluye la información básica de protección de datos.
+- `ConsentEmbed.tsx`: bloquea los iframes de Google Maps e Instagram hasta que el visitante los acepta y guarda la elección en `localStorage` (`ibhola-embeds`). `EmbedConsentControls` permite retirarla desde la política de cookies. Cualquier nuevo contenido de terceros (vídeos de YouTube, widgets, analítica) debe pasar por este consentimiento y reflejarse en la política de cookies.
 - `Topography.tsx`: líneas topográficas SVG decorativas.
 - `SocialIcons.tsx`: logotipos SVG de Instagram y Facebook.
 

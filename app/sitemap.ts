@@ -8,6 +8,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: business.siteUrl, lastModified: now, changeFrequency: "monthly", priority: 1 },
     ...["que-hacemos", "catalogo", "diseno-personalizado", "eventos", "preguntas-frecuentes"].map((path) => ({ url: `${business.siteUrl}/${path}`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 })),
-    ...["aviso-legal", "privacidad", "cookies"].map((path) => ({ url: `${business.siteUrl}/${path}`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.2 })),
   ];
 }

@@ -31,14 +31,15 @@ El despliegue se gestiona desde Vercel. El proyecto se compila directamente como
 
 ## Configuración del negocio
 
-Los datos editables están centralizados en `config/business.ts`: dirección, teléfono, horarios, redes, enlaces de Google Maps, reseñas y URL base.
+Los datos editables están centralizados en `config/business.ts`: dirección, teléfono, horarios, redes, enlaces de Google Maps, reseñas, URL base y datos fiscales del titular (`legal`), que alimentan el aviso legal, la política de privacidad y la de cookies.
 
 Antes de publicar en un dominio real:
 
 1. Definir `NEXT_PUBLIC_SITE_URL` con el dominio HTTPS definitivo (aunque exista el
    valor predeterminado de producción, la variable deja explícita la configuración del
    contenedor).
-2. Completar los datos fiscales en las páginas legales.
+2. Revisar los textos legales de `app/[legal]/page.tsx` y actualizar `legal.lastReview` si
+   se añaden analítica, newsletter, venta online o nuevos proveedores.
 3. Conectar `components/ContactForm.tsx` con el proveedor de correo o backend elegido
    si se desea sustituir el comportamiento actual basado en `mailto:`.
 4. Revisar los horarios especiales o festivos.

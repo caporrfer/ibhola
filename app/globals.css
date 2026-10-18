@@ -289,7 +289,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .instagram-feed__heading small { color: #77786f; font-size: .53rem; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
 .instagram-feed__heading strong { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; }
 .instagram-feed__heading a { display: flex; align-items: center; gap: 5px; margin-left: auto; color: #77786f; font-size: .56rem; font-weight: 760; text-transform: uppercase; }
-.instagram-feed__viewport { height: 535px; overflow: hidden; background: white; }
+.instagram-feed__viewport { height: 535px; position: relative; overflow: hidden; background: white; }
 .instagram-feed iframe { width: 100%; height: 690px; display: block; border: 0; }
 .instagram-feed__footer { min-height: 53px; display: flex; align-items: center; justify-content: center; gap: 8px; border-top: 1px solid var(--line-light); color: #b12070; font-size: .6rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .instagram-feed__footer svg:last-child { margin-left: 3px; }
@@ -414,6 +414,25 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .legal-page hr { margin: 46px 0; border: 0; border-top: 1px solid var(--line-dark); }
 .legal-page h2 { color: var(--terracotta-light); font-family: var(--sans); font-size: .76rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .legal-page small { color: rgba(255,255,255,.42); }
+.legal-page__intro p { color: rgba(255,255,255,.82); font-size: 1.08rem; line-height: 1.8; }
+.legal-page section { margin-top: 48px; }
+.legal-page section h2 { margin-bottom: 16px; }
+.legal-page section p, .legal-page section li { color: rgba(255,255,255,.7); font-size: .98rem; line-height: 1.8; }
+.legal-page section p { margin: 0 0 14px; }
+.legal-page section ul { margin: 0 0 14px; padding-left: 20px; }
+.legal-page section li { margin-bottom: 6px; }
+.legal-page section b { color: white; font-weight: 700; }
+.legal-page section a { color: white; border-bottom: 1px solid var(--terracotta-light); overflow-wrap: anywhere; }
+.consent-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-bottom: 18px; padding: 18px 20px; border: 1px solid var(--line-dark); }
+.consent-controls p { margin: 0 !important; }
+
+/* Third-party embeds blocked until consent */
+.consent-embed { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 32px; background: #ecebe4; color: var(--forest-deep); text-align: center; }
+.consent-embed strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
+.consent-embed p { max-width: 380px; margin: 0; color: #55584f; font-size: .82rem; line-height: 1.6; }
+.consent-embed a { border-bottom: 1px solid currentColor; color: var(--forest-deep); }
+.form-legal { margin: 0; color: #898178; font-size: .58rem; line-height: 1.55; }
+.form-legal a { border-bottom: 1px solid currentColor; }
 
 @media (max-width: 1100px) {
   .container-wide { width: min(100% - 40px, 1100px); }
@@ -773,7 +792,7 @@ h1 em, h2 em, h3 em { color: inherit; font-style: normal; font-weight: inherit; 
 .home-contact-cta { background: #080908; color: white; }
 .home-contact-cta p:last-child { color: rgba(255,255,255,.7); }
 .faq-contact .contact-form-section { padding: clamp(28px, 4vw, 48px); background: rgba(8,11,7,.3); }
-.faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help { color: rgba(255,255,255,.78); }
+.faq-contact .contact-form label:not(.check), .faq-contact .contact-form .check, .faq-contact .form-help, .faq-contact .form-legal { color: rgba(255,255,255,.78); }
 .content-section + .content-section { border-top: 0; }
 .subheading--past { border-color: rgba(255,255,255,.2); }
 

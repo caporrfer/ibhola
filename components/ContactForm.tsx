@@ -9,7 +9,7 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function errorFor(field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
-    if (field.validity.valueMissing) return field.type === "checkbox" ? "Debes aceptar la política de privacidad." : "Este campo es obligatorio.";
+    if (field.validity.valueMissing) return field.type === "checkbox" ? "Debes confirmar que has leído la política de privacidad." : "Este campo es obligatorio.";
     if (field.validity.typeMismatch) return "Introduce una dirección de correo válida.";
     if (field.validity.patternMismatch) return "Introduce un teléfono válido de al menos 9 cifras.";
     return "";
@@ -65,9 +65,10 @@ export function ContactForm() {
         </select>{errors.topic && <span className="field-error" id="topic-error">{errors.topic}</span>}
       </label>
       <label>Mensaje <textarea name="message" rows={4} required placeholder="Cuéntanos qué buscas, por dónde corres o qué dudas tienes" aria-invalid={Boolean(errors.message)} aria-describedby="message-error" />{errors.message && <span className="field-error" id="message-error">{errors.message}</span>}</label>
-      <label className="check"><input name="privacy" type="checkbox" required aria-invalid={Boolean(errors.privacy)} aria-describedby="privacy-error" /><span>Acepto la <a href="/privacidad/">política de privacidad</a>.{errors.privacy && <span className="field-error" id="privacy-error">{errors.privacy}</span>}</span></label>
+      <label className="check"><input name="privacy" type="checkbox" required aria-invalid={Boolean(errors.privacy)} aria-describedby="privacy-error" /><span>He leído la <a href="/privacidad/">política de privacidad</a>.{errors.privacy && <span className="field-error" id="privacy-error">{errors.privacy}</span>}</span></label>
       <button className="button" type="submit">Preparar correo <ArrowUpRight size={18} /></button>
       <p className="form-help">La consulta no se almacena en esta web: se enviará desde tu aplicación de correo.</p>
+      <p className="form-legal"><b>Protección de datos.</b> Responsable: {business.legal.holder} ({business.name}). Finalidad: responder a tu consulta. Legitimación: tu solicitud. Destinatarios: no se ceden datos a terceros; el correo se gestiona con Google. Derechos: acceso, rectificación, supresión y otros en {business.email}. Más información en la <a href="/privacidad/">política de privacidad</a>.</p>
       {notice && <div className="form-notice" role="status"><MailCheck size={18} />{notice}</div>}
     </form>
   );

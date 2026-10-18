@@ -5,11 +5,17 @@ const defaultSiteUrl =
 
 export const business = {
   name: "IBHOLA Trail Running",
-  legalName: "IBHOLA TRAIL RUNNING",
   shortName: "IBHOLA",
   description:
     "Tienda especializada en trail running y running en Corrales, Huelva. Material técnico y asesoramiento personalizado.",
-  contactName: "Miguel Angel Pereira Marcelino",
+  legal: {
+    holder: "Miguel Ángel Pereira Marcelino",
+    taxId: "29482488F",
+    status: "empresario individual (autónomo)",
+    address: "Avda. Alcalde José Rodríguez González, Local 14, 21120 Corrales (Aljaraque), Huelva",
+    activity: "Comercio minorista de material y equipación deportiva",
+    lastReview: "octubre de 2026",
+  },
   email: "ibholahuelva@gmail.com",
   phoneDisplay: "678 28 12 38",
   phone: "+34678281238",
