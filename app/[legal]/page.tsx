@@ -79,7 +79,7 @@ export default async function LegalPage({ params }: { params: Promise<{ legal: s
   if (!doc) notFound();
   return (
     <main className="legal-page">
-      <div className="legal-page__top"><Brand /><Link href="/">Volver a la web ↗</Link></div>
+      <div className="legal-page__top"><Brand /><Link href="/">Volver a la web <svg className="ico-ext" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true" focusable="false" style={{verticalAlign: "-.12em"}}><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" strokeWidth="1.6"/></svg></Link></div>
       <article>
         <h1>{doc.title}</h1>
         <div className="legal-page__intro">{doc.intro}</div>

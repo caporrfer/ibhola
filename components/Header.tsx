@@ -39,7 +39,7 @@ export function Header() {
       <nav className="desktop-nav" aria-label="Navegación principal">
         {nav.map(([label, href]) => label === "Catálogo" ? <div className="nav-dropdown" key={label}><a href={href}>{label} <ChevronDown size={13} /></a><div className="nav-dropdown__menu">{categories.map(([category, id]) => <a key={id} href={`/catalogo/#${id}`}>{category}</a>)}</div></div> : <a key={label} href={href}>{label}</a>)}
       </nav>
-      <a className="button button--small header__cta" href="/preguntas-frecuentes/#contacto">Contacto <span aria-hidden>↗</span></a>
+      <a className="button button--small header__cta" href="/preguntas-frecuentes/#contacto">Contacto <span aria-hidden><svg className="ico-ext" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true" focusable="false" style={{verticalAlign: "-.12em"}}><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" strokeWidth="1.6"/></svg></span></a>
       <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X /> : <Menu />}</button>
     </div>
     <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
