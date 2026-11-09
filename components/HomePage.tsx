@@ -5,6 +5,7 @@ import { ConsentEmbed } from "./ConsentEmbed";
 import { Header } from "./Header";
 import { GoogleReviewsLink } from "./GoogleReviewsLink";
 import { LaunchScreen } from "./LaunchScreen";
+import { DropPopup } from "./DropPopup";
 import { RevealObserver } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
 import { FacebookLogo, InstagramLogo } from "./SocialIcons";
@@ -20,7 +21,7 @@ const reviews = [
 
 export function HomePage() {
   return <>
-    <LaunchScreen /><RevealObserver /><Header />
+    <LaunchScreen /><DropPopup /><RevealObserver /><Header />
     <main>
       <section className="hero" id="inicio"><Topography className="hero__topography" />
         <div className="hero__layout container-wide">
