@@ -41,7 +41,7 @@ export function DropPopup() {
 
   return <dialog ref={dialogRef} className={styles.dialog} aria-labelledby="odiel-drop-title" aria-describedby="odiel-drop-description" onCancel={() => setOpen(false)} onKeyDown={(event) => {
     if (event.key !== "Tab") return;
-    const controls = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>("button"));
+    const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]"));
     const first = controls[0];
     const last = controls[controls.length - 1];
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
@@ -59,12 +59,13 @@ export function DropPopup() {
         <div className={styles.switcher} aria-label="Vistas de la camiseta">{views.map((item, index) => <button key={item.label} type="button" aria-pressed={view === index} onClick={() => setView(index)}>{item.label}</button>)}</div>
       </div>
       <div className={styles.copy}>
-        <p className={styles.eyebrow}><span /> Nuevo drop</p>
-        <p className={styles.edition}>II Desafío del Odiel · Sumhtec</p>
+        <p className={styles.eyebrow}><span /> La camiseta de la carrera</p>
+        <p className={styles.edition}>II Desafío del Odiel SUMHTEC</p>
         <h2 id="odiel-drop-title">Una historia{" "}<br />que se viste.</h2>
-        <p id="odiel-drop-description" className={styles.description}>La nueva camiseta del Desafío del Odiel ya tiene nombre propio: nuestra tierra.</p>
-        <p className={styles.story}>El rojo de su legado minero, la huella del ferrocarril y el meandro del Odiel. Huelva, en cada detalle.</p>
-        <div className={styles.footer}><span>13 de diciembre · Huelva</span><button type="button" className={styles.continue} onClick={() => setOpen(false)}>Seguir explorando <ArrowRight size={17} aria-hidden="true" /></button></div>
+        <p id="odiel-drop-description" className={styles.description}>Os presentamos la camiseta que lucirán los participantes del II Desafío del Odiel SUMHTEC el próximo domingo 13 de diciembre.</p>
+        <p className={styles.story}>Su color rojizo evoca la riqueza minera de Huelva y su diseño recuerda el legado del ferrocarril. En el frontal, el meandro del Odiel dibuja un árbol: nuestra tierra y sus raíces.</p>
+        <p className={styles.tagline}>Una historia que se viste. Un desafío que se vive.</p>
+        <div className={styles.footer}><span>¡Nos vemos el 13 de diciembre!</span><a className={styles.continue} href="https://www.facebook.com/61574004722441/posts/122203583444800157/#1d1d1d" target="_blank" rel="noopener noreferrer">Ver publicación en Facebook <ArrowRight size={17} aria-hidden="true" /></a><button type="button" className={styles.dismiss} onClick={() => setOpen(false)}>Seguir explorando</button></div>
       </div>
     </div>}
   </dialog>;

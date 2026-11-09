@@ -16,6 +16,28 @@ test('home announces the new shirt after a delay, not on arrival', async () => {
   } finally { await browser.close(); }
 });
 
+test('announcement presents the race shirt and links to the supplied Facebook post', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.goto(url);
+    const popup = page.getByRole('dialog', { name: 'Una historia que se viste.' });
+    await popup.waitFor({ state: 'visible', timeout: 8000 });
+    assert.match(await popup.innerText(), /participantes.*domingo 13 de diciembre/);
+    assert.doesNotMatch(await popup.innerText(), /Nuevo drop/i);
+    assert.match(await popup.innerText(), /Un desafío que se vive/);
+    const post = popup.getByRole('link', { name: 'Ver publicación en Facebook' });
+    assert.equal(await post.getAttribute('href'), 'https://www.facebook.com/61574004722441/posts/122203583444800157/#1d1d1d');
+    assert.equal(await post.getAttribute('target'), '_blank');
+    assert.match(await post.getAttribute('rel'), /noopener/);
+    await post.focus();
+    await page.keyboard.press('Tab');
+    assert.equal(await popup.evaluate(node => node.contains(document.activeElement)), true);
+    await page.keyboard.press('Tab');
+    assert.equal(await page.getByRole('button', { name: 'Cerrar novedad' }).evaluate(node => node === document.activeElement), true);
+  } finally { await browser.close(); }
+});
+
 for (const width of [1440, 390, 320]) {
   test(`popup works at ${width}px: images, focus, dismissal and session`, async () => {
     const browser = await chromium.launch({ headless: true });
